@@ -1,0 +1,5 @@
+# Class weights for imbalanced training
+# Format: label,class_name,weight
+0,syntax_error,1.336174
+1,logic_error,0.623233
+2,variable_misuse,0.607143

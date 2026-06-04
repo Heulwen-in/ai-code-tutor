@@ -1,0 +1,35 @@
+Model: CodeBERT
+==================================================
+
+Best hyperparameters:
+  learning_rate : 3e-05
+  batch_size    : 8
+  best_epoch    : 5
+
+Training history (per epoch):
+ Epoch   TrainLoss   TrainAcc   ValLoss   ValAcc    ValF1
+     1      0.3354     0.8585    0.1579   0.9674   0.9708
+     2      0.1072     0.9764    0.1144   0.9745   0.9775
+     3      0.0575     0.9866    0.1177   0.9759   0.9780
+     4      0.0343     0.9928    0.1371   0.9769   0.9783
+     5      0.0228     0.9946    0.1062   0.9821   0.9839
+
+Test results:
+  Accuracy   : 0.9849
+  Macro F1   : 0.9855
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.99      0.98      0.99       396
+    logic_error       0.97      0.99      0.98       849
+variable_misuse       0.99      0.98      0.99       872
+
+       accuracy                           0.98      2117
+      macro avg       0.99      0.98      0.99      2117
+   weighted avg       0.99      0.98      0.98      2117
+
+Confusion Matrix:
+  [np.int64(389), np.int64(7), np.int64(0)]
+  [np.int64(2), np.int64(840), np.int64(7)]
+  [np.int64(0), np.int64(16), np.int64(856)]

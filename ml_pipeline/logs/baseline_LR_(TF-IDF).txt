@@ -1,0 +1,28 @@
+Model: LR (TF-IDF)
+==================================================
+
+Best hyperparameters:
+  C: 10.0
+
+Train time    : 0.65s
+Train accuracy: 0.9723
+Val accuracy  : 0.8866
+Test accuracy : 0.8942
+Macro F1      : 0.9023
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.94      0.93      0.94       396
+    logic_error       0.88      0.88      0.88       849
+variable_misuse       0.89      0.89      0.89       872
+
+       accuracy                           0.89      2117
+      macro avg       0.90      0.90      0.90      2117
+   weighted avg       0.89      0.89      0.89      2117
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(370), np.int64(15), np.int64(11)]
+  [np.int64(12), np.int64(748), np.int64(89)]
+  [np.int64(10), np.int64(87), np.int64(775)]

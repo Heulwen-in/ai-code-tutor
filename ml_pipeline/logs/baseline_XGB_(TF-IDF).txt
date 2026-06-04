@@ -1,0 +1,29 @@
+Model: XGB (TF-IDF)
+==================================================
+
+Best hyperparameters:
+  learning_rate: 0.1
+  n_estimators: 200
+
+Train time    : 41.02s
+Train accuracy: 0.9560
+Val accuracy  : 0.8923
+Test accuracy : 0.8880
+Macro F1      : 0.8996
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.96      0.94      0.95       396
+    logic_error       0.86      0.88      0.87       849
+variable_misuse       0.88      0.88      0.88       872
+
+       accuracy                           0.89      2117
+      macro avg       0.90      0.90      0.90      2117
+   weighted avg       0.89      0.89      0.89      2117
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(373), np.int64(16), np.int64(7)]
+  [np.int64(8), np.int64(744), np.int64(97)]
+  [np.int64(7), np.int64(102), np.int64(763)]

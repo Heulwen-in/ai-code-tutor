@@ -1,0 +1,500 @@
+repo,source,issue_id,title,raw_labels,error_class,pred_error_class,confidence,code_source,code_chars,code_lines,label_source
+black,pybughive_current,2254,fmt:skip fails with internal error,"T: bug, C: crash, F: fmtskip",logic_error,variable_misuse,0.9934,deleted_lines_buggy_preferred,41,1,github_label
+black,pybughive_current,1632,Docstrings reformatted to be too long,"T: bug, F: strings, F: linetoolong",logic_error,logic_error,0.9861,deleted_lines_buggy_preferred,102,2,heuristic
+black,pybughive_current,1596,Crash on concatenated string + comment,"T: bug, C: crash",logic_error,logic_error,0.9897,deleted_lines_buggy_preferred,323,5,github_label
+black,pybughive_current,593,Black can't parse new Python 3.7 async generator syntax,T: bug,syntax_error,syntax_error,0.9963,deleted_lines_buggy_preferred,970,17,heuristic
+black,pybughive_current,569,Invalid code after indented `# fmt: off`,"T: bug, C: invalid code, F: fmtoff",syntax_error,logic_error,0.9924,deleted_lines_buggy_preferred,1093,24,heuristic
+black,pybughive_current,389,Fails when importing __future__ as renaming it,T: bug,logic_error,logic_error,0.994,deleted_lines_buggy_preferred,543,10,heuristic
+black,pybughive_current,335,fmt: off is ignored after first function,T: bug,syntax_error,logic_error,0.9733,deleted_lines_buggy_preferred,6345,142,heuristic
+black,pybughive_current,329,fmt:on/off placed asymmetrically ends up with a cryptic exception,T: bug,syntax_error,logic_error,0.8366,deleted_lines_buggy_preferred,73,1,heuristic
+black,pybughive_current,273,Only put optional parentheses when contents can be split,T: bug,variable_misuse,logic_error,0.9968,deleted_lines_buggy_preferred,178,4,heuristic
+black,pybughive_current,232,Multiline strings cause unnecessary optional parentheses,T: bug,variable_misuse,logic_error,0.9997,deleted_lines_buggy_preferred,762,15,heuristic
+black,pybughive_current,141,Black does not follow line length rule with ternary expression,T: bug,logic_error,variable_misuse,1.0,added_lines_fallback,207,8,heuristic
+black,pybughive_current,133,Failure to reformat a lamba expression,"T: bug, C: invalid code",logic_error,logic_error,0.9879,deleted_lines_buggy_preferred,1052,22,heuristic
+black,pybughive_current,132,Trailing comma is removed in complex dict literal,T: bug,syntax_error,logic_error,0.9688,deleted_lines_buggy_preferred,738,21,heuristic
+black,pybughive_current,112,Cannot parse: 5:0:         # add_compiler(compiler),"T: bug, F: comments",variable_misuse,logic_error,0.9991,deleted_lines_buggy_preferred,162,3,heuristic
+black,pybughive_current,60,Space removed before () when used as default function argument,T: bug,syntax_error,syntax_error,0.9988,deleted_lines_buggy_preferred,356,10,heuristic
+black,pybughive_current,59,Internal error on a complex variable type annotation,"T: bug, C: invalid code",logic_error,logic_error,0.9976,deleted_lines_buggy_preferred,62,1,heuristic
+cookiecutter,pybughive_current,18,cookiecutter throws unicode exceptions on image files,bug,logic_error,logic_error,0.9873,deleted_lines_buggy_preferred,457,10,heuristic
+pandas,pybughive_current,16362,BUG: Transpose construction/block error with certain dtypes,"Bug, Regression",logic_error,logic_error,0.9895,deleted_lines_buggy_preferred,8,1,github_label
+pandas,pybughive_current,16114,Bug: dtype lost in `Series.to_frame` for empty series with integer name in 0.20.0rc1,"Bug, Dtype Conversions, Regression",logic_error,logic_error,0.9084,deleted_lines_buggy_preferred,33,1,github_label
+pandas,pybughive_current,15845,na_position doesn't work for sort_index() with MultiIndex,"Bug, MultiIndex",variable_misuse,variable_misuse,0.6411,deleted_lines_buggy_preferred,129,2,heuristic
+pandas,pybughive_current,15822,"get localized Timestamp using "".at"" cannot get the time zone info","Bug, Indexing, Regression, Timezones",logic_error,syntax_error,0.9679,deleted_lines_buggy_preferred,51,1,github_label
+pandas,pybughive_current,15676,BUG: merge_asof only merges by first column of 'by=' list,"Bug, Reshaping",variable_misuse,logic_error,0.9985,deleted_lines_buggy_preferred,410,7,heuristic
+pandas,pybughive_current,15604,pandas.Series.sort_values(ascending=[False]) behaves as ascending=True,"Bug, Reshaping, Error Reporting",variable_misuse,logic_error,0.9873,added_lines_fallback,347,8,heuristic
+pandas,pybughive_current,15488,Repr-ing SparseDataFrame after setting a value,"Bug, Indexing, Sparse",syntax_error,logic_error,0.9615,deleted_lines_buggy_preferred,81,2,github_label
+pandas,pybughive_current,15447,Wrong result of pandas.sparse.series.SparseSeries.loc with indexer of length 1,"Bug, Indexing, Sparse, MultiIndex",syntax_error,logic_error,0.9954,deleted_lines_buggy_preferred,628,16,github_label
+pandas,pybughive_current,15428,BUG: pd.cut with bins=1 and input all 0s,"Bug, Algos",logic_error,logic_error,0.994,deleted_lines_buggy_preferred,90,3,heuristic
+pandas,pybughive_current,15426,BUG: timezone lost in groupby-agg with cython functions,"Bug, Groupby, Timezones",variable_misuse,logic_error,0.9507,deleted_lines_buggy_preferred,50,1,heuristic
+pandas,pybughive_current,15424,Indexing MultiIndex with NDFrame indexer fails if index of indexer does not contain 0,"Bug, Indexing, MultiIndex",logic_error,logic_error,0.9807,deleted_lines_buggy_preferred,252,6,heuristic
+pandas,pybughive_current,15420,rank incorrectly orders ordered categories,"Bug, Categorical",variable_misuse,logic_error,0.9993,added_lines_fallback,619,19,heuristic
+pandas,pybughive_current,15277,DataFrame.fillna() downcast argument does not work when the value for fillna is a dict instead of a scalar,"Bug, Missing-data",variable_misuse,logic_error,0.8537,deleted_lines_buggy_preferred,40,1,heuristic
+pandas,pybughive_current,15262,BUG in MultiIndex truncated repr with integer level names,"Bug, Output-Formatting",logic_error,logic_error,0.9828,deleted_lines_buggy_preferred,1208,22,github_label
+pandas,pybughive_current,14776,BUG: group.apply with non-lexsorted levels and sort=True,"Bug, Groupby, MultiIndex",variable_misuse,logic_error,0.9596,deleted_lines_buggy_preferred,48,1,heuristic
+pandas,pybughive_current,14770,BUG: Error upon Series.Groupby.nunique with empty Series (#12553),"Bug, Groupby",logic_error,variable_misuse,0.8787,deleted_lines_buggy_preferred,38,1,heuristic
+pandas,pybughive_current,14721,Series.unique converts uint64 to int64 (with overflow),"Bug, Dtype Conversions",logic_error,logic_error,0.9818,deleted_lines_buggy_preferred,45,1,heuristic
+pandas,pybughive_current,14707,BUG: _nsorted incorrect with duplicated values in index (#13412),"Bug, Reshaping",variable_misuse,logic_error,0.9821,deleted_lines_buggy_preferred,758,14,heuristic
+pandas,pybughive_current,14682,AmbiguousTimeError on groupby when including a DST change,"Bug, Groupby, Timezones",logic_error,logic_error,0.9713,deleted_lines_buggy_preferred,234,5,heuristic
+pandas,pybughive_current,14652,BUG: pandas.cut and negative values,"Bug, Groupby, Reshaping",logic_error,logic_error,0.9736,deleted_lines_buggy_preferred,43,2,heuristic
+pandas,pybughive_current,14580,BUG: iloc misbehavior with pd.Series: sometimes returns pd.Categorical instead,"Bug, Indexing, Categorical",syntax_error,logic_error,0.9802,deleted_lines_buggy_preferred,600,14,heuristic
+pandas,pybughive_current,14522,Categorical.searchsorted() uses lexical order instead of the provided categorical order,"Bug, Indexing, Categorical",variable_misuse,logic_error,0.9754,deleted_lines_buggy_preferred,170,3,heuristic
+pandas,pybughive_current,14504,BUG: to_numeric downcast = 'unsigned' would not un-sign a 0 value.,"Bug, Dtype Conversions",logic_error,logic_error,0.9983,deleted_lines_buggy_preferred,51,1,heuristic
+pandas,pybughive_current,14472,BUG: downcast = 'unsigend' on 0 would would not downcast to unsigned.,"Bug, Dtype Conversions",logic_error,logic_error,0.9983,deleted_lines_buggy_preferred,51,1,heuristic
+pandas,pybughive_current,14390,BUG: Line delimited json is breaks if string includes `}`,"Bug, IO JSON",logic_error,logic_error,0.9995,deleted_lines_buggy_preferred,190,4,heuristic
+scrapy,pybughive_current,1265,Backward incompatibility for relocated paths in settings,bug,syntax_error,logic_error,0.9996,deleted_lines_buggy_preferred,116,4,heuristic
+spaCy,pybughive_current,3830,German model leaks internal symbol and can't seem to handle quotes as before,"bug, lang / de, feat / parser, perf / accuracy",syntax_error,logic_error,0.9804,deleted_lines_buggy_preferred,161,4,github_label
+spaCy,pybughive_current,2361,"displacy.render produces invalid svg by not escaping ""<""","bug, help wanted, help wanted (easy), feat / visualizers",variable_misuse,logic_error,0.9792,deleted_lines_buggy_preferred,96,2,heuristic
+salt,pybughive_current,64477,[BUG] file.symlink will not replace/update existing symlink,"Bug,Regression",logic_error,logic_error,0.8145,deleted_lines_buggy_preferred,73,1,github_label
+salt,pybughive_current,64430,[BUG] regression for user.present on handling groups with dupe GIDs,"Bug,Regression",logic_error,logic_error,0.999,deleted_lines_buggy_preferred,519,14,github_label
+salt,pybughive_current,64280,[BUG] Mako error on pillars render after upgrade to 3006.1,"Bug,Regression,Confirmed",logic_error,syntax_error,0.9967,deleted_lines_buggy_preferred,57,2,github_label
+salt,pybughive_current,59705,[BUG] (?) regression (!)(?) in 3002.5 for linux yum pkg version numbers - AttributeError: 'float' object has no attribute 'lstrip',"Bug,severity-medium,Regression,P2,centos",logic_error,logic_error,0.998,deleted_lines_buggy_preferred,685,14,github_label
+numpy,pybughive_current,22714,BUG: `numpy.median()` does not respect `keepdims=True` when the `out` argument is specified,"00 - Bug,component: numpy.lib",syntax_error,variable_misuse,0.9154,deleted_lines_buggy_preferred,915,33,heuristic
+discord.py,pybughive_current,7676,tasks.loop display too many warning.,bug,logic_error,logic_error,0.9878,deleted_lines_buggy_preferred,332,6,heuristic
+poetry,pybughive_current,5141,Incorrect `poetry export` output with dependency conditional on Python version,kind/bug,variable_misuse,logic_error,0.9995,deleted_lines_buggy_preferred,5242,108,heuristic
+poetry,pybughive_current,3303,Regression: 403 Auth Failure for S3-hosted (Cloudfront) Private Repos,kind/bug,variable_misuse,logic_error,0.9999,deleted_lines_buggy_preferred,204,6,heuristic
+poetry,pybughive_current,3224,Extra dependencies for package on private repo uninstalled when running `poetry install`.,kind/bug,variable_misuse,logic_error,0.9605,deleted_lines_buggy_preferred,306,5,heuristic
+poetry,pybughive_current,3112,poetry lock/export wrong with sys_platform (works fine on ver 1.0.10),kind/bug,logic_error,logic_error,0.9877,deleted_lines_buggy_preferred,1436,27,heuristic
+poetry,pybughive_current,3079,PermissionError installing root package in 1.1.0,kind/bug,syntax_error,variable_misuse,0.9831,deleted_lines_buggy_preferred,1317,28,heuristic
+freqtrade,pybughive_current,8758,Change logic how stoploss_on_exchange orders are build,"Bug,Stoploss",logic_error,logic_error,0.9442,deleted_lines_buggy_preferred,121,2,heuristic
+freqtrade,pybughive_current,8755,OKX: Create order fails while adjusting position due to inability to change leverage while open orders are active,"Bug,Non-spot",logic_error,logic_error,0.9207,deleted_lines_buggy_preferred,119,2,heuristic
+freqtrade,pybughive_current,7489,max_open_trades Does not work when we use forceenter,"Bug,RPC",logic_error,logic_error,0.9662,added_lines_fallback,160,3,heuristic
+freqtrade,pybughive_current,7424,"custom_stoploss is not updated at next ""stoploss_on_exchange_interval""","Bug,Stoploss",logic_error,syntax_error,0.9999,deleted_lines_buggy_preferred,262,4,heuristic
+freqtrade,pybughive_current,7294,Certain dry-run trades are exiting because of liquidation,"Bug,Non-spot",variable_misuse,logic_error,0.9868,deleted_lines_buggy_preferred,1149,20,heuristic
+jax,pybughive_current,15663,Source location info is incorrectly shared via caching,bug,syntax_error,logic_error,0.9156,deleted_lines_buggy_preferred,252,4,heuristic
+jax,pybughive_current,10315,Low-level error in forward-mode AD of `lax.reduce_window_sum_p`,bug,logic_error,logic_error,0.9991,deleted_lines_buggy_preferred,44,1,heuristic
+jax,pybughive_current,9969,jax.hessian uses positional argument `holomorphic` where it should be `has_aux` ,bug,syntax_error,logic_error,0.9452,deleted_lines_buggy_preferred,112,2,heuristic
+jax,pybughive_current,8634,Incorrect gradient for segment sum,bug,syntax_error,logic_error,0.9096,deleted_lines_buggy_preferred,1155,16,heuristic
+cookiecutter,pybughive_small,18,cookiecutter throws unicode exceptions on image files,bug,logic_error,logic_error,0.9873,deleted_lines_buggy_preferred,457,10,heuristic
+scrapy,pybughive_small,1265,Backward incompatibility for relocated paths in settings,bug,syntax_error,logic_error,0.9996,deleted_lines_buggy_preferred,116,4,heuristic
+discord.py,pybughive_small,7676,tasks.loop display too many warning.,bug,logic_error,logic_error,0.9878,deleted_lines_buggy_preferred,332,6,heuristic
+poetry,pybughive_small,5141,Incorrect `poetry export` output with dependency conditional on Python version,kind/bug,variable_misuse,logic_error,0.9995,deleted_lines_buggy_preferred,5242,108,heuristic
+poetry,pybughive_small,3303,Regression: 403 Auth Failure for S3-hosted (Cloudfront) Private Repos,kind/bug,variable_misuse,logic_error,0.9999,deleted_lines_buggy_preferred,204,6,heuristic
+poetry,pybughive_small,3224,Extra dependencies for package on private repo uninstalled when running `poetry install`.,kind/bug,variable_misuse,logic_error,0.9605,deleted_lines_buggy_preferred,306,5,heuristic
+matplotlib,pybughivex_current,19787,Marker sizes in Axes3D scatter plot are changing all the time,"topic: mplot3d, status: confirmed bug, Release critical",syntax_error,logic_error,0.8473,deleted_lines_buggy_preferred,5639,124,heuristic
+matplotlib,pybughivex_current,18885,3D Scatter Plot with Colorbar is not saved correctly with savefig,"topic: mplot3d, status: confirmed bug, Release critical, topic: color/colorbar",logic_error,variable_misuse,0.9878,deleted_lines_buggy_preferred,161,4,heuristic
+matplotlib,pybughivex_current,4318,pyplot.savefig fails with ValueError: cannot convert float NaN to integer,status: confirmed bug,logic_error,logic_error,0.6728,deleted_lines_buggy_preferred,148,3,heuristic
+matplotlib,pybughivex_current,3817,quiver is not plotting only 1 vector,status: confirmed bug,logic_error,logic_error,0.5506,deleted_lines_buggy_preferred,440,9,heuristic
+matplotlib,pybughivex_current,3809,Workaround needed to make example in `Transformations Tutorial` work with log axis,"status: confirmed bug, mentored: hackathon",variable_misuse,logic_error,0.9996,deleted_lines_buggy_preferred,97,3,heuristic
+matplotlib,pybughivex_current,3709,quiver does not consider direction of an axis,status: confirmed bug,logic_error,logic_error,0.5506,deleted_lines_buggy_preferred,440,9,heuristic
+matplotlib,pybughivex_current,2980,get_window_extent method for an image object gives all zeros,"status: confirmed bug, mentored: hackathon",syntax_error,variable_misuse,0.9996,added_lines_fallback,165,3,heuristic
+matplotlib,pybughivex_current,2294,tex option not respected by date x-axis,"status: confirmed bug, topic: text, topic: date handling",syntax_error,logic_error,0.994,deleted_lines_buggy_preferred,350,7,heuristic
+matplotlib,pybughivex_current,2035,legend marker update bug,status: confirmed bug,syntax_error,logic_error,0.9796,deleted_lines_buggy_preferred,102,3,heuristic
+matplotlib,pybughivex_current,396,Plotting with negative x values on semilogx,status: confirmed bug,logic_error,logic_error,0.9948,deleted_lines_buggy_preferred,1705,28,heuristic
+black,pybughivex_current,2254,fmt:skip fails with internal error,"T: bug, C: crash, F: fmtskip",logic_error,variable_misuse,0.9934,deleted_lines_buggy_preferred,41,1,github_label
+black,pybughivex_current,1632,Docstrings reformatted to be too long,"T: bug, F: strings, F: linetoolong",logic_error,logic_error,0.9861,deleted_lines_buggy_preferred,102,2,heuristic
+black,pybughivex_current,1596,Crash on concatenated string + comment,"T: bug, C: crash",logic_error,logic_error,0.9897,deleted_lines_buggy_preferred,323,5,github_label
+black,pybughivex_current,593,Black can't parse new Python 3.7 async generator syntax,T: bug,syntax_error,syntax_error,0.9963,deleted_lines_buggy_preferred,970,17,heuristic
+black,pybughivex_current,569,Invalid code after indented `# fmt: off`,"T: bug, C: invalid code, F: fmtoff",syntax_error,logic_error,0.9924,deleted_lines_buggy_preferred,1093,24,heuristic
+black,pybughivex_current,389,Fails when importing __future__ as renaming it,T: bug,logic_error,logic_error,0.994,deleted_lines_buggy_preferred,543,10,heuristic
+black,pybughivex_current,335,fmt: off is ignored after first function,T: bug,syntax_error,logic_error,0.9733,deleted_lines_buggy_preferred,6345,142,heuristic
+black,pybughivex_current,329,fmt:on/off placed asymmetrically ends up with a cryptic exception,T: bug,syntax_error,logic_error,0.8366,deleted_lines_buggy_preferred,73,1,heuristic
+black,pybughivex_current,273,Only put optional parentheses when contents can be split,T: bug,variable_misuse,logic_error,0.9968,deleted_lines_buggy_preferred,178,4,heuristic
+black,pybughivex_current,232,Multiline strings cause unnecessary optional parentheses,T: bug,variable_misuse,logic_error,0.9997,deleted_lines_buggy_preferred,762,15,heuristic
+black,pybughivex_current,141,Black does not follow line length rule with ternary expression,T: bug,logic_error,variable_misuse,1.0,added_lines_fallback,207,8,heuristic
+black,pybughivex_current,133,Failure to reformat a lamba expression,"T: bug, C: invalid code",logic_error,logic_error,0.9879,deleted_lines_buggy_preferred,1052,22,heuristic
+black,pybughivex_current,132,Trailing comma is removed in complex dict literal,T: bug,syntax_error,logic_error,0.9688,deleted_lines_buggy_preferred,738,21,heuristic
+black,pybughivex_current,112,Cannot parse: 5:0:         # add_compiler(compiler),"T: bug, F: comments",variable_misuse,logic_error,0.9991,deleted_lines_buggy_preferred,162,3,heuristic
+black,pybughivex_current,99,Black can't parse lib2to3,"T: bug, F: comments",variable_misuse,logic_error,0.9991,deleted_lines_buggy_preferred,162,3,heuristic
+black,pybughivex_current,60,Space removed before () when used as default function argument,T: bug,syntax_error,syntax_error,0.9988,deleted_lines_buggy_preferred,356,10,heuristic
+black,pybughivex_current,59,Internal error on a complex variable type annotation,"T: bug, C: invalid code",logic_error,logic_error,0.9976,deleted_lines_buggy_preferred,62,1,heuristic
+cookiecutter,pybughivex_current,18,cookiecutter throws unicode exceptions on image files,bug,logic_error,logic_error,0.9873,deleted_lines_buggy_preferred,457,10,heuristic
+fastapi,pybughivex_current,894,RecursionError from response model in 0.47.1,"bug,answered,reviewe",variable_misuse,logic_error,0.9888,deleted_lines_buggy_preferred,398,6,heuristic
+httpie,pybughivex_current,451,OSError: [Errno 36] File name too long,bug,syntax_error,logic_error,0.9902,deleted_lines_buggy_preferred,70,2,heuristic
+httpie,pybughivex_current,293,--version causes httpie to exit with status code 1,bug,logic_error,logic_error,0.9472,deleted_lines_buggy_preferred,39,1,heuristic
+httpie,pybughivex_current,252,#NAME?,bug,logic_error,syntax_error,0.9998,deleted_lines_buggy_preferred,32,1,heuristic
+httpie,pybughivex_current,185,The --timeout argument is not respected.,"bug, blocked by upstream",logic_error,syntax_error,0.696,deleted_lines_buggy_preferred,18,1,heuristic
+httpie,pybughivex_current,180,Custom User-Agent not remembered during session,bug,syntax_error,logic_error,0.5708,deleted_lines_buggy_preferred,1611,36,heuristic
+httpie,pybughivex_current,157,http: error: TooManyRedirects: Exceeded 30 redirects.,"bug, blocked by upstream",logic_error,logic_error,0.5956,deleted_lines_buggy_preferred,377,13,heuristic
+httpie,pybughivex_current,141,form data content-type overwritten by session headers,bug,syntax_error,variable_misuse,1.0,deleted_lines_buggy_preferred,540,10,heuristic
+httpie,pybughivex_current,140,Python 3.x header name encoding issue,"bug, blocked by upstream",logic_error,logic_error,0.9675,deleted_lines_buggy_preferred,272,11,heuristic
+httpie,pybughivex_current,451,OSError: [Errno 36] File name too long,bug,syntax_error,logic_error,0.9902,deleted_lines_buggy_preferred,70,2,heuristic
+httpie,pybughivex_current,293,--version causes httpie to exit with status code 1,bug,logic_error,logic_error,0.9472,deleted_lines_buggy_preferred,39,1,heuristic
+httpie,pybughivex_current,252,#NAME?,bug,logic_error,syntax_error,0.9998,deleted_lines_buggy_preferred,32,1,heuristic
+httpie,pybughivex_current,185,The --timeout argument is not respected.,"bug, blocked by upstream",logic_error,syntax_error,0.696,deleted_lines_buggy_preferred,18,1,heuristic
+httpie,pybughivex_current,180,Custom User-Agent not remembered during session,bug,syntax_error,logic_error,0.5708,deleted_lines_buggy_preferred,1611,36,heuristic
+httpie,pybughivex_current,157,http: error: TooManyRedirects: Exceeded 30 redirects.,"bug, blocked by upstream",logic_error,logic_error,0.5956,deleted_lines_buggy_preferred,377,13,heuristic
+httpie,pybughivex_current,141,form data content-type overwritten by session headers,bug,syntax_error,variable_misuse,1.0,deleted_lines_buggy_preferred,540,10,heuristic
+httpie,pybughivex_current,140,Python 3.x header name encoding issue,"bug, blocked by upstream",logic_error,logic_error,0.9675,deleted_lines_buggy_preferred,272,11,heuristic
+httpie,pybughivex_current,963,[BUG] TypeError: '<=' not supported between instances of 'NoneType' and 'float',,variable_misuse,logic_error,0.9492,deleted_lines_buggy_preferred,84,2,heuristic
+httpie,pybughivex_current,87,Colors broken on Windows with Python 3 ,"bug,window",variable_misuse,logic_error,0.9786,deleted_lines_buggy_preferred,706,16,heuristic
+pandas,pybughivex_current,19438,BUG: don't assume series is length > 0,"Bug, Sparse",syntax_error,logic_error,0.7591,deleted_lines_buggy_preferred,99,3,github_label
+pandas,pybughivex_current,19433,BUG: groupby with resample using on parameter errors when selecting column to apply function,"Bug, Resample",variable_misuse,logic_error,0.9856,deleted_lines_buggy_preferred,152,3,heuristic
+pandas,pybughivex_current,19368,Python crashes when executing memory_usage(deep=True) on a sparse series,"Bug, Sparse",syntax_error,logic_error,0.7591,deleted_lines_buggy_preferred,99,3,github_label
+pandas,pybughivex_current,17813,BUG: groupby with resample using on parameter errors when selecting column to apply function,"Bug, Groupby, MultiIndex, Resample",variable_misuse,logic_error,0.9856,deleted_lines_buggy_preferred,152,3,heuristic
+pandas,pybughivex_current,17062,Respect dtype when calling pivot_table with margins=True,"Bug, Reshaping",syntax_error,variable_misuse,0.9999,deleted_lines_buggy_preferred,216,6,heuristic
+pandas,pybughivex_current,17013,uninteded cast to float in pivot_table with margins=True,"Bug, Reshaping",syntax_error,variable_misuse,0.9999,deleted_lines_buggy_preferred,216,6,heuristic
+pandas,pybughivex_current,16892,BUG: Made SparseDataFrame.fillna() fill all NaNs,"Bug, Missing-data, Sparse",syntax_error,logic_error,0.9506,deleted_lines_buggy_preferred,385,8,github_label
+pandas,pybughivex_current,16798,"Pandas core dumps when reading large CSV file using read_csv(..., low_memory=False)","Bug, IO CSV",logic_error,logic_error,0.6271,deleted_lines_buggy_preferred,25,1,heuristic
+pandas,pybughivex_current,16736,BUG: do not raise UnsortedIndexError if sorting is not required,"Bug, MultiIndex",logic_error,logic_error,0.9965,deleted_lines_buggy_preferred,541,11,heuristic
+pandas,pybughivex_current,16734,Enable label-based indexing with .loc even when DataFrame is not lexsorted,"Bug, Enhancement, Indexing, MultiIndex",logic_error,logic_error,0.9965,deleted_lines_buggy_preferred,541,11,heuristic
+pandas,pybughivex_current,16493,to_html(index_names=False) still renders a row with index names,"Bug, Output-Formatting, IO HTML",logic_error,logic_error,0.9938,deleted_lines_buggy_preferred,47,1,github_label
+pandas,pybughivex_current,16362,BUG: Transpose construction/block error with certain dtypes,"Bug, Regression",logic_error,logic_error,0.9895,deleted_lines_buggy_preferred,8,1,github_label
+pandas,pybughivex_current,16117,BUG: Compare names with None in DataFrame ctor,"Bug, Dtype Conversions, Regression",logic_error,logic_error,0.9084,deleted_lines_buggy_preferred,33,1,github_label
+pandas,pybughivex_current,16114,Bug: dtype lost in `Series.to_frame` for empty series with integer name in 0.20.0rc1,"Bug, Dtype Conversions, Regression",logic_error,logic_error,0.9084,deleted_lines_buggy_preferred,33,1,github_label
+pandas,pybughivex_current,16112,SparseDataFrame.fillna() doesn't fill all NaNs,"Bug, Sparse",syntax_error,logic_error,0.9506,deleted_lines_buggy_preferred,385,8,github_label
+pandas,pybughivex_current,15996,Table Schema bombs with MultiIndex,"Bug, Output-Formatting, MultiIndex",logic_error,logic_error,0.8704,deleted_lines_buggy_preferred,49,1,github_label
+pandas,pybughivex_current,15892,BUG: Bug in DataFrame construction with nulls and datetimes in a list like,"Bug, Timeseries, Missing-data, Reshaping",logic_error,logic_error,0.9778,deleted_lines_buggy_preferred,1918,42,heuristic
+pandas,pybughivex_current,15869,"""IndexError: tuple index out of range"" error with numpy array contain datetimes","Bug, Reshaping",logic_error,logic_error,0.9778,deleted_lines_buggy_preferred,1918,42,heuristic
+pandas,pybughivex_current,15845,na_position doesn't work for sort_index() with MultiIndex,"Bug, MultiIndex",variable_misuse,variable_misuse,0.6411,deleted_lines_buggy_preferred,129,2,heuristic
+pandas,pybughivex_current,15834,BUG: SparseDataFrame construction with lists not coercing to dtype  (GH 15682),"Bug, Dtype Conversions",variable_misuse,logic_error,0.5332,deleted_lines_buggy_preferred,10,1,heuristic
+pandas,pybughivex_current,15822,"get localized Timestamp using "".at"" cannot get the time zone info","Bug, Indexing, Regression, Timezones",logic_error,syntax_error,0.9679,deleted_lines_buggy_preferred,51,1,github_label
+pandas,pybughivex_current,15820,Remove NotImplementedError for parse_dates keyword in read_excel,"Bug, Enhancement, IO Excel",variable_misuse,logic_error,0.9972,deleted_lines_buggy_preferred,234,4,heuristic
+pandas,pybughivex_current,15812,BUG: replace of numeric by string / dtype coversion (GH15743),"Bug, Dtype Conversions",variable_misuse,logic_error,0.9455,deleted_lines_buggy_preferred,466,8,heuristic
+pandas,pybughivex_current,15766,BUG: various 32bit compat issues,"Bug, Dtype Conversions, Compat, 32bit",variable_misuse,variable_misuse,1.0,deleted_lines_buggy_preferred,685,17,heuristic
+pandas,pybughivex_current,15743,BUG: replace of numeric by string / dtype coversion,"Bug, Dtype Conversions",variable_misuse,logic_error,0.9455,deleted_lines_buggy_preferred,466,8,heuristic
+pandas,pybughivex_current,15682,BUG: SparseDataFrame construction with lists not coercing to dtype,"Bug, Dtype Conversions, Sparse",syntax_error,logic_error,0.5332,deleted_lines_buggy_preferred,10,1,github_label
+pandas,pybughivex_current,15680,BUG: Group-by numeric type-coercion with datetime,"Bug, Groupby, Dtype Conversions",variable_misuse,variable_misuse,0.9394,deleted_lines_buggy_preferred,38,1,heuristic
+pandas,pybughivex_current,15679,BUG: Allow multiple 'by' parameters in merge_asof() when DataFrames are indexed (#15676),"Bug, Reshaping",variable_misuse,logic_error,0.9985,deleted_lines_buggy_preferred,410,7,heuristic
+pandas,pybughivex_current,15676,BUG: merge_asof only merges by first column of 'by=' list,"Bug, Reshaping",variable_misuse,logic_error,0.9985,deleted_lines_buggy_preferred,410,7,heuristic
+pandas,pybughivex_current,15607,BUG: make Series.sort_values(ascending=[False]) behave as ascending=False (#15604),"Bug, Reshaping, Error Reporting",variable_misuse,logic_error,0.9873,added_lines_fallback,347,8,heuristic
+pandas,pybughivex_current,15604,pandas.Series.sort_values(ascending=[False]) behaves as ascending=True,"Bug, Reshaping, Error Reporting",variable_misuse,logic_error,0.9873,added_lines_fallback,347,8,heuristic
+pandas,pybughivex_current,15511,BUG: pivot_table over Categorical Columns,"Bug, Reshaping, Categorical",variable_misuse,logic_error,0.9172,added_lines_fallback,158,3,heuristic
+pandas,pybughivex_current,15488,Repr-ing SparseDataFrame after setting a value,"Bug, Indexing, Sparse",syntax_error,logic_error,0.9615,deleted_lines_buggy_preferred,81,2,github_label
+pandas,pybughivex_current,15478,"BUG: GH #12223, GH #15262. Allow ints for names in MultiIndex","Bug, Output-Formatting, MultiIndex",logic_error,logic_error,0.9828,deleted_lines_buggy_preferred,1208,22,github_label
+pandas,pybughivex_current,15466,"GH6322, Bug on reset_index for a MultiIndex of all NaNs","Bug, Missing-data, Reshaping, MultiIndex",variable_misuse,logic_error,0.9818,deleted_lines_buggy_preferred,201,4,heuristic
+pandas,pybughivex_current,15447,Wrong result of pandas.sparse.series.SparseSeries.loc with indexer of length 1,"Bug, Indexing, Sparse, MultiIndex",syntax_error,logic_error,0.9954,deleted_lines_buggy_preferred,628,16,github_label
+pandas,pybughivex_current,15437,BUG: pd.cut with bins=1 and input all 0s,"Bug, Reshaping",logic_error,logic_error,0.994,deleted_lines_buggy_preferred,90,3,heuristic
+pandas,pybughivex_current,15428,BUG: pd.cut with bins=1 and input all 0s,"Bug, Algos",logic_error,logic_error,0.994,deleted_lines_buggy_preferred,90,3,heuristic
+pandas,pybughivex_current,15426,BUG: timezone lost in groupby-agg with cython functions,"Bug, Groupby, Timezones",variable_misuse,logic_error,0.9507,deleted_lines_buggy_preferred,50,1,heuristic
+pandas,pybughivex_current,15424,Indexing MultiIndex with NDFrame indexer fails if index of indexer does not contain 0,"Bug, Indexing, MultiIndex",logic_error,logic_error,0.9807,deleted_lines_buggy_preferred,252,6,heuristic
+pandas,pybughivex_current,15420,rank incorrectly orders ordered categories,"Bug, Categorical",variable_misuse,logic_error,0.9993,added_lines_fallback,619,19,heuristic
+pandas,pybughivex_current,15418,Ensure the right values are set in SeriesGroupBy.nunique,"Bug, Groupby",logic_error,logic_error,0.8588,deleted_lines_buggy_preferred,14,1,heuristic
+pandas,pybughivex_current,15343,BUG: Multiline Eval broken for local variables after first line,"Bug, Numeric Operations",variable_misuse,logic_error,0.522,deleted_lines_buggy_preferred,128,3,heuristic
+pandas,pybughivex_current,15342,Multiline Eval broken for local variables after first line,"Bug, Numeric Operations",variable_misuse,logic_error,0.522,deleted_lines_buggy_preferred,128,3,heuristic
+pandas,pybughivex_current,15297,Weird behavior using nlargest/nsmallest when there are the n smallest/largest values are identical,"Bug, Reshaping",variable_misuse,logic_error,0.991,deleted_lines_buggy_preferred,346,7,heuristic
+pandas,pybughivex_current,15278,BUG: Fix downcast argument for DataFrame.fillna(),"Bug, Missing-data",variable_misuse,logic_error,0.8537,deleted_lines_buggy_preferred,40,1,heuristic
+pandas,pybughivex_current,15277,DataFrame.fillna() downcast argument does not work when the value for fillna is a dict instead of a scalar,"Bug, Missing-data",variable_misuse,logic_error,0.8537,deleted_lines_buggy_preferred,40,1,heuristic
+pandas,pybughivex_current,15262,BUG in MultiIndex truncated repr with integer level names,"Bug, Output-Formatting",logic_error,logic_error,0.9828,deleted_lines_buggy_preferred,1208,22,github_label
+pandas,pybughivex_current,15205,BUG: groupby.cummin/cummax nans inf values for int64,"Bug, Groupby",variable_misuse,logic_error,0.9498,deleted_lines_buggy_preferred,752,14,heuristic
+pandas,pybughivex_current,15193,pivot_table over Categorical columns,"Bug, Missing-data, Reshaping, Categorical",variable_misuse,logic_error,0.9172,added_lines_fallback,158,3,heuristic
+pandas,pybughivex_current,15175,BUG: no need to validate monotonicity when groupby-rolling,"Bug, Groupby, Reshaping",syntax_error,logic_error,0.9816,deleted_lines_buggy_preferred,581,12,heuristic
+pandas,pybughivex_current,15130,ERR: too strict validation on groupby.rolling with time-aware freq,"Bug, Groupby, Reshaping, Error Reporting",syntax_error,logic_error,0.9816,deleted_lines_buggy_preferred,581,12,heuristic
+pandas,pybughivex_current,15128,BUG: Fix Series constructor when copy=True,"Bug, Dtype Conversions",variable_misuse,logic_error,0.7806,deleted_lines_buggy_preferred,53,1,heuristic
+pandas,pybughivex_current,15126,BUG: catch overflow in timestamp + offset operations,"Bug, Timeseries",logic_error,logic_error,0.9789,deleted_lines_buggy_preferred,146,3,heuristic
+pandas,pybughivex_current,15125,Series constructor ignores copy=True when dtype agrees,"Bug, Reshaping, Dtype Conversions",variable_misuse,logic_error,0.7806,deleted_lines_buggy_preferred,53,1,heuristic
+pandas,pybughivex_current,15109,BUG: groupby.cummin/max changing passed values to nan uncesessarily,"Bug, Groupby, Missing-data, Dtype Conversions",variable_misuse,logic_error,0.9498,deleted_lines_buggy_preferred,752,14,heuristic
+pandas,pybughivex_current,15024,BUG: Patch float and uint handling in to_numeric,"Bug, Dtype Conversions",syntax_error,logic_error,0.9909,deleted_lines_buggy_preferred,244,4,heuristic
+pandas,pybughivex_current,15005,BUG: Convert uint64 in maybe_convert_numeric,"Bug, Dtype Conversions",variable_misuse,logic_error,0.9742,deleted_lines_buggy_preferred,43,1,heuristic
+pandas,pybughivex_current,14993,BUG: Reindex with columns and method,"Bug, Indexing, Missing-data, Reshaping",syntax_error,variable_misuse,0.9998,deleted_lines_buggy_preferred,594,9,heuristic
+pandas,pybughivex_current,14992,Reindex function applied to DataFrame over columns ignores method,"Bug, Missing-data, Reshaping",syntax_error,variable_misuse,0.9998,deleted_lines_buggy_preferred,594,9,heuristic
+pandas,pybughivex_current,14984,BUG: Avoid flaky usecols set in C engine,"Bug, IO CSV",logic_error,variable_misuse,0.9998,deleted_lines_buggy_preferred,508,12,heuristic
+pandas,pybughivex_current,14982,BUG: maybe_convert_numeric fails with uint64,"Bug, Dtype Conversions",variable_misuse,logic_error,0.9742,deleted_lines_buggy_preferred,43,1,heuristic
+pandas,pybughivex_current,14941,"pd.to_numeric(series, downcast='integer') does not prpoerly handle floats over 10,000","Bug, Numeric Operations",syntax_error,logic_error,0.9909,deleted_lines_buggy_preferred,244,4,heuristic
+pandas,pybughivex_current,14934,"BUG, TST: Check uint64 behaviour in algorithms.py","Bug, Dtype Conversions",syntax_error,logic_error,0.9853,deleted_lines_buggy_preferred,605,12,heuristic
+pandas,pybughivex_current,14928,BUG: bug in Series construction from UTC,"Bug, Timeseries, Timezones",variable_misuse,logic_error,0.7691,deleted_lines_buggy_preferred,248,5,heuristic
+pandas,pybughivex_current,14915,BUG: Prevent uint64 overflow in Series.unique,"Bug, Algos",logic_error,logic_error,0.9818,deleted_lines_buggy_preferred,45,1,heuristic
+pandas,pybughivex_current,14812,Apply min_itemsize to index even when not appending,"Bug, IO HDF5",variable_misuse,logic_error,0.9943,deleted_lines_buggy_preferred,104,3,heuristic
+pandas,pybughivex_current,14792,read_csv() doesn't parse correctly when `usecols` and `parse_dates` are both used,"Bug, Regression, IO CSV",logic_error,variable_misuse,0.9998,deleted_lines_buggy_preferred,508,12,github_label
+pandas,pybughivex_current,14784,na_position doesn't work for sort_index() with MultiIndex,"Bug, MultiIndex",variable_misuse,variable_misuse,0.6411,deleted_lines_buggy_preferred,129,2,heuristic
+pandas,pybughivex_current,14777,BUG: Bug in a groupby of a non-lexsorted MultiIndex,"Bug, Groupby",variable_misuse,logic_error,0.9596,deleted_lines_buggy_preferred,48,1,heuristic
+pandas,pybughivex_current,14776,BUG: group.apply with non-lexsorted levels and sort=True,"Bug, Groupby, MultiIndex",variable_misuse,logic_error,0.9596,deleted_lines_buggy_preferred,48,1,heuristic
+pandas,pybughivex_current,14770,BUG: Error upon Series.Groupby.nunique with empty Series (#12553),"Bug, Groupby",logic_error,variable_misuse,0.8787,deleted_lines_buggy_preferred,38,1,heuristic
+pandas,pybughivex_current,14728,BUG: Ensure min_itemsize is always a list (#11412),"Bug, IO HDF5",variable_misuse,variable_misuse,0.9999,deleted_lines_buggy_preferred,83,2,heuristic
+pandas,pybughivex_current,14721,Series.unique converts uint64 to int64 (with overflow),"Bug, Dtype Conversions",logic_error,logic_error,0.9818,deleted_lines_buggy_preferred,45,1,heuristic
+pandas,pybughivex_current,14707,BUG: _nsorted incorrect with duplicated values in index (#13412),"Bug, Reshaping",variable_misuse,logic_error,0.9821,deleted_lines_buggy_preferred,758,14,heuristic
+pandas,pybughivex_current,14697,BUG: Categorical.searchsorted(): use provided categorical order,"Bug, Indexing, Categorical",variable_misuse,logic_error,0.9754,deleted_lines_buggy_preferred,170,3,heuristic
+pandas,pybughivex_current,14683,BUG: Avoid AmbiguousTimeError on groupby,"Bug, Groupby, Timezones",logic_error,logic_error,0.9713,deleted_lines_buggy_preferred,234,5,heuristic
+pandas,pybughivex_current,14682,AmbiguousTimeError on groupby when including a DST change,"Bug, Groupby, Timezones",logic_error,logic_error,0.9713,deleted_lines_buggy_preferred,234,5,heuristic
+pandas,pybughivex_current,14663,BUG: pandas.cut and negative values #14652,"Bug, Groupby, Reshaping",logic_error,logic_error,0.9736,deleted_lines_buggy_preferred,43,2,heuristic
+pandas,pybughivex_current,14652,BUG: pandas.cut and negative values,"Bug, Groupby, Reshaping",logic_error,logic_error,0.9736,deleted_lines_buggy_preferred,43,2,heuristic
+pandas,pybughivex_current,14642,"BUG: iloc misbehavior with pd.Series: sometimes returns pd.Categorical, fixes #14580","Bug, Indexing, Categorical",syntax_error,logic_error,0.9802,deleted_lines_buggy_preferred,600,14,heuristic
+pandas,pybughivex_current,14637,ENH: Explicit range checking when writing Stata,"Bug, IO Stata",logic_error,logic_error,0.9945,added_lines_fallback,897,16,heuristic
+pandas,pybughivex_current,14618,to_stata + read_stata results in NaNs (close to double precision limit),"Bug, Numeric Operations, IO Stata",logic_error,logic_error,0.9945,added_lines_fallback,897,16,heuristic
+pandas,pybughivex_current,14596,Fix parse empty df,"Bug, IO CSV, MultiIndex",logic_error,logic_error,0.96,deleted_lines_buggy_preferred,98,2,heuristic
+pandas,pybughivex_current,14580,BUG: iloc misbehavior with pd.Series: sometimes returns pd.Categorical instead,"Bug, Indexing, Categorical",syntax_error,logic_error,0.9802,deleted_lines_buggy_preferred,600,14,heuristic
+pandas,pybughivex_current,14522,Categorical.searchsorted() uses lexical order instead of the provided categorical order,"Bug, Indexing, Categorical",variable_misuse,logic_error,0.9754,deleted_lines_buggy_preferred,170,3,heuristic
+pandas,pybughivex_current,14504,BUG: to_numeric downcast = 'unsigned' would not un-sign a 0 value.,"Bug, Dtype Conversions",logic_error,logic_error,0.9983,deleted_lines_buggy_preferred,51,1,heuristic
+pandas,pybughivex_current,14472,BUG: downcast = 'unsigend' on 0 would would not downcast to unsigned.,"Bug, Dtype Conversions",logic_error,logic_error,0.9983,deleted_lines_buggy_preferred,51,1,heuristic
+pandas,pybughivex_current,14458,BUG: Set frequency for empty Series,"Bug, Frequency",variable_misuse,logic_error,0.9998,deleted_lines_buggy_preferred,292,8,heuristic
+pandas,pybughivex_current,14431,BUG: Fix issue with inserting duplicate columns in a dataframe (#14291),"Bug, Reshaping",syntax_error,logic_error,0.9832,deleted_lines_buggy_preferred,382,8,heuristic
+pandas,pybughivex_current,14423,BUG: unwanted numeric coercion after groupby-apply,"Bug, Groupby, Dtype Conversions",variable_misuse,variable_misuse,0.9394,deleted_lines_buggy_preferred,38,1,heuristic
+pandas,pybughivex_current,14401,"BUG: pd.to_numeric(..., downcast='unsigned') should accept 0","Bug, Dtype Conversions",logic_error,logic_error,0.988,deleted_lines_buggy_preferred,111,2,heuristic
+pandas,pybughivex_current,14391,[BUG] handle } in line delimited json,"Bug, IO JSON",logic_error,logic_error,0.9995,deleted_lines_buggy_preferred,190,4,heuristic
+pandas,pybughivex_current,14390,BUG: Line delimited json is breaks if string includes `}`,"Bug, IO JSON",logic_error,logic_error,0.9995,deleted_lines_buggy_preferred,190,4,heuristic
+pandas,pybughivex_current,14364,Inconsistent behaviour on empty RangeIndex intersection,"Bug, Indexing, Regression",logic_error,syntax_error,1.0,deleted_lines_buggy_preferred,51,2,github_label
+pandas,pybughivex_current,14346,BUG: GH14323 Union of differences from DatetimeIndex incorrect,"Bug, Timeseries, Regression",logic_error,logic_error,0.9724,deleted_lines_buggy_preferred,53,1,github_label
+pandas,pybughivex_current,14323,DatetimeIndex union fails in 0.19rc1 when constructed from differences in DatetimeIndexes,"Bug, Timeseries, Regression",logic_error,logic_error,0.9724,deleted_lines_buggy_preferred,53,1,github_label
+pandas,pybughivex_current,14320,BUG: Frequency not set for empty Series,"Bug, Timeseries",variable_misuse,logic_error,0.9998,deleted_lines_buggy_preferred,292,8,heuristic
+pandas,pybughivex_current,14317,BUG: date slicing with reverse sorted index,"Bug, Timeseries",logic_error,logic_error,0.9968,deleted_lines_buggy_preferred,106,2,heuristic
+pandas,pybughivex_current,14316,Slicing with reversed datetime index,"Bug, Timeseries",logic_error,logic_error,0.9968,deleted_lines_buggy_preferred,106,2,heuristic
+pandas,pybughivex_current,14303,BUG: Index.copy() honors 'name' parameter (#14302),"Bug, Indexing",syntax_error,variable_misuse,0.9989,deleted_lines_buggy_preferred,762,17,heuristic
+pandas,pybughivex_current,14302,Index.copy() ignores name/names arguments,Bug,syntax_error,variable_misuse,0.9989,deleted_lines_buggy_preferred,762,17,heuristic
+pandas,pybughivex_current,14292,BUG: Fix concat key name,"Bug, Reshaping",variable_misuse,logic_error,0.9043,deleted_lines_buggy_preferred,44,2,heuristic
+pandas,pybughivex_current,14291,BUG: DataFrame.insert with allow_duplicates=True fails when already duplicates present,"Bug, Reshaping",syntax_error,logic_error,0.9832,deleted_lines_buggy_preferred,382,8,heuristic
+pandas,pybughivex_current,14255,BUG: float truncation in eval with py 2,"Bug, Compat",logic_error,logic_error,0.9912,deleted_lines_buggy_preferred,28,1,heuristic
+pandas,pybughivex_current,14252,BUG: keys argument in pandas.concat does not preserve Index name,"Bug, Indexing, Reshaping",variable_misuse,logic_error,0.9043,deleted_lines_buggy_preferred,44,2,heuristic
+pandas,pybughivex_current,14241,DataFrame Query Rounding Error,"Bug, Compat",logic_error,logic_error,0.9912,deleted_lines_buggy_preferred,28,1,heuristic
+pandas,pybughivex_current,14214,add check for infinity in __call__ of EngFormatter,"Bug, Output-Formatting",logic_error,logic_error,0.9983,added_lines_fallback,62,2,github_label
+pandas,pybughivex_current,14146,BUG: DatetimeTZBlock can't assign values near dst boundary,"Bug, Dtype Conversions, Timezones",variable_misuse,logic_error,0.9814,deleted_lines_buggy_preferred,444,7,heuristic
+pandas,pybughivex_current,14068,TimedeltaIndex + Timestamp -> no overflow error,"Bug, Timedelta",logic_error,logic_error,0.6471,deleted_lines_buggy_preferred,25,1,heuristic
+pandas,pybughivex_current,14038,BUG: iloc fails with non lex-sorted MultiIndex #13797,"Bug, Indexing, MultiIndex",logic_error,logic_error,0.9476,deleted_lines_buggy_preferred,31,1,heuristic
+pandas,pybughivex_current,13994,BUG: groupby cumsum with axis=1 computes cumprod,"Bug, Groupby",variable_misuse,logic_error,0.9847,deleted_lines_buggy_preferred,49,1,heuristic
+pandas,pybughivex_current,13993,groupby cumsum with axis=1 computes cumprod,"Bug, Groupby",variable_misuse,logic_error,0.9847,deleted_lines_buggy_preferred,49,1,heuristic
+pandas,pybughivex_current,13986,BUG/CLN: datetimelike Index.equals may return True with non-Index,"Bug, Clean",logic_error,logic_error,0.9991,deleted_lines_buggy_preferred,1899,54,heuristic
+pandas,pybughivex_current,13985,BUG: Sparse indexing with bool sparse may be incorrect,"Bug, Indexing, Sparse",syntax_error,logic_error,0.9733,deleted_lines_buggy_preferred,21,1,github_label
+pandas,pybughivex_current,13981,BUG: Index may ignore specified datetime/timedelta dtypes,"Bug, Timeseries, Dtype Conversions, Timedelta",variable_misuse,logic_error,0.9825,deleted_lines_buggy_preferred,788,14,heuristic
+pandas,pybughivex_current,13980,BUG: ufunc with PeriodIndex may raise IncompatibleFrequency,"Bug, Period, Compat",logic_error,logic_error,0.9947,deleted_lines_buggy_preferred,159,3,heuristic
+pandas,pybughivex_current,13970,BUG/DEPR: combine dtype fixes,"Bug, Reshaping, Dtype Conversions",variable_misuse,variable_misuse,1.0,deleted_lines_buggy_preferred,1499,37,heuristic
+pandas,pybughivex_current,13930,BUG: freqstr may be parsed incorrectly,"Bug, Frequency",logic_error,logic_error,0.6985,deleted_lines_buggy_preferred,118,2,heuristic
+pandas,pybughivex_current,13907,ENH: Accept list as level for groupby in non-MultiIndexed objects,"Bug, Groupby",variable_misuse,logic_error,0.9905,deleted_lines_buggy_preferred,88,2,heuristic
+pandas,pybughivex_current,13901,Groupby doesn't accept level=[0] for Index.,"Bug, Groupby",variable_misuse,logic_error,0.9905,deleted_lines_buggy_preferred,88,2,heuristic
+pandas,pybughivex_current,13898,BUG: allow describe() for DataFrames with only boolean columns,"Bug, Dtype Conversions, Numeric Operations",logic_error,logic_error,0.9859,deleted_lines_buggy_preferred,196,4,heuristic
+pandas,pybughivex_current,13891,BUG: allow describe() for on boolean-only columns,"Bug, Dtype Conversions, Numeric Operations",logic_error,logic_error,0.9859,deleted_lines_buggy_preferred,196,4,heuristic
+pandas,pybughivex_current,13888,BUG: preserve DatetimeIndex.name in HDFStore/read_hdf() with tz (#13884),"Bug, IO HDF5",variable_misuse,logic_error,0.9769,deleted_lines_buggy_preferred,30,1,heuristic
+pandas,pybughivex_current,13884,Round trip through HDF5 with format=table and localized DatetimeIndex discards index name,"Bug, Indexing, IO HDF5",variable_misuse,logic_error,0.9769,deleted_lines_buggy_preferred,30,1,heuristic
+pandas,pybughivex_current,13853,BUG: ufunc is not applied to sparse.fill_value,"Bug, Sparse, Compat",syntax_error,logic_error,0.983,deleted_lines_buggy_preferred,398,7,github_label
+pandas,pybughivex_current,13797,BUG: iloc fails with non lex-sorted MultiIndex,"Bug, Indexing, MultiIndex",logic_error,logic_error,0.9476,deleted_lines_buggy_preferred,31,1,heuristic
+pandas,pybughivex_current,13764,BUG: Fix segfault in lib.isnullobj,"Bug, Compat",logic_error,variable_misuse,0.9992,added_lines_fallback,459,12,heuristic
+pandas,pybughivex_current,13759,BUG: union_categoricals can't handle NaN,"Bug, Missing-data, Reshaping, Categorical",variable_misuse,logic_error,0.9728,deleted_lines_buggy_preferred,200,4,heuristic
+pandas,pybughivex_current,13736,BUG: DatetimeIndex raises AttributeError on win,Bug,variable_misuse,logic_error,0.9713,deleted_lines_buggy_preferred,32,1,heuristic
+pandas,pybughivex_current,13624,BUG: Invalid Timedelta op may raise ValueError,"Bug, Error Reporting, Timedelta",variable_misuse,logic_error,0.9694,deleted_lines_buggy_preferred,268,5,heuristic
+pandas,pybughivex_current,13613,BUG: to_timedelta still raises with errors='ignore',"Bug, Timedelta",syntax_error,logic_error,0.9819,deleted_lines_buggy_preferred,1279,27,heuristic
+pandas,pybughivex_current,13464,BUG: fix to_datetime to handle int16 and int8,"Bug, Timeseries, Dtype Conversions",variable_misuse,variable_misuse,0.9608,deleted_lines_buggy_preferred,40,1,heuristic
+pandas,pybughivex_current,13453,Resampler.nunique counting data more than once,"Bug, Resample",logic_error,logic_error,0.8588,deleted_lines_buggy_preferred,14,1,heuristic
+pandas,pybughivex_current,13451,to_datetime can't handle int16 or int8,"Bug, Timeseries, Dtype Conversions",variable_misuse,variable_misuse,0.9608,deleted_lines_buggy_preferred,40,1,heuristic
+pandas,pybughivex_current,13435,BUG: df.pivot_table: margins_name ignored when aggfunc is a list,"Bug, Reshaping",variable_misuse,variable_misuse,0.9997,deleted_lines_buggy_preferred,16,1,heuristic
+pandas,pybughivex_current,13412,BUG: in _nsorted for frame with duplicated values index,Bug,variable_misuse,logic_error,0.9821,deleted_lines_buggy_preferred,758,14,heuristic
+pandas,pybughivex_current,13359,Make pd.read_hdf('data.h5') work when pandas object stored contained categorical columns,"Bug, IO HDF5",variable_misuse,logic_error,0.9887,deleted_lines_buggy_preferred,211,5,heuristic
+pandas,pybughivex_current,13354,BUG: df.pivot_table: margins_name is ignored when there aggfunc is list,"Bug, Reshaping",variable_misuse,variable_misuse,0.9997,deleted_lines_buggy_preferred,16,1,heuristic
+pandas,pybughivex_current,13320,BUG: Parse trailing NaN values for the Python parser,"Bug, IO CSV",syntax_error,logic_error,0.6936,deleted_lines_buggy_preferred,91,2,heuristic
+pandas,pybughivex_current,13307,Fix series comparison operators when dealing with zero rank numpy arrays,"Bug, Dtype Conversions",logic_error,logic_error,0.9928,deleted_lines_buggy_preferred,27,1,heuristic
+pandas,pybughivex_current,13298,"BUG: Fix describe(): percentiles (#13104), col index (#13288)","Bug, Output-Formatting",logic_error,logic_error,0.9795,deleted_lines_buggy_preferred,1072,22,github_label
+pandas,pybughivex_current,13285,"COMPAT: extension dtypes (DatetimeTZ, Categorical) are now Singleton cached objects","Bug, Compat",syntax_error,logic_error,0.9998,deleted_lines_buggy_preferred,458,13,heuristic
+pandas,pybughivex_current,13267,BUG: Bug in selection from a HDFStore with a fixed format and start and/or stop will now return the selected range,"Bug, IO HDF5",syntax_error,logic_error,0.9582,deleted_lines_buggy_preferred,1637,41,heuristic
+pandas,pybughivex_current,13241,Fixes resampler for grouping kw bug #13235,"Bug, Resample",variable_misuse,variable_misuse,0.7564,deleted_lines_buggy_preferred,61,2,heuristic
+pandas,pybughivex_current,13235,label keyword argument for resample causes an error when used with a groupby object,"Bug, Resample",variable_misuse,variable_misuse,0.7564,deleted_lines_buggy_preferred,61,2,heuristic
+pandas,pybughivex_current,13232,PeriodIndex with float input inconsistency,"Bug, API Design, Period",syntax_error,logic_error,0.9398,deleted_lines_buggy_preferred,3556,73,heuristic
+pandas,pybughivex_current,13231,Automatic detection of HDF5 dataset identifier fails when data contains categoricals,"Bug, IO HDF5",variable_misuse,logic_error,0.9887,deleted_lines_buggy_preferred,211,5,heuristic
+pandas,pybughivex_current,13209,BUG: Fix #13149 and ENH: 'copy' param in Index.astype(),"Bug, Dtype Conversions",syntax_error,variable_misuse,0.6663,deleted_lines_buggy_preferred,2452,53,heuristic
+pandas,pybughivex_current,13204,groupby with index = False returns NANs when column is categorical. ,"Bug, Groupby",variable_misuse,logic_error,0.9906,deleted_lines_buggy_preferred,244,4,heuristic
+pandas,pybughivex_current,13201,BUG: Sparse creation with object dtype may raise TypeError,"Bug, Reshaping, Sparse",syntax_error,logic_error,0.9689,deleted_lines_buggy_preferred,238,6,github_label
+pandas,pybughivex_current,13170,BUG: preserve join keys dtype,"Bug, Indexing, Reshaping",syntax_error,logic_error,0.9988,deleted_lines_buggy_preferred,1998,39,heuristic
+pandas,pybughivex_current,13163,BUG: Misc fixes for SparseSeries indexing with MI,"Bug, Indexing, Output-Formatting, Sparse",syntax_error,logic_error,0.9904,deleted_lines_buggy_preferred,589,11,github_label
+pandas,pybughivex_current,13149,NaNs in Float64Index are converted to silly integers using index.astype('int'),"Bug, Dtype Conversions",syntax_error,variable_misuse,0.6663,deleted_lines_buggy_preferred,2452,53,heuristic
+pandas,pybughivex_current,13144,SparseSeries throws a ValueError exception when printing large arrays,"Bug, Output-Formatting, Sparse",syntax_error,logic_error,0.9904,deleted_lines_buggy_preferred,589,11,github_label
+pandas,pybughivex_current,13135,"df.query bug giving RuntimeWarning: divide by zero encountered in log10 in align.py"", line 98, in _align_core     ordm = np.log10(abs(reindexer_size - term_axis_size)) ","Bug, Numeric Operations",syntax_error,variable_misuse,0.9989,deleted_lines_buggy_preferred,4387,91,heuristic
+pandas,pybughivex_current,13124,BUG: Added checks for NaN in __call__ of EngFormatter,"Bug, Output-Formatting",logic_error,logic_error,0.992,added_lines_fallback,57,2,github_label
+pandas,pybughivex_current,13115,"[BUG] Reading multiindex, incorrectly names columns without name.","Bug, IO Excel",logic_error,logic_error,0.9998,deleted_lines_buggy_preferred,661,22,heuristic
+pandas,pybughivex_current,13107,BUG/API: Index.equals should check input class?,Bug,logic_error,logic_error,0.9991,deleted_lines_buggy_preferred,1899,54,heuristic
+pandas,pybughivex_current,13098,REGRP: Series.quantile returns NaN,"Bug, Regression, Numeric Operations",logic_error,logic_error,0.991,deleted_lines_buggy_preferred,3389,73,github_label
+pandas,pybughivex_current,13072,BUG: Series ops with object dtype may incorrectly fail,"Bug, Dtype Conversions, Numeric Operations",variable_misuse,variable_misuse,0.9997,deleted_lines_buggy_preferred,174,3,heuristic
+pandas,pybughivex_current,13071,BUG: PeriodIndex and Period subtraction error,"Bug, Numeric Operations, Period",variable_misuse,logic_error,0.9976,added_lines_fallback,1151,28,heuristic
+pandas,pybughivex_current,13069,BUG: Addition raises TypeError if Period is on rhs,"Bug, Numeric Operations, Period",variable_misuse,logic_error,0.6946,deleted_lines_buggy_preferred,58,1,heuristic
+pandas,pybughivex_current,13043,BUG: Series with datetime-like object ops raises TypeError,"Bug, Timeseries, Dtype Conversions, Numeric Operations, Timedelta, Timezones, Period",variable_misuse,variable_misuse,0.9997,deleted_lines_buggy_preferred,174,3,heuristic
+pandas,pybughivex_current,13037,BUG: subclassed .align returns normal DataFrame,"Bug, Indexing, Compat",variable_misuse,logic_error,0.9823,deleted_lines_buggy_preferred,737,14,heuristic
+pandas,pybughivex_current,13006,BUG: Type error when comparing numpy scalar to pandas series,"Bug, Dtype Conversions",logic_error,logic_error,0.9928,deleted_lines_buggy_preferred,27,1,heuristic
+pandas,pybughivex_current,12982,BUG: Preserve timezone in unaligned assignments,"Bug, Indexing, Timezones",variable_misuse,logic_error,0.5952,deleted_lines_buggy_preferred,40,1,heuristic
+pandas,pybughivex_current,12981,Timezone lost on DataFrame assignments with realignment,"Bug, Indexing, Timezones",variable_misuse,logic_error,0.5952,deleted_lines_buggy_preferred,40,1,heuristic
+pandas,pybughivex_current,12975,fix for read_html with bs4 failing on table with header and one column,"Bug, IO HTML",logic_error,logic_error,0.993,deleted_lines_buggy_preferred,137,2,heuristic
+pandas,pybughivex_current,12971,ENH/BUG: Sparse now supports comparison op,"Bug, Numeric Operations, Sparse",syntax_error,logic_error,0.9808,deleted_lines_buggy_preferred,700,13,github_label
+pandas,pybughivex_current,12966,BUG: Sparse concat may fill fill_value with NaN,"Bug, Reshaping, Sparse",syntax_error,logic_error,0.9921,deleted_lines_buggy_preferred,171,3,github_label
+pandas,pybughivex_current,12941,Operations on NaT returning float instead of datetime64[ns],"Bug, Timeseries",variable_misuse,logic_error,0.9895,deleted_lines_buggy_preferred,227,5,heuristic
+pandas,pybughivex_current,12928,BUG: .asfreq on resample on PeriodIndex/TimedeltaIndex are not,"Bug, Timedelta",variable_misuse,logic_error,0.9554,deleted_lines_buggy_preferred,658,18,heuristic
+pandas,pybughivex_current,12926,BUG: resample().asfreq() looses end period with TimedeltaIndex,"Bug, Timedelta, Resample",variable_misuse,logic_error,0.9554,deleted_lines_buggy_preferred,658,18,heuristic
+pandas,pybughivex_current,12922,DataFrame.to_csv(quoting=csv.QUOTE_NONNUMERIC) quotes numeric values,"Bug, Output-Formatting, IO CSV",logic_error,logic_error,0.9981,added_lines_fallback,605,15,github_label
+pandas,pybughivex_current,12921,Correct out-of-bounds error with large indeces,"Bug, Indexing",logic_error,logic_error,0.9808,deleted_lines_buggy_preferred,60,1,heuristic
+pandas,pybughivex_current,12910,BUG: SparseArray numeric ops misc fixes,"Bug, Numeric Operations, Sparse",syntax_error,logic_error,0.9992,deleted_lines_buggy_preferred,459,10,github_label
+pandas,pybughivex_current,12908,BUG: SparseSeries.shift may raise NameError or TypeError,"Bug, Indexing, Dtype Conversions, Sparse",syntax_error,logic_error,0.9916,deleted_lines_buggy_preferred,895,17,github_label
+pandas,pybughivex_current,12895,BUG: add names parameter to read_excel,"Bug, IO Excel",variable_misuse,logic_error,0.9694,deleted_lines_buggy_preferred,459,7,heuristic
+pandas,pybughivex_current,12881,BUG: .astype of Float64Index,"Bug, Dtype Conversions",variable_misuse,logic_error,0.9944,deleted_lines_buggy_preferred,493,11,heuristic
+pandas,pybughivex_current,12874,PeriodIndex count & size fix,"Bug, Period, Resample",logic_error,logic_error,0.9909,deleted_lines_buggy_preferred,879,19,heuristic
+pandas,pybughivex_current,12870,read_excel with names keyword argument not working,"Bug, Regression, IO Excel",logic_error,logic_error,0.9694,deleted_lines_buggy_preferred,459,7,github_label
+pandas,pybughivex_current,12868,BUG: Resample on empty Period-Indexed Series returns Datetime-Indexed Series,"Bug, Period, Resample",logic_error,logic_error,0.9909,deleted_lines_buggy_preferred,879,19,heuristic
+pandas,pybughivex_current,12866,read_json changes dtype (int => float),"Bug, Dtype Conversions, IO JSON",variable_misuse,logic_error,0.9944,deleted_lines_buggy_preferred,493,11,heuristic
+pandas,pybughivex_current,12845,BUG: SparseSeries slicing with Ellipsis raises KeyError,"Bug, Indexing, Sparse",syntax_error,logic_error,0.9019,deleted_lines_buggy_preferred,15,2,github_label
+pandas,pybughivex_current,12844,BUG: SparseSeries concat results in dense,"Bug, Reshaping, Sparse",syntax_error,logic_error,0.9852,deleted_lines_buggy_preferred,9436,224,github_label
+pandas,pybughivex_current,12839,GroupBy.nth includes group key inconsistently,"Bug, Groupby",syntax_error,logic_error,0.9988,deleted_lines_buggy_preferred,3159,72,heuristic
+pandas,pybughivex_current,12836,BUG: SparseSeries.to_frame results in dense,"Bug, Sparse",syntax_error,logic_error,0.9811,added_lines_fallback,132,4,github_label
+pandas,pybughivex_current,12835,BUG: SparseSeries.value_counts ignores fill_value,"Bug, Sparse, Algos, Timezones, Categorical",syntax_error,logic_error,0.8956,deleted_lines_buggy_preferred,3171,66,github_label
+pandas,pybughivex_current,12834,BUG 12800 fixed inconsistent behavior of last_valid_index and first_valid_index,"Bug, Indexing",logic_error,logic_error,0.9997,added_lines_fallback,93,4,heuristic
+pandas,pybughivex_current,12831,BUG: SparseSeries.reindex with fill_value,"Bug, Indexing, Missing-data, Sparse",syntax_error,logic_error,0.9711,deleted_lines_buggy_preferred,1990,41,github_label
+pandas,pybughivex_current,12821,agg() function on groupby dataframe changes dtype of datetime64[ns] column to float64 if all items in a single group are NaT,"Bug, Timeseries, Groupby, Missing-data",variable_misuse,logic_error,0.9895,deleted_lines_buggy_preferred,227,5,heuristic
+pandas,pybughivex_current,12800,"inconsistent behavior of series.last_valid_index, and df.last_valid_index when dataframe empty","Bug, Indexing",logic_error,logic_error,0.9997,added_lines_fallback,93,4,heuristic
+pandas,pybughivex_current,12797,BUG: Sparse incorrectly handle fill_value,"Bug, Missing-data, Sparse",syntax_error,logic_error,0.9711,deleted_lines_buggy_preferred,1990,41,github_label
+pandas,pybughivex_current,12791,Fix for #12723: Unexpected behavior with binary operators and fill…,"Bug, Missing-data",variable_misuse,logic_error,0.9869,added_lines_fallback,159,4,heuristic
+pandas,pybughivex_current,12787,BUG: SparseDataFrame indexing may return normal Series,"Bug, Indexing, Sparse",syntax_error,logic_error,0.9878,deleted_lines_buggy_preferred,338,6,github_label
+pandas,pybughivex_current,12779,BUG: Sparse misc fixes including __repr__,"Bug, Indexing, Output-Formatting, Sparse",syntax_error,logic_error,0.9997,deleted_lines_buggy_preferred,290,6,github_label
+pandas,pybughivex_current,12778,BUG: to_dense does not preserve dtype in SparseArray,"Bug, Dtype Conversions, Sparse",syntax_error,logic_error,0.9807,deleted_lines_buggy_preferred,121,3,github_label
+pandas,pybughivex_current,12774,BUG: Count on resampled PeriodIndex fails,"Bug, Period, Resample",logic_error,logic_error,0.9909,deleted_lines_buggy_preferred,879,19,heuristic
+pandas,pybughivex_current,12772,BUG: Series.quantile dtype / nan handling issue,"Bug, Numeric Operations",syntax_error,logic_error,0.9912,deleted_lines_buggy_preferred,5502,128,heuristic
+pandas,pybughivex_current,12770,ERR: Resample pad on existing freq causes recursion error,"Bug, Period, Resample",logic_error,logic_error,0.9909,deleted_lines_buggy_preferred,879,19,heuristic
+pandas,pybughivex_current,12742,BUG: SparseSeries.shape ignores fill_value,"Bug, Sparse",syntax_error,logic_error,0.8533,added_lines_fallback,62,3,github_label
+pandas,pybughivex_current,12723,Unexpected behavior with binary operators and fill_value,"Bug, Missing-data",variable_misuse,logic_error,0.9869,added_lines_fallback,159,4,heuristic
+pandas,pybughivex_current,12713,BUG: Bug in groupby.transform(..) when axis=1 is specified with a non_monotonic indexer,"Bug, Groupby",variable_misuse,syntax_error,0.9997,deleted_lines_buggy_preferred,274,7,heuristic
+pandas,pybughivex_current,12702,BUG: concatenation with a coercable dtype was too aggressive,"Bug, Reshaping, Dtype Conversions",syntax_error,logic_error,0.9992,deleted_lines_buggy_preferred,1144,22,heuristic
+pandas,pybughivex_current,12675,BUG: .describe lost CategoricalIndex info,"Bug, Categorical",syntax_error,logic_error,0.9314,deleted_lines_buggy_preferred,346,7,heuristic
+pandas,pybughivex_current,12659,BUG: Read SAS fails,"Bug, IO SAS",syntax_error,variable_misuse,0.9999,deleted_lines_buggy_preferred,16746,346,heuristic
+pandas,pybughivex_current,12647,TypeError with pd.read_sas() (pandas 0.18.0),"Bug, IO SAS",syntax_error,variable_misuse,0.9999,deleted_lines_buggy_preferred,16746,346,heuristic
+pandas,pybughivex_current,12635,BUG: Concat with tz-aware and timedelta raises AttributeError,"Bug, Reshaping, Timedelta, Timezones",syntax_error,logic_error,0.9921,deleted_lines_buggy_preferred,933,20,heuristic
+pandas,pybughivex_current,12633,BUG: #12624 where Panel.fillna() ignores inplace=True,"Bug, Missing-data",variable_misuse,logic_error,0.9895,deleted_lines_buggy_preferred,364,6,heuristic
+pandas,pybughivex_current,12620,BUG: Concat with tz-aware and timedelta raises AttributeError,"Bug, Reshaping, Timedelta, Timezones",syntax_error,logic_error,0.9921,deleted_lines_buggy_preferred,933,20,heuristic
+pandas,pybughivex_current,12615,BUG: Mixed period cannot be displayed with ValueError,"Bug, Output-Formatting, Period",logic_error,logic_error,0.962,deleted_lines_buggy_preferred,527,14,github_label
+pandas,pybughivex_current,12614,BUG: Crosstab margins ignoring dropna,"Bug, Missing-data, Reshaping",variable_misuse,logic_error,0.982,added_lines_fallback,62,2,heuristic
+pandas,pybughivex_current,12610,Bug: Pandas Series name attribute can be array,"Bug, Compat",variable_misuse,logic_error,0.9648,deleted_lines_buggy_preferred,84,2,heuristic
+pandas,pybughivex_current,12577,BUG: Crosstab margins ignoring dropna,"Bug, Missing-data, Reshaping",variable_misuse,logic_error,0.982,added_lines_fallback,62,2,heuristic
+pandas,pybughivex_current,12566,BUG: GH12558 where nulls contributed to normalized value_counts,"Bug, Missing-data",variable_misuse,logic_error,0.9961,deleted_lines_buggy_preferred,137,3,heuristic
+pandas,pybughivex_current,12558,BUG?: value_counts(normalize=True) normalizes over all observations including NaN.,"Bug, Numeric Operations",variable_misuse,logic_error,0.9961,deleted_lines_buggy_preferred,137,3,heuristic
+pandas,pybughivex_current,12553,SeriesGroupby.nunique raises an IndexError on empty Series,"Bug, Groupby",logic_error,variable_misuse,0.8787,deleted_lines_buggy_preferred,38,1,heuristic
+pandas,pybughivex_current,12540,BUG: Can't get period code with frequency alias 'minute' or 'Minute',"Bug, Frequency",variable_misuse,logic_error,0.9155,deleted_lines_buggy_preferred,105,3,heuristic
+pandas,pybughivex_current,12527,When .loc returns IndexError rather than KeyError,"Bug, Indexing",logic_error,logic_error,0.9808,deleted_lines_buggy_preferred,60,1,heuristic
+pandas,pybughivex_current,12498,BUG: Allow assignment by indexing with duplicate column names,"Bug, Indexing",logic_error,logic_error,0.4617,deleted_lines_buggy_preferred,20,1,heuristic
+pandas,pybughivex_current,12473,Pandas datetime64 series no longer has map function when localized,"Bug, Dtype Conversions",logic_error,logic_error,0.5807,deleted_lines_buggy_preferred,1420,28,heuristic
+pandas,pybughivex_current,12467,Concat of tz-aware and tz-unaware dataframes fails,"Bug, Reshaping, Timezones",variable_misuse,syntax_error,0.96,deleted_lines_buggy_preferred,14,1,heuristic
+pandas,pybughivex_current,12462,BUG: fix df concat containing mix of localized and non-localized Timestamps,"Bug, Timezones",variable_misuse,syntax_error,0.96,deleted_lines_buggy_preferred,14,1,heuristic
+pandas,pybughivex_current,12453,BUG: excel export merge margin ,"Bug, IO Excel",logic_error,logic_error,0.9998,deleted_lines_buggy_preferred,661,22,heuristic
+pandas,pybughivex_current,12391,BUG: Return UTC DateTimeIndex when specified in to_datetime,"Bug, Timezones",variable_misuse,logic_error,0.941,deleted_lines_buggy_preferred,26,1,heuristic
+pandas,pybughivex_current,12373,BUG: rolling functions raise ValueError on float32 data,"Bug, Dtype Conversions",variable_misuse,logic_error,0.995,deleted_lines_buggy_preferred,250,6,heuristic
+pandas,pybughivex_current,12364,BUG: resample with nunique,"Bug, Resample",logic_error,logic_error,0.8076,deleted_lines_buggy_preferred,102,2,heuristic
+pandas,pybughivex_current,12363,BUG: inconsistent name for returned Series in groupby,"Bug, Groupby",syntax_error,logic_error,0.9763,deleted_lines_buggy_preferred,5213,99,heuristic
+pandas,pybughivex_current,12362,ENH Consistent apply output when grouping with freq,"Bug, Groupby, Dtype Conversions, Resample",variable_misuse,logic_error,0.9966,deleted_lines_buggy_preferred,580,16,heuristic
+pandas,pybughivex_current,12352,nunique + TimeGrouper error,"Bug, Resample",logic_error,logic_error,0.8076,deleted_lines_buggy_preferred,102,2,heuristic
+pandas,pybughivex_current,12344,DataFrame.fillna corrupts columns with duplicated names,"Bug, Indexing, Missing-data",logic_error,logic_error,0.4617,deleted_lines_buggy_preferred,20,1,heuristic
+pandas,pybughivex_current,12332,Resample with OHLC sometimes results in series on pandas release 0.18.0.rc1,"Bug, Resample",logic_error,logic_error,0.993,deleted_lines_buggy_preferred,516,9,heuristic
+pandas,pybughivex_current,12329,BUG: addtl fix for compat summary of groupby/resample with dicts,"Bug, Groupby, Resample",logic_error,logic_error,0.993,deleted_lines_buggy_preferred,516,9,heuristic
+pandas,pybughivex_current,12296,Fix #12292 : error when read one empty column from excel file,"Bug, IO Excel",variable_misuse,variable_misuse,0.9499,deleted_lines_buggy_preferred,780,14,heuristic
+pandas,pybughivex_current,12295,BUG: Refine validation of parameters to RangeIndex.__init__,"Bug, Indexing",variable_misuse,logic_error,0.99,deleted_lines_buggy_preferred,372,9,heuristic
+pandas,pybughivex_current,12292,read_excel crash with empty Exception,"Bug, IO Excel",variable_misuse,variable_misuse,0.9499,deleted_lines_buggy_preferred,780,14,heuristic
+pandas,pybughivex_current,12288,RangeIndex copy behaviour differs from other indices,"Bug, Indexing",variable_misuse,logic_error,0.99,deleted_lines_buggy_preferred,372,9,heuristic
+pandas,pybughivex_current,12284,BUG: Allow 'apply' to be used with non-numpy-dtype DataFrames,"Bug, Reshaping, Timezones",variable_misuse,logic_error,0.9925,deleted_lines_buggy_preferred,557,12,heuristic
+pandas,pybughivex_current,12241,BUG: Timestamp subtraction of NaT with timezones,"Bug, Missing-data, Timezones",syntax_error,logic_error,0.9884,deleted_lines_buggy_preferred,526,11,heuristic
+pandas,pybughivex_current,12223,multi-index display bug,"Bug, MultiIndex",syntax_error,logic_error,0.9828,deleted_lines_buggy_preferred,1208,22,heuristic
+pandas,pybughivex_current,12192,"BUG: Handle variables named 'name' in get_dummies, #12180","Bug, Strings",variable_misuse,logic_error,0.9622,deleted_lines_buggy_preferred,63,1,heuristic
+pandas,pybughivex_current,12184,BUG: read_excel with squeeze=True,"Bug, IO Excel",syntax_error,variable_misuse,0.9999,deleted_lines_buggy_preferred,279,6,heuristic
+pandas,pybughivex_current,12180,Series.str.get_dummies fails if one of the categorical variables is called 'name',"Bug, Strings",variable_misuse,logic_error,0.9622,deleted_lines_buggy_preferred,63,1,heuristic
+pandas,pybughivex_current,12157,"read_excel(..., index_col=0, squeeze=True) raises AttributeError","Bug, Regression, IO Excel",logic_error,variable_misuse,0.9999,deleted_lines_buggy_preferred,279,6,github_label
+pandas,pybughivex_current,12151,BUG: getitem and a series with a non-ndarray values,"Bug, Timeseries, Timezones",syntax_error,logic_error,0.9857,deleted_lines_buggy_preferred,135,3,heuristic
+pandas,pybughivex_current,12134,style.set_precision(0) displays spurious .0,"Bug, Output-Formatting, IO HTML",logic_error,logic_error,0.9892,deleted_lines_buggy_preferred,892,28,github_label
+pandas,pybughivex_current,12125,Styler class fails to render numeric columns when 0 not in columns,"Bug, Output-Formatting, IO HTML",logic_error,logic_error,0.9892,deleted_lines_buggy_preferred,892,28,github_label
+pandas,pybughivex_current,12089,Indexing into Series of tz-aware datetime64s fails using __getitem__,"Bug, Timeseries, Regression, Timezones",logic_error,logic_error,0.9857,deleted_lines_buggy_preferred,135,3,github_label
+pandas,pybughivex_current,12072,Resampling fails with equal frequency,"Bug, Resample",syntax_error,variable_misuse,0.9997,deleted_lines_buggy_preferred,29356,577,heuristic
+pandas,pybughivex_current,12060,PERF: more flexible iso8601 parsing,"Bug, Timeseries, Performance",variable_misuse,logic_error,0.877,deleted_lines_buggy_preferred,953,20,heuristic
+pandas,pybughivex_current,12045,Printing None and NaN values in Pandas dataframe produces confusing results,"Bug, Output-Formatting",logic_error,logic_error,0.9992,deleted_lines_buggy_preferred,1144,22,github_label
+pandas,pybughivex_current,11981,interation of set_eng_float_format and pivot_tables,"Bug, Missing-data, Output-Formatting",logic_error,logic_error,0.992,added_lines_fallback,57,2,github_label
+pandas,pybughivex_current,11934,Bug: UTC in to_datetime() not working in 0.17.1,"Bug, Timezones",variable_misuse,logic_error,0.941,deleted_lines_buggy_preferred,26,1,heuristic
+pandas,pybughivex_current,11871,BUG: to_datetime issue parsing non-zero padded month in 0.17.1,"Bug, Timeseries",variable_misuse,logic_error,0.877,deleted_lines_buggy_preferred,953,20,heuristic
+pandas,pybughivex_current,11854,Can't get period code with frequency alias 'minute' or 'Minute',"Bug, Frequency",variable_misuse,logic_error,0.9155,deleted_lines_buggy_preferred,105,3,heuristic
+scrapy,pybughivex_current,1265,Backward incompatibility for relocated paths in settings,bug,syntax_error,logic_error,0.9996,deleted_lines_buggy_preferred,116,4,heuristic
+scrapy,pybughivex_current,728,get_func_args maximum recursion,bu,variable_misuse,logic_error,0.9989,added_lines_fallback,73,2,heuristic
+spaCy,pybughivex_current,3830,German model leaks internal symbol and can't seem to handle quotes as before,"bug, lang / de, feat / parser, perf / accuracy",syntax_error,logic_error,0.9804,deleted_lines_buggy_preferred,161,4,github_label
+spaCy,pybughivex_current,2361,"displacy.render produces invalid svg by not escaping ""<""","bug, help wanted, help wanted (easy), feat / visualizers",variable_misuse,logic_error,0.9792,deleted_lines_buggy_preferred,96,2,heuristic
+spaCy,pybughivex_current,2177,Why are we looking for exactly one attribute in case of set_extension on a doc.,"bug, feat / pipeline",variable_misuse,logic_error,0.8971,deleted_lines_buggy_preferred,152,2,heuristic
+spaCy,pybughivex_current,1660,"ValueError: shapes (4,0) and (300,128) not aligned from numpy at Thinc ","bug, 🔮 thinc, feat / vectors",syntax_error,variable_misuse,0.9997,deleted_lines_buggy_preferred,576,9,heuristic
+spaCy,pybughivex_current,912,"Unexpected lemma: ""inner"" -> ""inn""",bug,logic_error,logic_error,0.9639,deleted_lines_buggy_preferred,53,1,heuristic
+spaCy,pybughivex_current,903,Overzealous lemmatisation of -ss nouns,"bug, help wanted (easy)",logic_error,logic_error,0.9845,deleted_lines_buggy_preferred,318,5,heuristic
+tqdm,pybughivex_current,328,tqdm._version: insecure use of git,p0-bug-critical ,variable_misuse,variable_misuse,0.9978,deleted_lines_buggy_preferred,663,18,heuristic
+tqdm,pybughivex_current,323,'tqdm' object has no attribute 'pos',"p0-bug-critical ☢,need-feedback 📢,synchronisation ",syntax_error,logic_error,0.5389,deleted_lines_buggy_preferred,4655,101,heuristic
+fairseq,pybughivex_current,3246,"Transformer model is not compatible with Torchscript when ""--no-token-positional-embeddings"" is enabled","bug,needs triag",variable_misuse,logic_error,0.9561,deleted_lines_buggy_preferred,1068,20,heuristic
+fairseq,pybughivex_current,2673,Full-context alignment is broken in transformer_align model,bu,variable_misuse,logic_error,0.9349,deleted_lines_buggy_preferred,113,2,heuristic
+fairseq,pybughivex_current,2083,"""argument --distributed-world-size: conflicting option string: --distributed-world-size"" Error",bu,syntax_error,variable_misuse,0.9999,deleted_lines_buggy_preferred,1403,31,heuristic
+fairseq,pybughivex_current,2079,"training transformer model with normalize-before generates extremely high ppl and a ""list assignment index out of range"" error",bu,syntax_error,logic_error,0.9806,deleted_lines_buggy_preferred,6453,136,heuristic
+fairseq,pybughivex_current,2022,Recent SequenceGenerator update makes it unusable with sub-classes that have a different `net_input`,"bug,needs triag",logic_error,logic_error,0.9595,deleted_lines_buggy_preferred,565,12,heuristic
+fairseq,pybughivex_current,1632,Training loss is mixed with valid loss,bu,syntax_error,logic_error,0.7742,deleted_lines_buggy_preferred,1595,33,heuristic
+airflow,pybughivex_current,14669,Fix missing attribute warning in AzureDataFactoryHook,"kind:bug,good first issu",syntax_error,syntax_error,0.5511,deleted_lines_buggy_preferred,64,1,heuristic
+airflow,pybughivex_current,13481,AttributeError: 'S3KeysUnchangedSensor' object has no attribute 'bucket_name',"kind:bug,provider:AWS,good first issu",variable_misuse,logic_error,0.9962,deleted_lines_buggy_preferred,293,5,heuristic
+airflow,pybughivex_current,10985,AWS Datasync tests are failing with Moto 1.3.16,"kind:bug,provider:AWS,good first issue,area:C",logic_error,logic_error,0.9989,deleted_lines_buggy_preferred,679,10,heuristic
+airflow,pybughivex_current,8842,Date Time Parsing Issue in Frontend when running DAGs,kind:bu,syntax_error,syntax_error,0.9923,deleted_lines_buggy_preferred,615,12,heuristic
+zulip,pybughivex_current,19833,convert_slack_data issue,"bug,area: export/import,priority: high",syntax_error,logic_error,0.9833,deleted_lines_buggy_preferred,90,1,github_label
+zulip,pybughivex_current,19468,"`delete_realm` deletes users before flushing, causing `delete_user_profile_caches` to do nothing","bug,area: export/import,in progress,priority: high",syntax_error,logic_error,0.9867,deleted_lines_buggy_preferred,242,4,github_label
+zulip,pybughivex_current,18959,Mattermost importer doesn't support attachments,"bug,area: export/import,priority: high",syntax_error,variable_misuse,0.7177,deleted_lines_buggy_preferred,561,10,github_label
+salt,pybughivex_current,64477,[BUG] file.symlink will not replace/update existing symlink,"Bug,Regression",logic_error,logic_error,0.8145,deleted_lines_buggy_preferred,73,1,github_label
+salt,pybughivex_current,64430,[BUG] regression for user.present on handling groups with dupe GIDs,"Bug,Regression",logic_error,logic_error,0.999,deleted_lines_buggy_preferred,519,14,github_label
+salt,pybughivex_current,64477,[BUG] file.symlink will not replace/update existing symlink,"Bug,Regression",logic_error,logic_error,0.8145,deleted_lines_buggy_preferred,73,1,github_label
+salt,pybughivex_current,64430,[BUG] regression for user.present on handling groups with dupe GIDs,"Bug,Regression",logic_error,logic_error,0.999,deleted_lines_buggy_preferred,519,14,github_label
+salt,pybughivex_current,64280,[BUG] Mako error on pillars render after upgrade to 3006.1,"Bug,Regression,Confirmed",logic_error,syntax_error,0.9967,deleted_lines_buggy_preferred,57,2,github_label
+salt,pybughivex_current,60046,[BUG] Snapper module _is_text_file function broken,"Bug,severity-medium,Regression,Silicon v3004.0",logic_error,logic_error,0.9822,deleted_lines_buggy_preferred,14939,287,github_label
+salt,pybughivex_current,59705,[BUG] (?) regression (!)(?) in 3002.5 for linux yum pkg version numbers - AttributeError: 'float' object has no attribute 'lstrip',"Bug,severity-medium,Regression,P2,centos",logic_error,logic_error,0.998,deleted_lines_buggy_preferred,685,14,github_label
+numpy,pybughivex_current,22899,BUG: np.loadtxt cannot load text file with quoted fields separated by whitespace,00 - Bug,variable_misuse,variable_misuse,0.9988,added_lines_fallback,369,6,heuristic
+numpy,pybughivex_current,22714,BUG: `numpy.median()` does not respect `keepdims=True` when the `out` argument is specified,"00 - Bug,component: numpy.lib",syntax_error,variable_misuse,0.9154,deleted_lines_buggy_preferred,915,33,heuristic
+numpy,pybughivex_current,20050,BUG: Misleading error from histogram2d,"00 - Bug,component: numpy.lib",logic_error,logic_error,0.9826,added_lines_fallback,83,2,heuristic
+scikit-learn,pybughivex_current,4907,RANSAC and residual_threshold==0 (feature request),"Bug,Easy",logic_error,logic_error,0.9744,added_lines_fallback,215,4,heuristic
+scikit-learn,pybughivex_current,4374,LinearSVC(intercept_scaling=0) breaks,"Bug,Easy",logic_error,variable_misuse,0.7633,deleted_lines_buggy_preferred,24,1,heuristic
+scikit-learn,pybughivex_current,4036,"mixture.gmm() produces different BIC scores for 'tied' vs other covariance types, for 1 component fits to 1D data",Bug,logic_error,logic_error,0.9996,deleted_lines_buggy_preferred,403,8,heuristic
+scikit-learn,pybughivex_current,3485,SGDClassifier with class_weight=auto fails on scikit-learn 0.15 but not 0.14,Bug,syntax_error,syntax_error,0.9956,deleted_lines_buggy_preferred,211,3,heuristic
+scikit-learn,pybughivex_current,3372,Unstable test_common.check_regressors_train for RANSACRegressor,Bug,logic_error,logic_error,0.9626,added_lines_fallback,201,4,heuristic
+scikit-learn,pybughivex_current,3370,Heisen failure in # of alphas returned by lars_path on Windows with 32-bit Python,Bug,logic_error,logic_error,0.9942,deleted_lines_buggy_preferred,123,2,heuristic
+scikit-learn,pybughivex_current,2986,ZeroDivisionError: float division by zero in scipy/sparse/linalg/isolve/lsqr.py,Bug,syntax_error,logic_error,0.9869,deleted_lines_buggy_preferred,344,11,heuristic
+scikit-learn,pybughivex_current,2839,OneHotEncoder should raise ValueError when value >= n_values,"Bug,Easy",syntax_error,logic_error,0.9987,deleted_lines_buggy_preferred,151,3,heuristic
+scikit-learn,pybughivex_current,2609,BUG: KNeighborsClassifier & KNeighborsRegressor **kwargs,"Bug,API",syntax_error,variable_misuse,0.9999,deleted_lines_buggy_preferred,2009,39,heuristic
+scikit-learn,pybughivex_current,2481,LabelEncoder doesn't work correctly for unicode labels in Python 2.6 + numpy 1.3,Bug,logic_error,logic_error,0.5958,deleted_lines_buggy_preferred,32,1,heuristic
+scikit-learn,pybughivex_current,1903,Bug: DictVectorizer throws exception for empty/unknown feature dict,Bug,logic_error,logic_error,0.9671,deleted_lines_buggy_preferred,107,2,heuristic
+scikit-learn,pybughivex_current,1724,StandardScaler ignores with_std for sparse matrices,"Bug,Easy",logic_error,logic_error,0.9911,deleted_lines_buggy_preferred,523,10,heuristic
+scikit-learn,pybughivex_current,1336,Perceptron and PassiveAggressiveClassifier should not inherit from predict_proba,"Bug,Easy",syntax_error,logic_error,0.8717,deleted_lines_buggy_preferred,10334,200,heuristic
+scikit-learn,pybughivex_current,1312,PLSSVD module does not extract the required n_component specified by user,Bug,logic_error,logic_error,0.9738,deleted_lines_buggy_preferred,44,1,heuristic
+scikit-learn,pybughivex_current,1098,CountVectorizer can't find russian n-grams,Bug,variable_misuse,logic_error,0.5949,deleted_lines_buggy_preferred,115,2,heuristic
+flask,pybughivex_current,2118,config.from_pyfile crashes on Python 3 when source isn't encoded in default encoding,bug,syntax_error,logic_error,0.9942,deleted_lines_buggy_preferred,35,1,heuristic
+sentry,pybughivex_current,1979,Infinity/-Infinity/NaN values produce invalid JSON,Type: Bug,syntax_error,logic_error,0.9998,deleted_lines_buggy_preferred,99,3,heuristic
+redash,pybughivex_current,1979,The API key for one query may be used to retrieve another query's results,"Bug,Backend",logic_error,logic_error,0.9904,deleted_lines_buggy_preferred,146,3,heuristic
+discord.py,pybughivex_current,7676,tasks.loop display too many warning.,bug,logic_error,logic_error,0.9878,deleted_lines_buggy_preferred,332,6,heuristic
+discord.py,pybughivex_current,7676,tasks.loop display too many warning.,bug,logic_error,logic_error,0.9878,deleted_lines_buggy_preferred,332,6,heuristic
+netbox,pybughivex_current,10686,CSV upload doesn't respect chassis master as accessor for all interfaces in stack,"type: bug,status: accepted",syntax_error,logic_error,0.99,deleted_lines_buggy_preferred,64,1,heuristic
+netbox,pybughivex_current,10517,cannot create new Virtual Machine within a Cluster,"type: bug,status: accepted",logic_error,logic_error,0.9732,deleted_lines_buggy_preferred,51,1,heuristic
+netbox,pybughivex_current,10513,Moving a module between devices doesn't move it's associated components,"type: bug,status: accepted",logic_error,syntax_error,0.9994,added_lines_fallback,295,7,heuristic
+netbox,pybughivex_current,10241,CustomField MultiObject returns dict but expects id's,"type: bug,status: accepted",variable_misuse,syntax_error,0.9999,added_lines_fallback,955,17,heuristic
+netbox,pybughivex_current,8187,"Many views broken in 3.1.3 due to moved ""templatetags/tag.html""","type: bug,status: accepted",variable_misuse,logic_error,0.9423,deleted_lines_buggy_preferred,47,1,heuristic
+netbox,pybughivex_current,7628,PyYAML requires Loader to be specified,"type: bug,status: accepted",variable_misuse,logic_error,0.9875,deleted_lines_buggy_preferred,54,2,heuristic
+netbox,pybughivex_current,7209,API calls not respecting limit paramater when set to 0,"type: bug,status: accepted",logic_error,logic_error,0.9998,deleted_lines_buggy_preferred,181,5,heuristic
+netbox,pybughivex_current,7093,Filtering on multi-selection custom field is not performing exact match,"type: bug,status: accepted",logic_error,logic_error,0.9916,deleted_lines_buggy_preferred,47,1,heuristic
+netbox,pybughivex_current,6936,Missing parent field on Inventory Item Bulk Import,"type: bug,status: accepted",variable_misuse,logic_error,0.9869,added_lines_fallback,756,19,heuristic
+netbox,pybughivex_current,6686,Null date in custom field is sorted differently to empty data value,"type: bug,status: accepted",logic_error,logic_error,0.9674,deleted_lines_buggy_preferred,619,9,heuristic
+netbox,pybughivex_current,5652,Change of custom field name results in empty data,"type: bug,status: accepted",logic_error,logic_error,0.8196,deleted_lines_buggy_preferred,60,1,heuristic
+netbox,pybughivex_current,5574,Device Type allows device bays without being set to parent,"type: bug,status: accepted",logic_error,logic_error,0.9775,added_lines_fallback,284,5,heuristic
+netbox,pybughivex_current,5510,Filter by boolean custom field don`t work in web UI,"type: bug,status: accepted",logic_error,logic_error,0.9969,deleted_lines_buggy_preferred,622,14,heuristic
+netbox,pybughivex_current,4835,Cannot provide multiple initial values to multiple-select form fields,"type: bug,status: accepted",variable_misuse,logic_error,0.9537,deleted_lines_buggy_preferred,814,13,heuristic
+netbox,pybughivex_current,4166,Naturalization of names resulting in >100 characters causes shcema migration to fail,"type: bug,status: accepted",syntax_error,logic_error,0.9859,deleted_lines_buggy_preferred,629,9,heuristic
+netbox,pybughivex_current,3983,Cannot create device with no name,"type: bug,status: accepted",syntax_error,logic_error,0.9662,deleted_lines_buggy_preferred,223,4,heuristic
+netbox,pybughivex_current,3721,"Non-ascii tag creates empty slug, exception django.urls.exceptions.NoReverseMatch","type: bug,status: accepted",syntax_error,logic_error,0.9997,added_lines_fallback,287,7,heuristic
+netbox,pybughivex_current,2514,Interface Connections allow duplicate connections to be created,"type: bug,status: accepted",logic_error,logic_error,0.9996,deleted_lines_buggy_preferred,1802,42,heuristic
+netbox,pybughivex_current,2473,Secret encryption fails with 128+ characters under Python 2,"type: bug,status: accepted",logic_error,logic_error,0.9846,deleted_lines_buggy_preferred,150,6,heuristic
+netbox,pybughivex_current,2358,Different default value for 'custom_field' if created via WebUI vs RestAPI ,"type: bug,status: accepted",logic_error,logic_error,0.9932,deleted_lines_buggy_preferred,367,5,heuristic
+netbox,pybughivex_current,2337,Attempting to create the next available prefix within a parent assigned to a VRF raises an AssertionError,"type: bug,status: accepted",variable_misuse,logic_error,0.9894,deleted_lines_buggy_preferred,339,4,heuristic
+poetry,pybughivex_current,5141,Incorrect `poetry export` output with dependency conditional on Python version,kind/bug,variable_misuse,logic_error,0.9995,deleted_lines_buggy_preferred,5242,108,heuristic
+poetry,pybughivex_current,3366,git install doesn't recognize new `main` default branch,kind/bug,logic_error,logic_error,0.9987,deleted_lines_buggy_preferred,477,10,heuristic
+poetry,pybughivex_current,3303,Regression: 403 Auth Failure for S3-hosted (Cloudfront) Private Repos,kind/bug,variable_misuse,logic_error,0.9999,deleted_lines_buggy_preferred,204,6,heuristic
+poetry,pybughivex_current,3224,Extra dependencies for package on private repo uninstalled when running `poetry install`.,kind/bug,variable_misuse,logic_error,0.9605,deleted_lines_buggy_preferred,306,5,heuristic
+poetry,pybughivex_current,3112,poetry lock/export wrong with sys_platform (works fine on ver 1.0.10),kind/bug,logic_error,logic_error,0.9877,deleted_lines_buggy_preferred,1436,27,heuristic
+poetry,pybughivex_current,3079,PermissionError installing root package in 1.1.0,kind/bug,syntax_error,variable_misuse,0.9831,deleted_lines_buggy_preferred,1317,28,heuristic
+certbot,pybughivex_current,3954,`-n` doesn't like `force_interactive`?,"bug,has pr,potential workflow regression",logic_error,logic_error,0.9498,deleted_lines_buggy_preferred,62,1,github_label
+mkdocs,pybughivex_current,1347,section names vs file names,Bug,syntax_error,logic_error,0.9188,deleted_lines_buggy_preferred,23600,528,heuristic
+mkdocs,pybughivex_current,991,Markdown image directive and html <img> have different paths.,"Bug,Documentation",syntax_error,logic_error,0.9188,deleted_lines_buggy_preferred,23600,528,heuristic
+mkdocs,pybughivex_current,1347,section names vs file names,Bug,syntax_error,logic_error,0.9188,deleted_lines_buggy_preferred,23600,528,heuristic
+mkdocs,pybughivex_current,991,Markdown image directive and html <img> have different paths.,"Bug,Documentation",syntax_error,logic_error,0.9188,deleted_lines_buggy_preferred,23600,528,heuristic
+bokeh,pybughivex_current,12537,[BUG] ImportError: cannot import name 'NotRequired' from 'typing_extensions',"type: bug,reso: completed",logic_error,logic_error,0.9321,deleted_lines_buggy_preferred,2789,91,heuristic
+bokeh,pybughivex_current,5524,#NAME?,"type: bug,tag: regression,reso: completed,tag: component: server",logic_error,logic_error,0.8709,deleted_lines_buggy_preferred,216,6,github_label
+bokeh,pybughivex_current,3429,Periodic callbacks are invoked once when added,"type: bug,reso: completed",syntax_error,logic_error,0.9845,deleted_lines_buggy_preferred,6026,110,heuristic
+bokeh,pybughivex_current,3318,timeout callbacks should remove themselves after they run,"type: bug,reso: completed",syntax_error,logic_error,0.9845,deleted_lines_buggy_preferred,6026,110,heuristic
+dash,pybughivex_current,1105,[BUG] Data Table prevents other callbacks until it is rendered first,dash-type-bug,logic_error,syntax_error,0.925,deleted_lines_buggy_preferred,38,1,heuristic
+dash,pybughivex_current,791,[BUG] error reporting callback definition errors,"dash-type-bug,regression,size: 1",logic_error,logic_error,0.9572,deleted_lines_buggy_preferred,241,6,github_label
+freqtrade,pybughivex_current,8758,Change logic how stoploss_on_exchange orders are build,"Bug,Stoploss",logic_error,logic_error,0.9442,deleted_lines_buggy_preferred,121,2,heuristic
+freqtrade,pybughivex_current,8755,OKX: Create order fails while adjusting position due to inability to change leverage while open orders are active,"Bug,Non-spot",logic_error,logic_error,0.9207,deleted_lines_buggy_preferred,119,2,heuristic
+freqtrade,pybughivex_current,7489,max_open_trades Does not work when we use forceenter,"Bug,RPC",logic_error,logic_error,0.9662,added_lines_fallback,160,3,heuristic
+freqtrade,pybughivex_current,7424,"custom_stoploss is not updated at next ""stoploss_on_exchange_interval""","Bug,Stoploss",logic_error,syntax_error,0.9999,deleted_lines_buggy_preferred,262,4,heuristic
+freqtrade,pybughivex_current,7294,Certain dry-run trades are exiting because of liquidation,"Bug,Non-spot",variable_misuse,logic_error,0.9868,deleted_lines_buggy_preferred,1149,20,heuristic
+freqtrade,pybughivex_current,6996,ERROR - 'stopPrice' - KeyError: 'stopPrice',Bug,logic_error,logic_error,0.9916,deleted_lines_buggy_preferred,837,13,heuristic
+freqtrade,pybughivex_current,6907,Deleting order from database when Position adjust triggered and order timed out,Bug,variable_misuse,logic_error,0.9872,deleted_lines_buggy_preferred,363,6,heuristic
+freqtrade,pybughivex_current,8758,Change logic how stoploss_on_exchange orders are build,"Bug,Stoploss",logic_error,logic_error,0.9442,deleted_lines_buggy_preferred,121,2,heuristic
+freqtrade,pybughivex_current,8755,OKX: Create order fails while adjusting position due to inability to change leverage while open orders are active,"Bug,Non-spot",logic_error,logic_error,0.9207,deleted_lines_buggy_preferred,119,2,heuristic
+freqtrade,pybughivex_current,7489,max_open_trades Does not work when we use forceenter,"Bug,RPC",logic_error,logic_error,0.9662,added_lines_fallback,160,3,heuristic
+freqtrade,pybughivex_current,7424,"custom_stoploss is not updated at next ""stoploss_on_exchange_interval""","Bug,Stoploss",logic_error,syntax_error,0.9999,deleted_lines_buggy_preferred,262,4,heuristic
+freqtrade,pybughivex_current,7294,Certain dry-run trades are exiting because of liquidation,"Bug,Non-spot",variable_misuse,logic_error,0.9868,deleted_lines_buggy_preferred,1149,20,heuristic
+freqtrade,pybughivex_current,6996,ERROR - 'stopPrice' - KeyError: 'stopPrice',Bug,logic_error,logic_error,0.9916,deleted_lines_buggy_preferred,837,13,heuristic
+freqtrade,pybughivex_current,6907,Deleting order from database when Position adjust triggered and order timed out,Bug,variable_misuse,logic_error,0.9872,deleted_lines_buggy_preferred,363,6,heuristic
+freqtrade,pybughivex_current,6457,"Emergency sell failed, with previous sell order is partially filled",Bug,logic_error,logic_error,0.9996,deleted_lines_buggy_preferred,335,6,heuristic
+freqtrade,pybughivex_current,6056,PerformanceFilter 'min_profit' example value in the docs should be a percentage not a ratio,"Bug,Pairlist",variable_misuse,logic_error,0.9745,deleted_lines_buggy_preferred,268,4,heuristic
+freqtrade,pybughivex_current,6018,Bot crashes randomly,Bug,logic_error,logic_error,0.9998,deleted_lines_buggy_preferred,402,10,heuristic
+freqtrade,pybughivex_current,5840,Environment variable validation error for FREQTRADE__TELEGRAM__CHAT_ID,"Bug,RPC",logic_error,logic_error,0.9875,deleted_lines_buggy_preferred,67,1,heuristic
+freqtrade,pybughivex_current,5045,Bot crashing after few hours of running (FTX),Bug,logic_error,logic_error,0.8594,deleted_lines_buggy_preferred,219,3,heuristic
+freqtrade,pybughivex_current,1427,Market orders are not handled in persistence.,Bug,logic_error,logic_error,0.9906,deleted_lines_buggy_preferred,245,4,heuristic
+jax,pybughivex_current,15663,Source location info is incorrectly shared via caching,bug,syntax_error,logic_error,0.9156,deleted_lines_buggy_preferred,252,4,heuristic
+jax,pybughivex_current,15663,Source location info is incorrectly shared via caching,bug,syntax_error,logic_error,0.9156,deleted_lines_buggy_preferred,252,4,heuristic
+jax,pybughivex_current,12583,Persistent compilation cache can exceed GCS retry rate,bug,syntax_error,logic_error,0.8441,deleted_lines_buggy_preferred,472,8,heuristic
+jax,pybughivex_current,10530,Segfault in `jax.scipy.linalg.schur` for 16-bit floats,bug,syntax_error,logic_error,0.9668,deleted_lines_buggy_preferred,837,22,heuristic
+jax,pybughivex_current,10315,Low-level error in forward-mode AD of `lax.reduce_window_sum_p`,bug,logic_error,logic_error,0.9991,deleted_lines_buggy_preferred,44,1,heuristic
+jax,pybughivex_current,9969,jax.hessian uses positional argument `holomorphic` where it should be `has_aux` ,bug,syntax_error,logic_error,0.9452,deleted_lines_buggy_preferred,112,2,heuristic
+jax,pybughivex_current,8634,Incorrect gradient for segment sum,bug,syntax_error,logic_error,0.9096,deleted_lines_buggy_preferred,1155,16,heuristic
+jax,pybughivex_current,7992,[jax2tf] Converted functions do not preserve sharing for constants,bug,syntax_error,logic_error,0.9858,deleted_lines_buggy_preferred,820,15,heuristic
+jax,pybughivex_current,6975,jax2tf error when taking gradients of a converted Haiku ResNet model,bug,logic_error,syntax_error,0.9692,deleted_lines_buggy_preferred,90,2,heuristic
+jax,pybughivex_current,5190,How to resolve ValueError `vector::reserve`?,"bug,better_errors",syntax_error,logic_error,0.9931,added_lines_fallback,282,4,heuristic
+jax,pybughivex_current,5169,jax.pmap causes multiple id_tap callbacks to run,bug,syntax_error,variable_misuse,0.9999,deleted_lines_buggy_preferred,3991,62,heuristic
+jax,pybughivex_current,1267,PRNG performance regression on XLA:GPU,"bug,performance",syntax_error,syntax_error,0.9945,deleted_lines_buggy_preferred,3796,63,heuristic
+jax,pybughivex_current,912,vmap doesn't handle named arguments.,bug,syntax_error,logic_error,0.9471,deleted_lines_buggy_preferred,5180,77,heuristic
+jax,pybughivex_current,14397,jax.grad computes incorrect derivative for polynomials,"bug,P1 (soon",syntax_error,logic_error,0.707,deleted_lines_buggy_preferred,1810,41,heuristic

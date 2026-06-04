@@ -1,0 +1,29 @@
+Model: XGB (structural)
+==================================================
+
+Best hyperparameters:
+  learning_rate: 0.1
+  n_estimators: 100
+
+Train time    : 0.46s
+Train accuracy: 0.7634
+Val accuracy  : 0.5862
+Test accuracy : 0.5923
+Macro F1      : 0.5969
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.89      0.47      0.61       396
+    logic_error       0.54      0.60      0.57       849
+variable_misuse       0.58      0.64      0.61       872
+
+       accuracy                           0.59      2117
+      macro avg       0.67      0.57      0.60      2117
+   weighted avg       0.62      0.59      0.59      2117
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(185), np.int64(123), np.int64(88)]
+  [np.int64(14), np.int64(512), np.int64(323)]
+  [np.int64(8), np.int64(307), np.int64(557)]

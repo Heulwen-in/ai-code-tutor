@@ -1,0 +1,51 @@
+Baseline Classifier Results
+============================================================
+
+Model: SVM (TF-IDF)
+  Accuracy    : 0.8956
+  Macro F1    : 0.9060
+  Weighted F1 : 0.8957
+  syntax_f1   : 0.9531
+  logic_f1    : 0.8799
+  variable_f1 : 0.8849
+
+Model: LR (TF-IDF)
+  Accuracy    : 0.8517
+  Macro F1    : 0.8633
+  Weighted F1 : 0.8516
+  syntax_f1   : 0.9171
+  logic_f1    : 0.8327
+  variable_f1 : 0.8401
+
+Model: SVM (structural)
+  Accuracy    : 0.5815
+  Macro F1    : 0.5812
+  Weighted F1 : 0.5816
+  syntax_f1   : 0.5799
+  logic_f1    : 0.5652
+  variable_f1 : 0.5983
+
+Model: LR (structural)
+  Accuracy    : 0.5725
+  Macro F1    : 0.5719
+  Weighted F1 : 0.5729
+  syntax_f1   : 0.5680
+  logic_f1    : 0.5615
+  variable_f1 : 0.5862
+
+Model: DecisionTree (TF-IDF)
+  Accuracy    : 0.5824
+  Macro F1    : 0.5716
+  Weighted F1 : 0.5850
+  syntax_f1   : 0.5101
+  logic_f1    : 0.6114
+  variable_f1 : 0.5932
+
+Model: DecisionTree (structural)
+  Accuracy    : 0.4974
+  Macro F1    : 0.4942
+  Weighted F1 : 0.4977
+  syntax_f1   : 0.4781
+  logic_f1    : 0.5026
+  variable_f1 : 0.5018
+

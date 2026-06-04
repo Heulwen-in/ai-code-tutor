@@ -1,0 +1,14 @@
+{
+  "BERT": {
+    "lr": "3e-05",
+    "batch_size": "8"
+  },
+  "RoBERTa": {
+    "lr": "2e-05",
+    "batch_size": "8"
+  },
+  "CodeBERT": {
+    "lr": "3e-05",
+    "batch_size": "8"
+  }
+}

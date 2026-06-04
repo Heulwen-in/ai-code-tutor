@@ -1,0 +1,29 @@
+Model: RF (TF-IDF)
+==================================================
+
+Best hyperparameters:
+  n_estimators: 200
+  max_depth: 20
+
+Train time    : 0.65s
+Train accuracy: 0.9442
+Val accuracy  : 0.8092
+Test accuracy : 0.7964
+Macro F1      : 0.8128
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.89      0.89      0.89       396
+    logic_error       0.77      0.77      0.77       849
+variable_misuse       0.78      0.78      0.78       872
+
+       accuracy                           0.80      2117
+      macro avg       0.81      0.81      0.81      2117
+   weighted avg       0.80      0.80      0.80      2117
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(352), np.int64(28), np.int64(16)]
+  [np.int64(23), np.int64(652), np.int64(174)]
+  [np.int64(22), np.int64(168), np.int64(682)]

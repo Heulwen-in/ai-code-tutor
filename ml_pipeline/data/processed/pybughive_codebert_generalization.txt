@@ -1,0 +1,45 @@
+PyBugHive Generalisation Evaluation - CodeBERT
+============================================================
+
+Dataset: PyBugHive labelled issues reconstructed from Python patch lines
+Model: backend/app/ml_models/codebert_model
+Excluded labels: unknown, indentation_error
+
+Evaluation rows: 499
+Class distribution:
+  syntax_error    : 140
+  logic_error     : 203
+  variable_misuse : 156
+
+Code reconstruction source:
+  deleted_lines_buggy_preferred: 459
+  added_lines_fallback: 40
+
+Metrics:
+  Accuracy   : 0.4068
+  Macro F1   : 0.2833
+  Weighted F1: 0.3161
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error     0.2963    0.0571    0.0958       140
+    logic_error     0.4227    0.8621    0.5673       203
+variable_misuse     0.3448    0.1282    0.1869       156
+
+       accuracy                         0.4068       499
+      macro avg     0.3546    0.3491    0.2833       499
+   weighted avg     0.3629    0.4068    0.3161       499
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(8), np.int64(107), np.int64(25)]
+  [np.int64(15), np.int64(175), np.int64(13)]
+  [np.int64(4), np.int64(132), np.int64(20)]
+
+Methodology limitation:
+  PyBugHive contains real bug-fix patches, not the same synthetic bugged_code
+  format used for transformer training. Deleted Python patch lines are used as
+  the closest available buggy-code signal, with added lines as fallback.
+  Results should therefore be interpreted as external generalisation evidence,
+  not as a perfectly matched benchmark.

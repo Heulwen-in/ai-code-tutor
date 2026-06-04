@@ -1,0 +1,28 @@
+Model: SVM (TF-IDF)
+==================================================
+
+Best hyperparameters:
+  C: 10.0
+
+Train time    : 0.4s
+Train accuracy: 0.9925
+Val accuracy  : 0.9008
+Test accuracy : 0.9183
+Macro F1      : 0.9278
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.98      0.96      0.97       396
+    logic_error       0.89      0.91      0.90       849
+variable_misuse       0.92      0.90      0.91       872
+
+       accuracy                           0.92      2117
+      macro avg       0.93      0.93      0.93      2117
+   weighted avg       0.92      0.92      0.92      2117
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(382), np.int64(11), np.int64(3)]
+  [np.int64(6), np.int64(774), np.int64(69)]
+  [np.int64(3), np.int64(81), np.int64(788)]

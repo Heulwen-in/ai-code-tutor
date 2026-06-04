@@ -1,0 +1,24 @@
+4-Class Mapping Summary
+========================================
+
+INT_TO_CLASS:
+  0 → syntax_error
+  1 → logic_error
+  2 → variable_misuse
+  3 → indentation_error
+
+BUG_TYPE → ERROR_CLASS:
+  ForgettingToUpdateVariableTransformer → variable_misuse
+  VariableNameTypoTransformer → variable_misuse
+  MutableDefaultArgumentTransformer → variable_misuse
+  IncorrectVariableInitializationTransformer → variable_misuse
+  UseBeforeDefinitionTransformer → variable_misuse
+  ReturningEarlyTransformer → logic_error
+  ComparisonSwapTransformer → logic_error
+  OffByKIndexTransformer → logic_error
+  SwapForTransformer → logic_error
+  NonExistingMethodTransformer → logic_error
+  InfiniteWhileTransformer → logic_error
+  ComparisonTargetTransformer → logic_error
+  MissingArgumentTransformer → syntax_error
+  IncorrectTypeTransformer → syntax_error

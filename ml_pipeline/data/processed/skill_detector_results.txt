@@ -1,0 +1,51 @@
+Skill Detector Training Results
+============================================================
+
+Task: novice vs professional code-style detection
+Proxy labels: Easy -> novice, Hard -> professional; Medium excluded
+
+Rows used: 1371
+Class distribution:
+  novice: 686
+  professional: 685
+
+Candidate models:
+  Dummy majority       accuracy=0.5015 macro_f1=0.3340
+  Logistic Regression  accuracy=0.8542 macro_f1=0.8542
+  Decision Tree        accuracy=0.8047 macro_f1=0.8025
+
+Selected model: Logistic Regression
+Accuracy      : 0.8542
+Macro F1      : 0.8542
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      novice     0.8427    0.8721    0.8571       172
+professional     0.8667    0.8363    0.8512       171
+
+    accuracy                         0.8542       343
+   macro avg     0.8547    0.8542    0.8542       343
+weighted avg     0.8546    0.8542    0.8542       343
+
+Confusion Matrix:
+  Labels: ['novice', 'professional']
+  [np.int64(150), np.int64(22)]
+  [np.int64(28), np.int64(143)]
+
+Top feature signals:
+  code_len             2.2765
+  single_letter_vars   1.7082
+  line_count           1.5126
+  comment_ratio        -0.8426
+  mean_indent_depth    -0.6958
+  builtins_used        0.4636
+  has_recursion        0.2878
+  magic_numbers        -0.2238
+  descriptive_ratio    0.1792
+  has_generator        -0.1671
+
+Methodology limitation:
+  This is a proxy detector because no human-labelled novice/professional
+  dataset is available. It should calibrate feedback tone and lesson
+  difficulty, not make a final judgement about the user.

@@ -1,0 +1,35 @@
+Model: RoBERTa
+==================================================
+
+Best hyperparameters:
+  learning_rate : 2e-05
+  batch_size    : 8
+  best_epoch    : 5
+
+Training history (per epoch):
+ Epoch   TrainLoss   TrainAcc   ValLoss   ValAcc    ValF1
+     1      0.5637     0.7004    0.2198   0.9499   0.9557
+     2      0.1316     0.9696    0.1653   0.9712   0.9741
+     3      0.0937     0.9791    0.1326   0.9759   0.9787
+     4      0.0610     0.9870    0.1599   0.9759   0.9789
+     5      0.0470     0.9901    0.1275   0.9802   0.9824
+
+Test results:
+  Accuracy   : 0.9835
+  Macro F1   : 0.9841
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       1.00      0.97      0.99       396
+    logic_error       0.97      0.99      0.98       849
+variable_misuse       0.99      0.98      0.99       872
+
+       accuracy                           0.98      2117
+      macro avg       0.99      0.98      0.98      2117
+   weighted avg       0.98      0.98      0.98      2117
+
+Confusion Matrix:
+  [np.int64(386), np.int64(10), np.int64(0)]
+  [np.int64(0), np.int64(838), np.int64(11)]
+  [np.int64(0), np.int64(14), np.int64(858)]
