@@ -62,7 +62,8 @@ MODEL_BASE_DIR = r"F:\Heulwen\IT GREENWICH\Final Project\Tutor_AI_code\backend\a
 OUTPUT_DIR     = PROCESSED_DIR
 
 # Training settings
-NUM_EPOCHS      = 5
+NUM_EPOCHS      = int(os.getenv("TRANSFORMER_EPOCHS", "5"))
+EARLY_STOPPING_PATIENCE = int(os.getenv("EARLY_STOPPING_PATIENCE", "0"))
 MAX_LENGTH      = 256
 NUM_CLASSES     = 3
 RANDOM_SEED     = 42
@@ -335,7 +336,7 @@ print(f"\n[saved] {sweep_path}")
 #  STEP 2 — FULL TRAINING (5 EPOCHS WITH BEST PARAMS)
 # ════════════════════════════════════════════════════════════════
 
-section("Step 2 — Full Training (5 epochs, best hyperparams)")
+section(f"Step 2 - Full Training ({NUM_EPOCHS} epochs, best hyperparams)")
 
 for model_name, cfg in MODELS.items():
     section(f"Training: {model_name}")
@@ -365,6 +366,7 @@ for model_name, cfg in MODELS.items():
     history      = []
     best_val_f1  = 0
     best_epoch   = 1
+    epochs_without_improvement = 0
     train_start  = time.time()
 
     for epoch in range(1, NUM_EPOCHS + 1):
@@ -386,14 +388,27 @@ for model_name, cfg in MODELS.items():
             "val_loss"  : round(val_loss, 4),
             "val_acc"   : round(val_acc, 4),
             "val_f1"    : round(val_f1, 4),
+            "epoch_time_s": epoch_time,
         })
 
         if val_f1 > best_val_f1:
             best_val_f1 = val_f1
             best_epoch  = epoch
+            epochs_without_improvement = 0
             model.save_pretrained(cfg["save_dir"])
             tokenizer.save_pretrained(cfg["save_dir"])
             print(f"  ✓ Best checkpoint saved (epoch {epoch})")
+        else:
+            epochs_without_improvement += 1
+            if (
+                EARLY_STOPPING_PATIENCE > 0
+                and epochs_without_improvement >= EARLY_STOPPING_PATIENCE
+            ):
+                print(
+                    f"  Early stopping triggered after {epochs_without_improvement} "
+                    f"epochs without val_f1 improvement."
+                )
+                break
 
     total_time = round(time.time() - train_start, 1)
     print(f"\n  Training complete: {total_time}s total")
@@ -460,6 +475,7 @@ with open(res_path, "w") as f:
         f.write(f"  Best params  : lr={r['best_params']['lr']:.0e}  "
                 f"batch={r['best_params']['batch_size']}\n")
         f.write(f"  Best epoch   : {r['best_epoch']}\n")
+        f.write(f"  Train time   : {r['train_time_s']}s\n")
         f.write(f"  Test accuracy: {r['test_acc']:.4f}\n")
         f.write(f"  Macro F1     : {r['test_macro_f1']:.4f}  "
                 f"(vs baseline: {r['vs_baseline']:+.4f})\n")

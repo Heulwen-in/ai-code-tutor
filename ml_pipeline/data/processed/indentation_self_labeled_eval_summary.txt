@@ -1,0 +1,13 @@
+Indentation Self-Labeled Evaluation
+==================================================
+
+Total cases: 10
+Correct: 10
+Accuracy: 1.0000
+Expected label counts: {'indentation_error': 5, 'none': 3, 'syntax_error': 2}
+
+Labeling mechanism:
+The detector calls ast.parse(code). Python raises IndentationError for malformed block indentation and SyntaxError for other parse failures. Valid snippets return no parse-level bug and are passed to the ML classifier.
+
+Incorrect classifications:
+None in this self-labeled set.

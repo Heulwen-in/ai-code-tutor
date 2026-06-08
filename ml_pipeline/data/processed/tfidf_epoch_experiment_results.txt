@@ -1,0 +1,20 @@
+TF-IDF Epoch Observation Experiment
+==================================================
+
+Max epochs: 15
+Early stopping patience: 3
+
+Model: SGD-SVM (TF-IDF)
+  Best epoch     : 9
+  Best val F1    : 0.9037
+  Test accuracy  : 0.8923
+  Test macro F1  : 0.9017
+  Train time     : 0.32s
+
+Model: SGD-LogReg (TF-IDF)
+  Best epoch     : 10
+  Best val F1    : 0.9006
+  Test accuracy  : 0.8942
+  Test macro F1  : 0.9024
+  Train time     : 0.29s
+

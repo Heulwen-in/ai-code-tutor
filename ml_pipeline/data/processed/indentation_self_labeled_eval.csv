@@ -1,0 +1,11 @@
+id,expected,predicted,correct,line_number,reason,detector_description
+indent_missing_function_body,indentation_error,indentation_error,True,2,A function definition must be followed by an indented block.,Indentation problem at line 2: expected an indented block after function definition on line 1
+indent_missing_if_body,indentation_error,indentation_error,True,2,An if statement must be followed by an indented block.,Indentation problem at line 2: expected an indented block after 'if' statement on line 1
+indent_bad_dedent,indentation_error,indentation_error,True,3,The return line is dedented while still inside the function structure.,Indentation problem at line 3: unexpected indent
+indent_mixed_tabs_spaces,indentation_error,indentation_error,True,3,Mixed tab and spaces can trigger inconsistent indentation.,Indentation problem at line 3: unindent does not match any outer indentation level
+valid_nested_blocks,none,none,True,,The code has consistent indentation and should pass parse-level detection.,
+syntax_missing_colon,syntax_error,syntax_error,True,1,"This is syntax, not indentation: the if statement is missing a colon.",Syntax error at line 1: expected ':'
+syntax_unclosed_parenthesis,syntax_error,syntax_error,True,1,"This is syntax, not indentation: an opening parenthesis is not closed.",Syntax error at line 1: '(' was never closed
+valid_compact_loop,none,none,True,,Valid one-line loop body should not be labeled as indentation_error.,
+unexpected_indent_top_level,indentation_error,indentation_error,True,1,A top-level line cannot start with an unexpected indent.,Indentation problem at line 1: unexpected indent
+valid_class_method,none,none,True,,Class and method blocks are consistently indented.,
