@@ -8,28 +8,31 @@ Best hyperparameters:
 
 Training history (per epoch):
  Epoch   TrainLoss   TrainAcc   ValLoss   ValAcc    ValF1
-     1      0.3354     0.8585    0.1579   0.9674   0.9708
-     2      0.1072     0.9764    0.1144   0.9745   0.9775
-     3      0.0575     0.9866    0.1177   0.9759   0.9780
-     4      0.0343     0.9928    0.1371   0.9769   0.9783
-     5      0.0228     0.9946    0.1062   0.9821   0.9839
+     1      0.6712     0.6384    0.2627   0.9410   0.9459
+     2      0.1425     0.9679    0.1562   0.9698   0.9722
+     3      0.1068     0.9788    0.2041   0.9641   0.9664
+     4      0.0958     0.9798    0.1170   0.9773   0.9791
+     5      0.0707     0.9848    0.1211   0.9778   0.9797
+     6      0.0558     0.9892    0.1426   0.9745   0.9768
+     7      0.0379     0.9923    0.1505   0.9773   0.9796
+     8      0.0395     0.9922    0.1610   0.9764   0.9779
 
 Test results:
-  Accuracy   : 0.9849
-  Macro F1   : 0.9855
+  Accuracy   : 0.9797
+  Macro F1   : 0.9793
 
 Classification Report:
                  precision    recall  f1-score   support
 
-   syntax_error       0.99      0.98      0.99       396
-    logic_error       0.97      0.99      0.98       849
-variable_misuse       0.99      0.98      0.99       872
+   syntax_error       0.97      0.98      0.98       396
+    logic_error       0.97      0.98      0.98       849
+variable_misuse       0.99      0.98      0.98       872
 
        accuracy                           0.98      2117
-      macro avg       0.99      0.98      0.99      2117
-   weighted avg       0.99      0.98      0.98      2117
+      macro avg       0.98      0.98      0.98      2117
+   weighted avg       0.98      0.98      0.98      2117
 
 Confusion Matrix:
-  [np.int64(389), np.int64(7), np.int64(0)]
-  [np.int64(2), np.int64(840), np.int64(7)]
-  [np.int64(0), np.int64(16), np.int64(856)]
+  [np.int64(389), np.int64(4), np.int64(3)]
+  [np.int64(11), np.int64(831), np.int64(7)]
+  [np.int64(0), np.int64(18), np.int64(854)]

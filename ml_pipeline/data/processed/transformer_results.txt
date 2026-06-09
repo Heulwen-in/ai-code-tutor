@@ -7,30 +7,33 @@ Best baseline (SVM TF-IDF): macro F1 = 0.9278
 Model: BERT (bert-base-uncased)
   General English language model (Google, 2018)
   Best params  : lr=3e-05  batch=8
-  Best epoch   : 5
-  Test accuracy: 0.9740
-  Macro F1     : 0.9778  (vs baseline: +0.0500)
-  Syntax F1    : 0.9949
-  Logic F1     : 0.9679
-  Variable F1  : 0.9704
+  Best epoch   : 13
+  Train time   : 6622.9s
+  Test accuracy: 0.9778
+  Macro F1     : 0.9797  (vs baseline: +0.0519)
+  Syntax F1    : 0.9886
+  Logic F1     : 0.9737
+  Variable F1  : 0.9768
 
 Model: RoBERTa (roberta-base)
   Improved BERT with better pretraining (Facebook, 2019)
-  Best params  : lr=2e-05  batch=8
-  Best epoch   : 5
-  Test accuracy: 0.9835
-  Macro F1     : 0.9841  (vs baseline: +0.0563)
-  Syntax F1    : 0.9872
-  Logic F1     : 0.9795
-  Variable F1  : 0.9856
+  Best params  : lr=3e-05  batch=16
+  Best epoch   : 6
+  Train time   : 3122.9s
+  Test accuracy: 0.9792
+  Macro F1     : 0.9807  (vs baseline: +0.0529)
+  Syntax F1    : 0.9873
+  Logic F1     : 0.9748
+  Variable F1  : 0.9799
 
 Model: CodeBERT (microsoft/codebert-base)
   Code + language bimodal model (Microsoft, 2020)
   Best params  : lr=3e-05  batch=8
   Best epoch   : 5
-  Test accuracy: 0.9849
-  Macro F1     : 0.9855  (vs baseline: +0.0577)
-  Syntax F1    : 0.9886
-  Logic F1     : 0.9813
-  Variable F1  : 0.9867
+  Train time   : 3239.0s
+  Test accuracy: 0.9797
+  Macro F1     : 0.9793  (vs baseline: +0.0515)
+  Syntax F1    : 0.9774
+  Logic F1     : 0.9765
+  Variable F1  : 0.9839
 
