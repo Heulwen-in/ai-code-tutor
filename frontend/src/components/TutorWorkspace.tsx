@@ -23,7 +23,19 @@ export function TutorWorkspace() {
             </button>
           </div>
           <button className="primary-button" onClick={runAnalysis} disabled={isAnalyzing}>
-            {isAnalyzing ? "Analyzing..." : "Analyze code"}
+            {isAnalyzing ? (
+              <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <svg
+                  width="16" height="16" viewBox="0 0 16 16"
+                  style={{ animation: "spin 0.8s linear infinite" }}
+                  fill="none" xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="8" cy="8" r="6" stroke="currentColor" strokeOpacity="0.3" strokeWidth="2" />
+                  <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+                Analyzing...
+              </span>
+            ) : "Analyze code"}
           </button>
         </div>
         <CodeEditor code={code} onChange={setCode} />
