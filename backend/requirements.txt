@@ -1,8 +1,11 @@
 fastapi
 uvicorn[standard]
-pydantic
+pydantic[email]
 python-multipart
 torch
 transformers
 scikit-learn
 joblib
+sqlalchemy
+python-jose[cryptography]
+passlib[bcrypt]
