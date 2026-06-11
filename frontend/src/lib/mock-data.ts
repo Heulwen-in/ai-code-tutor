@@ -81,7 +81,7 @@ export const lessonModules: LessonModule[] = [
     example: "for index in range(len(values)):\n    print(index, values[index])"
   },
   {
-    id: "variable_01",
+    id: "var_01",
     title: "Variable Scope And Naming",
     summary: "Avoid wrong-variable usage with clearer names and smaller functions.",
     level: "Intermediate",
