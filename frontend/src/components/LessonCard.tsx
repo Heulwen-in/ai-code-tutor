@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { LessonItem, LessonModule } from "@/lib/types";
 
 type LessonCardProps = {
@@ -10,9 +11,12 @@ export function LessonCard({ lesson, compact = false }: LessonCardProps) {
   const description = "description" in lesson ? lesson.description : lesson.summary;
   const difficulty = "difficulty" in lesson ? lesson.difficulty : lesson.level;
   const progress = "progress" in lesson ? lesson.progress : null;
+  const url = "url" in lesson ? lesson.url : null;
+  const cardId = "id" in lesson ? lesson.id : lesson.lesson_id;
+  const href = url ?? (cardId ? `/lessons/${cardId}` : null);
 
-  return (
-    <article className={`lesson-card ${compact ? "compact" : ""}`} id={"id" in lesson ? lesson.id : lesson.lesson_id}>
+  const card = (
+    <article className={`lesson-card ${compact ? "compact" : ""}`} id={cardId}>
       <div className="lesson-topline">
         <span>{difficulty}</span>
         {"duration" in lesson ? <span>{lesson.duration}</span> : null}
@@ -26,4 +30,14 @@ export function LessonCard({ lesson, compact = false }: LessonCardProps) {
       ) : null}
     </article>
   );
+
+  if (href) {
+    return (
+      <Link href={href} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+        {card}
+      </Link>
+    );
+  }
+
+  return card;
 }
