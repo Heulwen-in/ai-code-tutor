@@ -24,6 +24,18 @@ from pathlib import Path
 
 USE_MOCK = os.getenv("USE_MOCK_BUG_CLASSIFIER", "false").lower() == "true"
 
+# Import the heavy native ML stack eagerly at module load — i.e. before the ASGI
+# server starts its event loop. On Windows, importing native extensions such as
+# pyarrow (pulled in lazily via transformers -> sklearn -> pandas) for the first
+# time inside the async lifespan raises OSError [WinError 6714] during the
+# directory scan. Importing up front makes the later lazy imports cache hits.
+if not USE_MOCK:
+    import torch  # noqa: F401
+    from transformers import (  # noqa: F401
+        AutoModelForSequenceClassification,
+        AutoTokenizer,
+    )
+
 ML_BUG_LABELS = [
     "syntax_error",
     "logic_error",
