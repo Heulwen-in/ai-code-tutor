@@ -2,12 +2,6 @@
 
 > A full-stack educational system that analyses Python source code, classifies and localises defects, estimates the learner's experience level, generates role-adaptive feedback, and reinforces learning through targeted lessons and spaced repetition.
 
-**BSc Computer Science Final Year Project**
-
-**Author:** Nguyen Ngoc Gia Han
-
-**Repository:** [Heulwen-in/ai-code-tutor](https://github.com/Heulwen-in/ai-code-tutor)
-
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -35,7 +29,7 @@ Unlike a standalone classifier, PyTutor incorporates an educational learning loo
 
 ## Core Capabilities
 
-- **Hybrid defect analysis:** Python `ast.parse` detects syntax and indentation failures before neural inference.
+- **Hybrid defect analysis:** Python `ast.parse` detects indentation failures before neural inference.
 - **Hierarchical CodeBERT classification:** Stage 1 predicts a coarse class and Stage 2 refines detected defects into one of 14 subtypes.
 - **Bug-line localisation:** a token-classification head estimates the most likely defective line.
 - **Clean-code recognition:** `no_bug` is represented as a trained Stage 1 class, with confidence-based abstention for uncertain predictions.
@@ -47,27 +41,6 @@ Unlike a standalone classifier, PyTutor incorporates an educational learning loo
 - **Spaced repetition:** recurring bug categories enter a `1 → 3 → 7 → 14` day review schedule.
 - **Mock-first demonstration:** the frontend can operate without the backend or large model artefacts.
 - **Transparent methodology:** the `/process` page presents the datasets, leakage controls, model pipeline, evaluation results, and limitations.
-
-## System Architecture
-
-```mermaid
-flowchart LR
-    U[Browser] --> F[Next.js Frontend]
-    F -->|REST / JSON| A[FastAPI API]
-    A --> P{AST Parse Gate}
-    P -->|Parse failure| R[Syntax / Indentation Result]
-    P -->|Valid Python| S1[CodeBERT Stage 1<br/>4 coarse classes]
-    S1 --> S2[CodeBERT Stage 2<br/>14 bug subtypes]
-    S1 --> L[Token Classifier<br/>line localisation]
-    A --> SD[Skill Detector<br/>Logistic Regression]
-    R --> G[Adaptive Feedback]
-    S2 --> G
-    L --> G
-    SD --> G
-    G --> O[Ollama<br/>Qwen2.5-Coder]
-    A --> DB[(SQLite / SQLAlchemy)]
-    A --> LR[Lessons and<br/>Learning Loop]
-```
 
 ### Inference Sequence
 
@@ -84,7 +57,7 @@ flowchart LR
 
 | Class | Responsibility |
 |---|---|
-| `syntax_error` | Invalid Python syntax; detected by the AST gate or Stage 1 |
+| `syntax_error` | Invalid Python syntax; detected by Stage 1 |
 | `indentation_error` | Invalid indentation; detected deterministically by the AST gate |
 | `logic_error` | Incorrect conditions, loop behaviour, method usage, ranges, or returns |
 | `variable_misuse` | Initialisation, update, naming, scope, or mutable-default defects |
