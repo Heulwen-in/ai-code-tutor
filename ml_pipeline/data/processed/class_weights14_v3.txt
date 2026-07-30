@@ -1,0 +1,16 @@
+# 14-class v3 weights
+# Format: label,name,weight
+0,IncorrectTypeTransformer,0.920015
+1,MissingArgumentTransformer,0.665321
+2,ComparisonSwapTransformer,0.750873
+3,ComparisonTargetTransformer,8.616725
+4,InfiniteWhileTransformer,4.361552
+5,NonExistingMethodTransformer,2.243084
+6,OffByKIndexTransformer,0.947147
+7,ReturningEarlyTransformer,0.583461
+8,SwapForTransformer,1.374653
+9,ForgettingToUpdateVariableTransformer,0.568440
+10,IncorrectVariableInitializationTransformer,1.323167
+11,MutableDefaultArgumentTransformer,0.953538
+12,UseBeforeDefinitionTransformer,1.762024
+13,VariableNameTypoTransformer,0.602877

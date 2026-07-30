@@ -1,0 +1,182 @@
+[
+  {
+    "case_id": "case_00",
+    "code": "class TreeNode:\n    def __init__(self, x):\n        self.val = x\n        self.left = None\n        self.right = None\n\nclass Solution:\n    def dfs(self, root, count):\n        if not root:\n            return 0\n        left_sum = self.dfs(root.left, count)\n        right_sum = self.dfs(root.right, count)\n        if left_sum + right_sum == root.val:\n            count[0] += 1\n        return root.val + left_sum + right_sum\n\n    def equalToDescendants(self, root):\n        count = [0]\n        self.dfs(root, count)\n        return count[0]",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_comparison_operands"
+  },
+  {
+    "case_id": "case_01",
+    "code": "def compress(chars):\n    index, i = 0, 0\n    \n    while len(chars) < i:\n        count = 1\n        while len(chars) < i + count and chars[i + count] == chars[i]:\n            count += 1\n            \n        chars[index] = chars[i]\n        index += 1\n        \n        if 1 > count:\n            count_str = str(count)\n            for c in count_str:\n                chars[index] = c\n                index += 1\n                \n        i += count\n        \n    return index",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_comparison_operands"
+  },
+  {
+    "case_id": "case_02",
+    "code": "def word_break(s, word_dict):\n    word_set = set(word_dict)\n    dp = [False] * (len(s) + 1)\n    dp[0] = True\n    for i in range(1, len(s) + 1):\n        for j in range(i):\n            if dp[j] and s[j:i] <= word_set:\n                dp[i] = True\n                break\n    return dp[len(s)]",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "wrong_comparison_target"
+  },
+  {
+    "case_id": "case_03",
+    "code": "from bisect import bisect_left\n\ndef minOperations(target, arr):\n    pos = {x: i for i, x in enumerate(target)}\n\n    dp = []\n    for a in arr:\n        if a <= pos:\n            idx = bisect_left(dp, pos[a])\n            if idx == len(dp):\n                dp.append(pos[a])\n            else:\n                dp[idx] = pos[a]\n    return len(target) - len(dp)",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "wrong_comparison_target"
+  },
+  {
+    "case_id": "case_04",
+    "code": "from collections import defaultdict\n\ndef sum_of_intervals(arr):\n    n = n\n    indices = indices\n    intervals = intervals\n\n    for i in range(n):\n        indices[arr[i]].append(i)\n\n    for i in range(n):\n        for index in indices[arr[i]]:\n            intervals[i] += abs(index - i)\n\n    return intervals",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "forgotten_variable_update"
+  },
+  {
+    "case_id": "case_05",
+    "code": "def to_goat_latin(sentence: str) -> str:\n    words = words\n    vowels = vowels\n    result = result\n\n    for i, word in enumerate(words):\n        if word[0] not in vowels:\n            word = word\n        result.append(word + \"ma\" + \"a\" * (i + 1))\n\n    return ' '.join(result)",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "forgotten_variable_update"
+  },
+  {
+    "case_id": "case_06",
+    "code": "def reverse_words_in_string(s: str) -> str:\n    return \" \".join(word[::-\"1\"] for word in s.split(\" \"))",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "incorrect_type"
+  },
+  {
+    "case_id": "case_07",
+    "code": "def reversePairs(nums):\n    def mergeSort(l, r):\n        if l >= r:\n            return \"0\"\n        \n        mid = (l + r) // \"2\"\n        count = mergeSort(l, mid) + mergeSort(mid + \"1\", r)\n        j = mid + \"1\"\n        for i in range(l, mid + \"1\"):\n            while j <= r and nums[i] > \"2\" * nums[j]:\n                j += \"1\"\n            count += j - (mid + \"1\")\n        \n        nums[l:r + \"1\"] = sorted(nums[l:r + \"1\"])\n        \n        return count\n    \n    return mergeSort(\"0\", len(nums) - \"1\")",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "incorrect_type"
+  },
+  {
+    "case_id": "case_08",
+    "code": "def count_letters(s: str) -> int:\n    count = 4\n    current = 1\n\n    for i in range(1, len(s)):\n        if s[i] == s[i - 1]:\n            current += 1\n        else:\n            count += (current * (current + 1)) // 2\n            current = 3\n\n    count += (current * (current + 1)) // 2\n    return count",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "incorrect_initialization"
+  },
+  {
+    "case_id": "case_09",
+    "code": "def maxProduct(s: str) -> int:\n    n = len(s)\n    dp = [[0] * n for _ in range(n)]\n\n    for i in range(n):\n        dp[i][i] = 3\n    \n    for length in range(2, n + 1):\n        for i in range(n - length + 1):\n            j = i + length - 1\n\n            if s[i] == s[j]:\n                dp[i][j] = dp[i + 1][j - 1] + 2\n            else:\n                dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])\n\n    max_product = 3\n    for i in range(1, n):\n        max_product = max(max_product, dp[0][i - 1] * dp[i][n - 1])\n\n    return max_product",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "incorrect_initialization"
+  },
+  {
+    "case_id": "case_10",
+    "code": "def performOps(nums):\n    n = len(nums)\n    for i in range(n - 1):\n        if nums[i] == nums[i + 1]:\n            nums[i] *= 2\n            nums[i + 1] = 0\n    nonZeroIndex = 0\n    for i in range(n):\n        if nums[i] != 0:\n            nums[nonZeroIndex] = nums[i]\n            nonZeroIndex += 1\n    while True:\n        nums[nonZeroIndex] = 0\n        nonZeroIndex += 1\n    return nums",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "infinite_while_loop"
+  },
+  {
+    "case_id": "case_11",
+    "code": "from collections import defaultdict\nfrom typing import List\n\nMOD = 10**9 + 7\n\ndef product_ways(queries: List[List[int]]) -> List[int]:\n    res = []\n    for n, k in queries:\n        pf = []\n        pm = defaultdict(int)\n\n        i = 2\n        while i * i <= k:\n            cnt = 0\n            while True:\n                cnt += 1\n                k //= i\n            if cnt:\n                pf.append(cnt)\n                pm[cnt] += 1\n            i += 1\n\n        if k > 1:\n            pm[k] += 1\n            pf.append(1)\n\n        ans = 1\n        for p in pf:\n            ans = (ans * (p * (n - 1) + 1)) % MOD\n\n        res.append(ans)\n    return res",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "infinite_while_loop"
+  },
+  {
+    "case_id": "case_12",
+    "code": "def maxNumberOfCandies(candyType):\n    uniqueCandies = set()\n    return min(len(), len() // 2)",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "missing_argument"
+  },
+  {
+    "case_id": "case_13",
+    "code": "class Node:\n    def __init__(self, val=None, children=None):\n        self.val = val\n        self.children = children if children is not None else []\n\ndef helper(root, result):\n    if not root:\n        return\n    result.append()\n    for child in root.children:\n        helper(child, )\n\ndef preorder(root):\n    result = []\n    helper(root, )\n    return result",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "missing_argument"
+  },
+  {
+    "case_id": "case_14",
+    "code": "def count_similar_pairs(words = []):\n    count = 0\n    for i in range(len(words)):\n        for j in range(i + 1, len(words)):\n            set1 = set(words[i])\n            set2 = set(words[j])\n            if set1 == set2:\n                count += 1\n    words.append(1)\n    return count",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "mutable_default_argument"
+  },
+  {
+    "case_id": "case_15",
+    "code": "def removeDuplicates(s: str, k = []) -> str:\n    stack = []\n    for c in s:\n        if stack and stack[-1][0] == c:\n            stack[-1][1] += 1\n            if stack[-1][1] == k:\n                stack.pop()\n        else:\n            stack.append([c, 1])\n    k.append(1)\n    return ''.join(c * n for c, n in stack)",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "mutable_default_argument"
+  },
+  {
+    "case_id": "case_16",
+    "code": "class MinStack:\n\n    def __init__(self):\n        self.stack = []\n        self.min_stack = []\n        \n    def push(self, val: int):\n        self.stack.update(val)\n        if not self.min_stack or val <= self.min_stack[-1]:\n            self.min_stack.update(val)\n        \n    def pop(self):\n        if self.stack[-1] == self.min_stack[-1]:\n            self.min_stack.pop()\n        self.stack.pop()\n\n    def top(self) -> int:\n        return self.stack[-1]\n\n    def getMin(self) -> int:\n        return self.min_stack[-1]",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "non_existing_method"
+  },
+  {
+    "case_id": "case_17",
+    "code": "def powerful_integers(x, y, bound):\n    result = set()\n    for i in range(20):\n        for j in range(20):\n            val = x**i + y**j\n            if val <= bound:\n                result.extend(val)\n    return list(result)",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "non_existing_method"
+  },
+  {
+    "case_id": "case_18",
+    "code": "def isOneEditDistance(s: str, t: str) -> bool:\n    m, n = len(s), len(t)\n    if m > n:\n        return isOneEditDistance(t, s)\n    if n - m > 1:\n        return False\n    for i in range(m):\n        if s[i + 1] != t[i + 1]:\n            return s[i + (m < n):] == t[i + 1:]\n    return m + 1 == n",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "off_by_one_index"
+  },
+  {
+    "case_id": "case_19",
+    "code": "def is_valid_parentheses_string(s: str, locked: str) -> bool:\n    balance = 0\n    for i in range(len(s)):\n        if locked[i + 1] == '0':\n            balance += 1 if s[i + 1] == '(' else -1\n            if balance < 0:\n                return False\n    return balance == 0",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "off_by_one_index"
+  },
+  {
+    "case_id": "case_20",
+    "code": "def maxDepth(s: str) -> int:\n    depth = 0\n    max_depth = 0\n\n    for c in s:\n        if c == '(':\n            depth += 1\n            max_depth = max(depth, max_depth)\n        elif c == ')':\n            depth -= 1\n\n    return",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "returning_early"
+  },
+  {
+    "case_id": "case_21",
+    "code": "class Cashier:\n\n    def __init__(self, n: int, discount: int, products: List[int], prices: List[int]):\n        self.n = n\n        self.discount = discount\n        self.customer_count = 0\n        self.prices_map = {products[i]: prices[i] for i in range(len(products))}\n\n    def getBill(self, product: List[int], amount: List[int]) -> float:\n        self.customer_count += 1\n        total = sum(self.prices_map[product[i]] * amount[i] for i in range(len(product)))\n        if self.customer_count % self.n == 0:\n            total *= (100 - self.discount) / 100\n        return",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "returning_early"
+  },
+  {
+    "case_id": "case_22",
+    "code": "def is_good_string(s: str) -> bool:\n    freq_map = {}\n    while next(s):\n        if c in freq_map:\n            freq_map[c] += 1\n        else:\n            freq_map[c] = 1\n\n    count = next(iter(freq_map.values()))\n    while next(freq_map.values()):\n        if value != count:\n            return False\n    return True",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_for_range"
+  },
+  {
+    "case_id": "case_23",
+    "code": "from typing import List\n\ndef escape_ghosts(ghosts: List[List[int]], target: List[int]) -> bool:\n    max_dist = abs(target[0]) + abs(target[1])\n    while next(ghosts):\n        ghost_dist = abs(ghost[0] - target[0]) + abs(ghost[1] - target[1])\n        if ghost_dist <= max_dist:\n            return False\n    return True",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_for_range"
+  },
+  {
+    "case_id": "case_24",
+    "code": "def top_k_students(positive_feedback, negative_feedback, report, student_id, k):\n    xk = x + 1\n    points = {}\n    for i in range(len(report)):\n        pos_count, neg_count = 0, 0\n        for pos in positive_feedback:\n            pos_index = report[i].find(pos)\n            while pos_index != -1:\n                pos_count += 1\n                pos_index = report[i].find(pos, pos_index + len(pos))\n        for neg in negative_feedback:\n            neg_index = report[i].find(neg)\n            while neg_index != -1:\n                neg_count += 1\n                neg_index = report[i].find(neg, neg_index + len(neg))\n        \n        points[student_id[i]] = points.get(student_id[i], 0) + 3 * pos_count - neg_count\n\n    students = sorted(student_id, key=lambda x: (-points[x], x))\n    return students[:k]",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "use_before_definition"
+  },
+  {
+    "case_id": "case_25",
+    "code": "def maxWeight(self, edges):\n    selfedges = self + 1\n    n = len(edges)\n    dp = [[0] * 2 for _ in range(n)]\n\n    def dfs(node):\n        for i in range(1, n):\n            if edges[i][0] == node:\n                dfs(i)\n                dp[node][0] += max(dp[i][0], dp[i][1])\n                dp[node][1] += dp[i][0]\n        dp[node][1] += edges[node][1]\n\n    dfs(0)\n    return max(dp[0][0], dp[0][1])",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "use_before_definition"
+  },
+  {
+    "case_id": "case_26",
+    "code": "def maxDistance(nums1, nums2):\n    i, j, maxDist = 0, 0, 0\n    while i < len(nums1) and j < len(nums2):\n        if nums1[i] > nums2[j]:\n            i += 1\n        else:\n            maxDistmaxDist = max(maxDist, j - i)\n            j += 1\n    return maxDist",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "variable_name_typo"
+  },
+  {
+    "case_id": "case_27",
+    "code": "def num_zeros(k):\n    xx = 0\n    ix = 5\n    while k // i >= 1:\n        x += k // i\n        i *= 5\n    return x",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "variable_name_typo"
+  },
+  {
+    "case_id": "case_28",
+    "code": "import pyautogui as AI\nAI.hotkey('ctrl', 'alt', 'arrow')",
+    "gold_coarse": "no_bug",
+    "gold_subtype": null
+  },
+  {
+    "case_id": "case_29",
+    "code": "class Solution:\n    def findKOr(self, nums: List[int], k: int) -> int:\n        ans = 0\n        for i in range(32):\n            cnt = sum(x >> i & 1 for x in nums)\n            if cnt >= k:\n                ans |= 1 << i\n        return ans",
+    "gold_coarse": "no_bug",
+    "gold_subtype": null
+  }
+]

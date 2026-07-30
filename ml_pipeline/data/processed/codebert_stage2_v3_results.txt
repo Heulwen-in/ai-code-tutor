@@ -1,0 +1,45 @@
+CodeBERT Stage 2 v3 Results (14-class, grouped split, from codebert-base)
+============================================================
+
+Backbone    : microsoft/codebert-base
+Saved model : /workspace/Tutor_AI_code/backend/app/ml_models/codebert_stage2_v3_model
+Best epoch  : 9/10  (val F1 0.9645)
+Train time  : 451.1s
+
+Test accuracy        : 0.9715
+Test macro F1        : 0.9553
+Test weighted F1     : 0.9716
+Coarse-from-fine acc : 0.9855
+
+                             precision    recall  f1-score   support
+
+             incorrect_type     0.9942    0.9607    0.9771       178
+           missing_argument     0.9703    0.9828    0.9765       233
+swapped_comparison_operands     0.9714    0.9358    0.9533       218
+    wrong_comparison_target     0.9333    0.8235    0.8750        17
+        infinite_while_loop     0.8000    0.9000    0.8471        40
+        non_existing_method     0.9322    0.9167    0.9244        60
+           off_by_one_index     0.9759    0.9818    0.9789       165
+            returning_early     0.9509    0.9692    0.9600       260
+          swapped_for_range     0.9714    0.9714    0.9714       105
+  forgotten_variable_update     1.0000    0.9961    0.9981       257
+   incorrect_initialization     0.9138    0.9298    0.9217       114
+   mutable_default_argument     1.0000    0.9937    0.9968       158
+      use_before_definition     1.0000    1.0000    1.0000        85
+         variable_name_typo     0.9881    1.0000    0.9940       250
+
+                   accuracy                         0.9715      2140
+                  macro avg     0.9573    0.9544    0.9553      2140
+               weighted avg     0.9720    0.9715    0.9716      2140
+
+History:
+  epoch=1 val_f1=0.8331 val_acc=0.9187
+  epoch=2 val_f1=0.8657 val_acc=0.9341
+  epoch=3 val_f1=0.8847 val_acc=0.9538
+  epoch=4 val_f1=0.9566 val_acc=0.9731
+  epoch=5 val_f1=0.9596 val_acc=0.9750
+  epoch=6 val_f1=0.9586 val_acc=0.9721
+  epoch=7 val_f1=0.9630 val_acc=0.9735
+  epoch=8 val_f1=0.9601 val_acc=0.9750
+  epoch=9 val_f1=0.9645 val_acc=0.9755
+  epoch=10 val_f1=0.9598 val_acc=0.9764

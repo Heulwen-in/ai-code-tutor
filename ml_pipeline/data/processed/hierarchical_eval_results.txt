@@ -1,0 +1,44 @@
+Hierarchical Evaluation — Stage 1 (coarse) -> Stage 2 (subtype)
+================================================================
+
+Stage 1 model : F:\Heulwen\IT GREENWICH\Final Project\Tutor_AI_code\backend\app\ml_models\codebert_4class_v2_model
+Stage 2 model : F:\Heulwen\IT GREENWICH\Final Project\Tutor_AI_code\backend\app\ml_models\codebert_stage2_model
+Test data     : test14.parquet (2,117 buggy) + test4_v2 no_bug (600)
+
+Stage 1 (combined buggy + no_bug test set):
+  Accuracy : 0.9834
+  Macro F1 : 0.9840
+  Buggy predicted as no_bug (false negatives): 4 / 2117 = 0.0019
+
+Hierarchical pipeline (buggy samples):
+  Stage 1 coarse accuracy (buggy only)  : 0.9835
+  Stage 2 conditional subtype accuracy  : 0.9856
+  END-TO-END subtype accuracy           : 0.9693
+  End-to-end macro F1                   : 0.9350
+
+Ablation — value of hierarchical masking:
+  Flat 14-way argmax (no Stage 1 mask)  : 0.9707
+  Masked by Stage 1 coarse prediction   : 0.9693
+
+End-to-end classification report (wrong coarse => wrong subtype;
+samples Stage 1 called no_bug have prediction -1, counted wrong):
+                             precision    recall  f1-score   support
+
+             incorrect_type     0.9884    0.9771    0.9828       175
+           missing_argument     0.9954    0.9864    0.9909       221
+swapped_comparison_operands     0.9536    0.9439    0.9487       196
+    wrong_comparison_target     0.4286    0.6667    0.5217         9
+        infinite_while_loop     0.9556    0.9149    0.9348        47
+        non_existing_method     0.9464    0.8548    0.8983        62
+           off_by_one_index     0.9877    0.9816    0.9846       163
+            returning_early     0.9037    0.9606    0.9313       254
+          swapped_for_range     1.0000    0.9831    0.9915       118
+  forgotten_variable_update     1.0000    0.9888    0.9944       267
+   incorrect_initialization     0.9292    0.8974    0.9130       117
+   mutable_default_argument     1.0000    1.0000    1.0000       159
+      use_before_definition     1.0000    1.0000    1.0000        98
+         variable_name_typo     1.0000    0.9957    0.9978       231
+
+                  micro avg     0.9711    0.9693    0.9702      2117
+                  macro avg     0.9349    0.9394    0.9350      2117
+               weighted avg     0.9729    0.9693    0.9708      2117

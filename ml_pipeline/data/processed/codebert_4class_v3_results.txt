@@ -1,0 +1,46 @@
+CodeBERT 4-class v3 Results (grouped split, from codebert-base)
+============================================================
+
+Backbone      : microsoft/codebert-base
+Saved model   : /workspace/Tutor_AI_code/backend/app/ml_models/codebert_4class_v3_model
+Best epoch    : 10/10  (val F1 0.9568)
+Train time    : 576.0s
+
+HONEST test (unseen problems):
+  Accuracy    : 0.9558
+  Macro F1    : 0.9556   <-- compare v2 leaky 0.9840
+  Weighted F1 : 0.9561
+
+Per-class F1:
+  syntax_error    : 0.9806
+  logic_error     : 0.9471
+  variable_misuse : 0.9873
+  no_bug          : 0.9073
+
+Per-source no_bug recall:
+  no_bug recall (leetcode_original): 0.8940  (n=349)
+  no_bug recall (flytech          ): 0.9801  (n=251)
+
+Classification report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.98      0.98      0.98       411
+    logic_error       0.96      0.93      0.95       865
+variable_misuse       0.99      0.99      0.99       864
+         no_bug       0.89      0.93      0.91       600
+
+       accuracy                           0.96      2740
+      macro avg       0.95      0.96      0.96      2740
+   weighted avg       0.96      0.96      0.96      2740
+
+Training history:
+  epoch=1 val_f1=0.8715 val_acc=0.8645 train_loss=0.8121
+  epoch=2 val_f1=0.9367 val_acc=0.9343 train_loss=0.2313
+  epoch=3 val_f1=0.9476 val_acc=0.9459 train_loss=0.1489
+  epoch=4 val_f1=0.9538 val_acc=0.9530 train_loss=0.1225
+  epoch=5 val_f1=0.9531 val_acc=0.9511 train_loss=0.1079
+  epoch=6 val_f1=0.9524 val_acc=0.9507 train_loss=0.0908
+  epoch=7 val_f1=0.9557 val_acc=0.9537 train_loss=0.0840
+  epoch=8 val_f1=0.9543 val_acc=0.9526 train_loss=0.0721
+  epoch=9 val_f1=0.9553 val_acc=0.9533 train_loss=0.0667
+  epoch=10 val_f1=0.9568 val_acc=0.9548 train_loss=0.0577

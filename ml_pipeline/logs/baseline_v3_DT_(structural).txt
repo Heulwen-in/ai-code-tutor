@@ -1,0 +1,28 @@
+Model: DT (structural) (v3, grouped split)
+==================================================
+
+Best hyperparameters:
+  max_depth: 5
+
+Train time    : 0.03s
+Train accuracy: 0.5389
+Val accuracy  : 0.5267
+Test accuracy : 0.5187
+Macro F1      : 0.5061
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.56      0.49      0.52       411
+    logic_error       0.50      0.73      0.59       865
+variable_misuse       0.54      0.32      0.40       864
+
+       accuracy                           0.52      2140
+      macro avg       0.53      0.51      0.51      2140
+   weighted avg       0.53      0.52      0.50      2140
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(203), np.int64(139), np.int64(69)]
+  [np.int64(65), np.int64(629), np.int64(171)]
+  [np.int64(97), np.int64(489), np.int64(278)]

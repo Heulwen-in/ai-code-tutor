@@ -1,0 +1,98 @@
+Standalone Evaluation of Trained v3 Models (grouped, leakage-free splits)
+============================================================
+
+============================================================
+  STAGE 1 — 4-class classifier (codebert_4class_v3_model)
+============================================================
+
+VAL  n=2,679  (model-selection split — NOT the headline)
+  Accuracy    : 0.9548
+  Macro F1    : 0.9568
+  Weighted F1 : 0.9552
+
+TEST  n=2,740  (HONEST held-out estimate)
+  Accuracy    : 0.9558
+  Macro F1    : 0.9556
+  Weighted F1 : 0.9561
+
+                 precision    recall  f1-score   support
+
+   syntax_error     0.9782    0.9830    0.9806       411
+    logic_error     0.9641    0.9306    0.9471       865
+variable_misuse     0.9884    0.9861    0.9873       864
+         no_bug     0.8857    0.9300    0.9073       600
+
+       accuracy                         0.9558      2740
+      macro avg     0.9541    0.9574    0.9556      2740
+   weighted avg     0.9567    0.9558    0.9561      2740
+
+  no_bug recall (leetcode_original): 0.8940  (n=349)
+  no_bug recall (flytech          ): 0.9801  (n=251)
+
+============================================================
+  STAGE 2 — 14-subtype classifier (codebert_stage2_v3_model)
+============================================================
+
+VAL  n=2,079  (model-selection split)
+  Accuracy             : 0.9755
+  Macro F1             : 0.9645
+  Coarse-from-fine acc : 0.9909
+
+TEST  n=2,140  (HONEST held-out estimate)
+  Accuracy             : 0.9715
+  Macro F1             : 0.9553
+  Coarse-from-fine acc : 0.9855
+
+                             precision    recall  f1-score   support
+
+             incorrect_type     0.9942    0.9607    0.9771       178
+           missing_argument     0.9703    0.9828    0.9765       233
+swapped_comparison_operands     0.9714    0.9358    0.9533       218
+    wrong_comparison_target     0.9333    0.8235    0.8750        17
+        infinite_while_loop     0.8000    0.9000    0.8471        40
+        non_existing_method     0.9322    0.9167    0.9244        60
+           off_by_one_index     0.9759    0.9818    0.9789       165
+            returning_early     0.9509    0.9692    0.9600       260
+          swapped_for_range     0.9714    0.9714    0.9714       105
+  forgotten_variable_update     1.0000    0.9961    0.9981       257
+   incorrect_initialization     0.9138    0.9298    0.9217       114
+   mutable_default_argument     1.0000    0.9937    0.9968       158
+      use_before_definition     1.0000    1.0000    1.0000        85
+         variable_name_typo     0.9881    1.0000    0.9940       250
+
+                   accuracy                         0.9715      2140
+                  macro avg     0.9573    0.9544    0.9553      2140
+               weighted avg     0.9720    0.9715    0.9716      2140
+
+
+============================================================
+  LINE DETECTION — token classifier (codebert_line_detection_v3_model)
+============================================================
+
+VAL  n=1,521  (model-selection split)
+  Token precision : 0.9246
+  Token recall    : 0.9731
+  Token F1        : 0.9482
+  Line hit@1      : 0.9553
+
+TEST  n=1,584  (HONEST held-out estimate)
+  Token precision : 0.9410
+  Token recall    : 0.9687
+  Token F1        : 0.9547
+  Line hit@1      : 0.9552
+
+============================================================
+  SUMMARY — val vs test (a large gap would mean over-selection on val)
+============================================================
+Model                  Metric                VAL       TEST
+------------------------------------------------------------
+Stage 1 (4-class)      Accuracy           0.9548     0.9558
+                       Macro F1           0.9568     0.9556
+Stage 2 (14-class)     Accuracy           0.9755     0.9715
+                       Macro F1           0.9645     0.9553
+Line detection         Token F1           0.9482     0.9547
+                       Line hit@1         0.9553     0.9552
+
+Report the TEST column in the thesis. These splits are problem-grouped, so
+every test problem is unseen in training (0 cross-split problems asserted in
+data_prep_grouped_v3.py). Reference: leaky v2 Stage 1 test macro-F1 = 0.9840.

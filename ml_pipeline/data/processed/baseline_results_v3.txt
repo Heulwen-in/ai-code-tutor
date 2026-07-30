@@ -1,0 +1,22 @@
+Baseline Classifier Results v3 (grouped split, length shortcuts removed)
+============================================================
+
+Dropped features: ['comment_ratio', 'n_assert', 'n_raise', 'n_try_except', 'code_len', 'line_count', 'avg_line_len']
+Structural feature count: 33
+
+           model  train_acc  val_acc  test_acc  macro_f1  syntax_f1  logic_f1  variable_f1
+    XGB (TF-IDF)     0.9524   0.8879    0.8897    0.8958     0.9258    0.8807       0.8809
+     LR (TF-IDF)     0.9737   0.8831    0.8874    0.8913     0.9108    0.8800       0.8831
+    SVM (TF-IDF)     0.9894   0.8850    0.8785    0.8839     0.9104    0.8689       0.8723
+     RF (TF-IDF)     0.9417   0.8312    0.8206    0.8278     0.8661    0.7993       0.8181
+     DT (TF-IDF)     0.8933   0.7985    0.7921    0.8054     0.8722    0.7747       0.7693
+XGB (structural)     0.8470   0.6065    0.6131    0.6154     0.6268    0.5942       0.6253
+ RF (structural)     0.7148   0.5810    0.5879    0.5877     0.5874    0.5899       0.5859
+SVM (structural)     0.5683   0.5589    0.5799    0.5784     0.5721    0.5686       0.5946
+ LR (structural)     0.5572   0.5445    0.5696    0.5701     0.5746    0.5536       0.5820
+ DT (structural)     0.5389   0.5267    0.5187    0.5061     0.5232    0.5928       0.4023
+
+Best model: XGB (TF-IDF)  macro_f1=0.8958
+
+Note: compare against baseline_results_v2.txt (leaky split) — a drop in
+test macro-F1 here is expected and reflects removal of problem-context leakage.

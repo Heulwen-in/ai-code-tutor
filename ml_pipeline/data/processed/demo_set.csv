@@ -1,0 +1,77 @@
+group,coarse_expected,subtype_expected,pred_coarse,pred_subtype,pred_line,gold_lines,confidence,coarse_ok,subtype_ok
+incorrect_type,syntax_error,incorrect_type,syntax_error,incorrect_type,5.0,"[2, 4, 5]",0.9999,True,True
+incorrect_type,syntax_error,incorrect_type,syntax_error,incorrect_type,4.0,[4],0.9999,True,True
+incorrect_type,syntax_error,incorrect_type,syntax_error,incorrect_type,2.0,[2],0.9999,True,True
+incorrect_type,syntax_error,incorrect_type,syntax_error,incorrect_type,2.0,"[2, 6]",0.9999,True,True
+incorrect_type,syntax_error,incorrect_type,syntax_error,incorrect_type,2.0,[2],0.9999,True,True
+missing_argument,syntax_error,missing_argument,syntax_error,missing_argument,4.0,[4],0.9999,True,True
+missing_argument,syntax_error,missing_argument,syntax_error,missing_argument,3.0,,0.9999,True,True
+missing_argument,syntax_error,missing_argument,syntax_error,missing_argument,3.0,"[2, 3]",0.9999,True,True
+missing_argument,syntax_error,missing_argument,syntax_error,missing_argument,2.0,[2],0.9999,True,True
+missing_argument,syntax_error,missing_argument,syntax_error,missing_argument,2.0,"[2, 3]",0.9999,True,True
+swapped_comparison_operands,logic_error,swapped_comparison_operands,logic_error,swapped_comparison_operands,3.0,[3],0.9982,True,True
+swapped_comparison_operands,logic_error,swapped_comparison_operands,logic_error,swapped_comparison_operands,4.0,[4],0.9991,True,True
+swapped_comparison_operands,logic_error,swapped_comparison_operands,logic_error,swapped_comparison_operands,2.0,[2],0.9987,True,True
+swapped_comparison_operands,logic_error,swapped_comparison_operands,logic_error,swapped_comparison_operands,6.0,"[4, 6]",0.9963,True,True
+swapped_comparison_operands,logic_error,swapped_comparison_operands,logic_error,swapped_comparison_operands,4.0,[4],0.999,True,True
+wrong_comparison_target,logic_error,wrong_comparison_target,logic_error,wrong_comparison_target,7.0,[7],0.9983,True,True
+wrong_comparison_target,logic_error,wrong_comparison_target,logic_error,wrong_comparison_target,5.0,[5],0.9989,True,True
+wrong_comparison_target,logic_error,wrong_comparison_target,logic_error,wrong_comparison_target,9.0,[9],0.9991,True,True
+wrong_comparison_target,logic_error,wrong_comparison_target,logic_error,wrong_comparison_target,6.0,[6],0.9951,True,True
+wrong_comparison_target,logic_error,wrong_comparison_target,no_bug,,,[8],0.9993,False,False
+infinite_while_loop,logic_error,infinite_while_loop,logic_error,infinite_while_loop,7.0,[7],0.9993,True,True
+infinite_while_loop,logic_error,infinite_while_loop,logic_error,infinite_while_loop,7.0,[7],0.9993,True,True
+infinite_while_loop,logic_error,infinite_while_loop,logic_error,infinite_while_loop,6.0,[6],0.9634,True,True
+infinite_while_loop,logic_error,infinite_while_loop,logic_error,infinite_while_loop,3.0,[3],0.9993,True,True
+infinite_while_loop,logic_error,infinite_while_loop,logic_error,infinite_while_loop,3.0,[3],0.9992,True,True
+non_existing_method,logic_error,non_existing_method,logic_error,non_existing_method,3.0,"[3, 9]",0.9993,True,True
+non_existing_method,logic_error,non_existing_method,logic_error,non_existing_method,12.0,[12],0.999,True,True
+non_existing_method,logic_error,non_existing_method,logic_error,non_existing_method,4.0,[4],0.9986,True,True
+non_existing_method,logic_error,non_existing_method,logic_error,non_existing_method,8.0,[8],0.9993,True,True
+non_existing_method,logic_error,non_existing_method,logic_error,non_existing_method,8.0,[8],0.9993,True,True
+off_by_one_index,logic_error,off_by_one_index,logic_error,off_by_one_index,8.0,,0.999,True,True
+off_by_one_index,logic_error,off_by_one_index,logic_error,off_by_one_index,4.0,[4],0.9992,True,True
+off_by_one_index,logic_error,off_by_one_index,logic_error,off_by_one_index,4.0,[4],0.9992,True,True
+off_by_one_index,logic_error,off_by_one_index,logic_error,off_by_one_index,5.0,"[1, 3, 5]",0.9991,True,True
+off_by_one_index,logic_error,off_by_one_index,logic_error,off_by_one_index,5.0,[5],0.9991,True,True
+returning_early,logic_error,returning_early,logic_error,returning_early,4.0,[4],0.9994,True,True
+returning_early,logic_error,returning_early,logic_error,returning_early,6.0,[6],0.9992,True,True
+returning_early,logic_error,returning_early,logic_error,returning_early,2.0,[2],0.9993,True,True
+returning_early,logic_error,returning_early,logic_error,returning_early,5.0,[5],0.9994,True,True
+returning_early,logic_error,returning_early,logic_error,returning_early,3.0,[3],0.9993,True,True
+swapped_for_range,logic_error,swapped_for_range,logic_error,swapped_for_range,3.0,[3],0.9993,True,True
+swapped_for_range,logic_error,swapped_for_range,logic_error,swapped_for_range,4.0,[4],0.9993,True,True
+swapped_for_range,logic_error,swapped_for_range,logic_error,swapped_for_range,3.0,[3],0.9994,True,True
+swapped_for_range,logic_error,swapped_for_range,logic_error,swapped_for_range,5.0,[5],0.9993,True,True
+swapped_for_range,logic_error,swapped_for_range,logic_error,swapped_for_range,3.0,[3],0.9993,True,True
+forgotten_variable_update,variable_misuse,forgotten_variable_update,variable_misuse,forgotten_variable_update,2.0,[2],0.9998,True,True
+forgotten_variable_update,variable_misuse,forgotten_variable_update,variable_misuse,forgotten_variable_update,2.0,[2],0.9998,True,True
+forgotten_variable_update,variable_misuse,forgotten_variable_update,variable_misuse,forgotten_variable_update,2.0,[2],0.9998,True,True
+forgotten_variable_update,variable_misuse,forgotten_variable_update,variable_misuse,forgotten_variable_update,5.0,"[4, 5]",0.9998,True,True
+forgotten_variable_update,variable_misuse,forgotten_variable_update,variable_misuse,forgotten_variable_update,2.0,"[2, 3]",0.9998,True,True
+incorrect_initialization,variable_misuse,incorrect_initialization,variable_misuse,incorrect_initialization,3.0,[3],0.9998,True,True
+incorrect_initialization,variable_misuse,incorrect_initialization,variable_misuse,incorrect_initialization,2.0,[2],0.9998,True,True
+incorrect_initialization,variable_misuse,incorrect_initialization,variable_misuse,incorrect_initialization,2.0,[2],0.9998,True,True
+incorrect_initialization,variable_misuse,incorrect_initialization,no_bug,,,[5],0.5274,False,False
+incorrect_initialization,variable_misuse,incorrect_initialization,variable_misuse,incorrect_initialization,2.0,[2],0.9998,True,True
+mutable_default_argument,variable_misuse,mutable_default_argument,variable_misuse,mutable_default_argument,5.0,"[1, 5]",0.9999,True,True
+mutable_default_argument,variable_misuse,mutable_default_argument,variable_misuse,mutable_default_argument,1.0,"[1, 3]",0.9998,True,True
+mutable_default_argument,variable_misuse,mutable_default_argument,variable_misuse,mutable_default_argument,2.0,"[1, 2]",0.9999,True,True
+mutable_default_argument,variable_misuse,mutable_default_argument,variable_misuse,mutable_default_argument,9.0,"[1, 9]",0.9999,True,True
+mutable_default_argument,variable_misuse,mutable_default_argument,variable_misuse,mutable_default_argument,6.0,"[1, 6]",0.9999,True,True
+use_before_definition,variable_misuse,use_before_definition,variable_misuse,use_before_definition,2.0,[2],0.9998,True,True
+use_before_definition,variable_misuse,use_before_definition,variable_misuse,use_before_definition,2.0,[2],0.9998,True,True
+use_before_definition,variable_misuse,use_before_definition,variable_misuse,use_before_definition,2.0,[2],0.9998,True,True
+use_before_definition,variable_misuse,use_before_definition,variable_misuse,use_before_definition,2.0,[2],0.9998,True,True
+use_before_definition,variable_misuse,use_before_definition,variable_misuse,use_before_definition,2.0,[2],0.9998,True,True
+variable_name_typo,variable_misuse,variable_name_typo,variable_misuse,variable_name_typo,2.0,[2],0.9998,True,True
+variable_name_typo,variable_misuse,variable_name_typo,variable_misuse,variable_name_typo,3.0,[3],0.9998,True,True
+variable_name_typo,variable_misuse,variable_name_typo,variable_misuse,variable_name_typo,2.0,[2],0.9998,True,True
+variable_name_typo,variable_misuse,variable_name_typo,variable_misuse,variable_name_typo,2.0,,0.9998,True,True
+variable_name_typo,variable_misuse,variable_name_typo,variable_misuse,variable_name_typo,3.0,"[2, 3]",0.9998,True,True
+no_bug,no_bug,-,no_bug,,,,0.979,True,
+no_bug,no_bug,-,logic_error,wrong_comparison_target,,,0.9976,False,
+no_bug,no_bug,-,logic_error,swapped_comparison_operands,7.0,,0.9992,False,
+no_bug,no_bug,-,logic_error,wrong_comparison_target,7.0,,0.9993,False,
+no_bug,no_bug,-,logic_error,wrong_comparison_target,,,0.9597,False,
+no_bug,no_bug,-,no_bug,,,,0.5905,True,

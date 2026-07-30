@@ -1,0 +1,1790 @@
+[
+  {
+    "case_id": "case_00",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_comparison_operands",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: swapped comparison operands.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_00",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_comparison_operands",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 19.65,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'The request timed out. Please try again.', 'status': 'DEADLINE_EXCEEDED'}}"
+  },
+  {
+    "case_id": "case_00",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_comparison_operands",
+    "feedback": {
+      "summary": "The comparison in `if left_sum + right_sum == root.val:` is incorrect.",
+      "explanation": "The bug is caused by a swapped comparison operand. Instead of checking if the sum of left and right subtree values equals the current node's value, it should check if the current node's value equals the sum of its children's values.",
+      "next_steps": [
+        "Identify where in the code the comparison is made.",
+        "Swap the operands in that line to correct the logic.",
+        "Run your program again to see if the issue is resolved."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 7.37,
+    "word_count": 41,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_01",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_comparison_operands",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: swapped comparison operands.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_01",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_comparison_operands",
+    "feedback": {
+      "summary": "It looks like a few of your comparison checks might be swapped, leading to unexpected loop behavior or conditions not being met.",
+      "explanation": "You've made a common logical error where the order of operands in some comparison operations is reversed. This means conditions intended to keep a loop running might actually stop it, or conditions meant to trigger an action might never be true. For example, `A < B` is different from `B < A`.",
+      "next_steps": [
+        "Let's look at your main `while` loop: `while len(chars) < i:`. Think about what this loop is trying to do. Should it continue as long as `i` (your current position) is *within* the bounds of the `chars` list, or once `i` has gone *past* the end?",
+        "Now consider your inner `while` loop, specifically `while len(chars) < i + count`. When checking `chars[i + count]`, what must be true about `i + count` compared to `len(chars)` to make sure you don't try to access an index that doesn't exist?",
+        "Finally, let's look at `if 1 > count:`. This part of your code seems designed to write the count of consecutive characters. If a character appears just once (`count` is 1), you typically don't write the number '1'. When should you actually write the `count` number? What condition would represent 'count is greater than 1'?"
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 7.92,
+    "word_count": 52,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_01",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_comparison_operands",
+    "feedback": {
+      "summary": "The code has a logic error where it tries to compare indices that are out of bounds.",
+      "explanation": "In the while loop, you are checking `len(chars) < i` and `len(chars) < i + count`, which can lead to trying to access elements beyond the end of the list. This causes an 'index out of range' error.",
+      "next_steps": [
+        "Check if you need to adjust the conditions in your while loops.",
+        "Make sure that both `i` and `i + count` are within valid indices for the `chars` list.",
+        "Add print statements or use a debugger to see the values of `i`, `count`, and the length of `chars` as you step through the code."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.25,
+    "word_count": 38,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_02",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "wrong_comparison_target",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: wrong comparison target.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_02",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "wrong_comparison_target",
+    "feedback": {
+      "summary": "You're doing great with your Word Break solution, but there's a small adjustment needed in how you check for words in your dictionary.",
+      "explanation": "You've successfully created a substring `s[j:i]` and stored your dictionary words in an efficient `word_set`. The current code uses the `<=` operator to compare this substring with your `word_set`. While useful for ordering or size comparisons, `<=` isn't the Pythonic way to check if a specific item is present within a collection like a set.",
+      "next_steps": [
+        "Think about the specific question you're asking when you write `s[j:i] <= word_set`. Are you trying to compare a substring's 'value' or 'order' against the entire set, or something else?",
+        "Recall how you would normally check if a particular element (like a string) exists within a collection (like a list or a set) in Python. There's a very common and straightforward keyword for this!",
+        "Once you remember the correct keyword for membership, try applying it in your conditional statement instead of the `<=` operator. See if that clarifies the intent of your code."
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 8.05,
+    "word_count": 55,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_02",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "wrong_comparison_target",
+    "feedback": {
+      "summary": "Your code has a logic error in how it checks if a substring exists in the word dictionary.",
+      "explanation": "The issue is with this line: `if dp[j] and s[j:i] <= word_set:` The comparison operator `<=` does not work as intended for sets. It should be `in` to check if an element is part of a set.",
+      "next_steps": [
+        "Change `s[j:i] <= word_set` to `s[j:i] in word_set`.",
+        "Test your function with different inputs to ensure it works correctly now.",
+        "Review the logic flow of your code to make sure everything makes sense."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.97,
+    "word_count": 37,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_03",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "wrong_comparison_target",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: wrong comparison target.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_03",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "wrong_comparison_target",
+    "feedback": {
+      "summary": "It looks like there's a type mismatch in one of your `if` conditions, comparing an integer with a dictionary.",
+      "explanation": "You're trying to compare `a`, which is an element from `arr` (an integer), directly with `pos`, which is a dictionary. Python doesn't know how to compare an integer and a dictionary using the `<=` operator, and this will cause a `TypeError`. Think about what you really want to check regarding `a` and the `pos` dictionary at that point in your code.",
+      "next_steps": [
+        "Take a close look at the line `if a <= pos:`.",
+        "What are the data types of `a` and `pos` right there? You can use `print(type(a))` and `print(type(pos))` to see them!",
+        "What do you want to achieve with that `if` condition? Are you trying to check if `a` is *inside* the `pos` dictionary?"
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 6.3,
+    "word_count": 61,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_03",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "wrong_comparison_target",
+    "feedback": {
+      "summary": "Your code tries to compare `a` with `pos`, which are incompatible types.",
+      "explanation": "`pos` is a dictionary mapping values from the target array to their indices, while `a` is an element of the input array. You can't directly compare these because they are not the same type and don't make logical sense in this context.",
+      "next_steps": [
+        "Check if you should be comparing `a` with something else instead of `pos`, such as its index in the target array.",
+        "Use the dictionary to get the correct comparison target for each element in the input array.",
+        "After fixing the comparison, see if your code works by running it on a few test cases."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.89,
+    "word_count": 42,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_04",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "forgotten_variable_update",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: forgotten variable update.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_04",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "forgotten_variable_update",
+    "feedback": {
+      "summary": "It looks like some variables are trying to refer to themselves before they've been given a starting value.",
+      "explanation": "In Python, you need to define a variable before you can use it. When you write lines like `n = n`, Python tries to find the value of `n` on the right side of the `=` sign, but it hasn't been created yet within your function. This will cause an error because the variables don't have an initial value to work with. Think about what each variable should be at the very beginning of your function.",
+      "next_steps": [
+        "Take a close look at the first three lines inside your `sum_of_intervals` function where `n`, `indices`, and `intervals` are assigned.",
+        "For `n`, what value should it represent based on the input `arr`? How can you calculate that value?",
+        "For `indices`, what kind of data structure is `defaultdict`? How do you properly create an empty one that can store lists of numbers?"
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 6.38,
+    "word_count": 76,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_04",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "forgotten_variable_update",
+    "feedback": {
+      "summary": "The variable `n` is not being updated correctly.",
+      "explanation": "In Python, the `n = n` line doesn't do anything. You need to update `n` with the length of `arr` instead.",
+      "next_steps": [
+        "Change the line `n = n` to `n = len(arr)`.",
+        "Also initialize `indices` and `intervals` at the start of your function, like so: `indices = defaultdict(list) and intervals = [0] * len(arr)`.",
+        "Test your function with a small list to see if it works as expected."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.73,
+    "word_count": 21,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_05",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "forgotten_variable_update",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: forgotten variable update.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_05",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "forgotten_variable_update",
+    "feedback": {
+      "summary": "It seems like some of your variables need to be initialized properly, and there's a specific spot where a word isn't being updated as it should be according to the Goat Latin rules.",
+      "explanation": "You're trying to use variables like `words`, `vowels`, and `result` by assigning them to themselves without giving them an initial value, which Python won't understand. A more important point is within your `if` statement: the line `word = word` doesn't actually change or update the `word` variable. This means that if a word starts with a consonant, the special Goat Latin transformation isn't happening, and the `word` remains exactly the same as it was.",
+      "next_steps": [
+        "First, consider how you typically set up variables at the start of a function. What should `words`, `vowels`, and `result` be assigned to when your function begins?",
+        "Now, let's focus on the line `word = word` inside your `if` statement. What does this line accomplish? Does it modify the `word` in any way, or does it simply assign its current value back to itself?",
+        "Think about the rules of Goat Latin for words that start with a consonant. What specific change needs to happen to the `word` in that situation? How would you write Python code to perform that transformation and update the `word` variable?"
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 11.01,
+    "word_count": 74,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_05",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "forgotten_variable_update",
+    "feedback": {
+      "summary": "The variable 'words' is not being set correctly.",
+      "explanation": "In Python, you need to assign values to variables before using them. In this code, 'words', 'vowels', and 'result' should be assigned the correct lists or strings at the beginning of the function.",
+      "next_steps": [
+        "Declare and initialize the 'words' variable with `sentence.split()` to split the input sentence into words.",
+        "Define a list of vowels for easy checking, such as `vowels = ['a', 'e', 'i', 'o', 'u']`.",
+        "Initialize an empty list for the result: `result = []`."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.9,
+    "word_count": 33,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_06",
+    "provider": "template",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "incorrect_type",
+    "feedback": {
+      "summary": "Syntax issue detected. Classifier confidence: 0.95. Detected pattern: incorrect type.",
+      "explanation": "Python could not read the code structure correctly. This usually means a missing colon, bracket, comma, quote, or invalid expression. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Read the error line and the line above it.",
+        "Check missing colons, brackets, quotes, and commas.",
+        "Run the code again after fixing the first syntax issue."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 34,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_06",
+    "provider": "gemini-flash",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "incorrect_type",
+    "feedback": {
+      "summary": "It looks like there's a small typo in how you're trying to reverse each word using string slicing.",
+      "explanation": "The analyzer noticed that you're trying to use a non-integer value where an integer is expected when slicing your string. Python's string slicing needs integer numbers to tell it how to step through the string. Using a string like \"-1\" instead of the actual number -1 will cause an error because it's the incorrect type for that operation.",
+      "next_steps": [
+        "Think about how you typically reverse a sequence in Python using slicing. What's the common integer value used for the `step` when you want to go backward?",
+        "Examine the part of your code `word[::-\"1\"]`. Specifically, look at `-\"1\"`. What type of data is `-\"1\"` (e.g., a number, a string, etc.)?",
+        "If the `step` needs to be an integer, how would you write the number negative one correctly without quotation marks?"
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 5.78,
+    "word_count": 58,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_06",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "incorrect_type",
+    "feedback": {
+      "summary": "The code has a syntax error in the slicing operation.",
+      "explanation": "In Python, slicing with `[::-1]` is used to reverse sequences. However, there's an extra `1` inside the brackets that makes it invalid.",
+      "next_steps": [
+        "Try removing the extra `1` from the slicing part of the line: `word[::-"
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 3.99,
+    "word_count": 22,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_07",
+    "provider": "template",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "incorrect_type",
+    "feedback": {
+      "summary": "Syntax issue detected. Classifier confidence: 0.95. Detected pattern: incorrect type.",
+      "explanation": "Python could not read the code structure correctly. This usually means a missing colon, bracket, comma, quote, or invalid expression. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Read the error line and the line above it.",
+        "Check missing colons, brackets, quotes, and commas.",
+        "Run the code again after fixing the first syntax issue."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 34,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_07",
+    "provider": "gemini-flash",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "incorrect_type",
+    "feedback": {
+      "summary": "It looks like you're accidentally treating numbers as text, which is causing type errors in your code.",
+      "explanation": "In Python, enclosing a number in quotation marks, like \"0\" or \"2\", makes it a string (text) instead of an integer (a whole number). Operations like division (`//`), addition (`+`), subtraction (`-`), or functions like `range()` expect actual number types. When you try to use a string where a number is expected, Python raises a `TypeError` because it doesn't know how to perform that operation with a text value.",
+      "next_steps": [
+        "Go through your code, especially inside the `mergeSort` function and its initial call.",
+        "Look for any numbers that are surrounded by quotation marks, like `\"0\"`, `\"1\"`, or `\"2\"`.",
+        "Remove the quotation marks from these numbers so Python treats them as their numerical values instead of text."
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 6.4,
+    "word_count": 69,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_07",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "incorrect_type",
+    "feedback": {
+      "summary": "Your code has incorrect types used in arithmetic operations.",
+      "explanation": "The problem lies in the use of strings instead of integers. You're using '+' and '*' operators with strings, which are not valid for those operations. In Python, these operations can only be performed on integers or floats.",
+      "next_steps": [
+        "Identify all occurrences where you're performing arithmetic operations on strings.",
+        "Change these to use integers or floats instead of strings. For example, replace '2' with 2, and remove the quotes around numbers used in calculations.",
+        "Run your code again to see if the errors are resolved."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.92,
+    "word_count": 38,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_08",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "incorrect_initialization",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: incorrect initialization.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_08",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "incorrect_initialization",
+    "feedback": {
+      "summary": "It looks like you have some variables initialized with specific values that might not be quite right for counting.",
+      "explanation": "When you're starting a new count, it's common to begin from a neutral value like zero. Your 'count' variable starts at '4', which could give you an incorrect total right from the start. Also, when a sequence of matching letters breaks, your 'current' variable resets to '3', but a new sequence always begins with just one character.",
+      "next_steps": [
+        "Think about what 'count' should be before you've added any contributions. What's the most neutral starting point for a total?",
+        "Consider what 'current' means: it tracks the length of a *consecutive* run of characters. When a run breaks and a new character appears, what's the length of that *new* character's run?",
+        "Review the initial value you set for 'count' and the value 'current' is reset to inside your 'else' block. Do these values logically align with starting a new count or a new sequence of characters?"
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 8.67,
+    "word_count": 57,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_08",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "incorrect_initialization",
+    "feedback": {
+      "summary": "The variable `count` is incorrectly initialized.",
+      "explanation": "In the function, the variable `count` is set to 4 initially, but it should be set to 0 since we are counting letters and the initial segment of length 1 does not contribute to count yet.",
+      "next_steps": [
+        "Change the initialization of the `count` variable to 0.",
+        "Make sure that the first segment's contribution is handled correctly in the loop.",
+        "Test the function with various inputs to ensure it works as expected."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.91,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_09",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "incorrect_initialization",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: incorrect initialization.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_09",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "incorrect_initialization",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 4.12,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_09",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "incorrect_initialization",
+    "feedback": {
+      "summary": "The variable `max_product` is being incorrectly initialized to a constant value.",
+      "explanation": "In the given code, `max_product` is set to 3 at the beginning, which might not be the best initial value for finding the maximum product of palindromic substrings. It should start as the smallest possible valid product for the input string.",
+      "next_steps": [
+        "Think about what the minimum possible value of `max_product` could be based on the input string's length.",
+        "Change the initial value of `max_product` to reflect this minimum value.",
+        "Test your code with different strings to ensure it correctly calculates the maximum product."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.09,
+    "word_count": 41,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_10",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "infinite_while_loop",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: infinite while loop.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_10",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "infinite_while_loop",
+    "feedback": {
+      "summary": "It looks like your code has a loop that tries to run forever!",
+      "explanation": "You're doing great with moving the non-zero numbers! The last part of your code uses a `while True` loop to fill the rest of the list with zeros. The issue is that `while True` means the loop will run endlessly, never allowing your program to finish. You need a condition that tells the loop exactly when to stop filling zeros.",
+      "next_steps": [
+        "Look closely at the `while True:` line. What does `True` mean in a loop condition? Will it ever become `False` on its own?",
+        "The goal of that loop is to fill the remaining spots in `nums` with `0`. You already have `nonZeroIndex` which points to the first spot that *should* be zero. What is the total length of the `nums` list (remember the variable `n`)? How can you use `n` and `nonZeroIndex` to know when you've filled all the necessary spots?",
+        "Can you come up with a `while` loop condition (instead of `True`) that ensures the loop continues only as long as there are still empty spots to fill with `0` up to the original length `n`?"
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 9.27,
+    "word_count": 60,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_10",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "infinite_while_loop",
+    "feedback": {
+      "summary": "The code contains an infinite while loop.",
+      "explanation": "The while loop does not have a condition that will eventually be met, causing it to run forever. This happens because the nonZeroIndex is never reset after reaching the end of the nums array.",
+      "next_steps": [
+        "Think about what should happen when nonZeroIndex reaches the length of nums.",
+        "Consider introducing a condition in the while loop to stop it from running indefinitely.",
+        "Test your code to ensure the infinite loop is fixed."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.06,
+    "word_count": 34,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_11",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "infinite_while_loop",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: infinite while loop.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_11",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "infinite_while_loop",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 2.54,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_11",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "infinite_while_loop",
+    "feedback": {
+      "summary": "There's an infinite loop in your code.",
+      "explanation": "The inner while loop will continue forever because 'k' is never reset or checked to see if it has reached a value that breaks the loop. This leads to an infinite cycle which needs to be addressed.",
+      "next_steps": [
+        "Check the logic inside the innermost while loop. Why does 'k' not change?",
+        "Consider what values of 'i' should cause the loop to break or continue?",
+        "Think about how you can reset 'k' properly so that the loop eventually ends."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.65,
+    "word_count": 37,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_12",
+    "provider": "template",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "missing_argument",
+    "feedback": {
+      "summary": "Syntax issue detected. Classifier confidence: 0.95. Detected pattern: missing argument.",
+      "explanation": "Python could not read the code structure correctly. This usually means a missing colon, bracket, comma, quote, or invalid expression. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Read the error line and the line above it.",
+        "Check missing colons, brackets, quotes, and commas.",
+        "Run the code again after fixing the first syntax issue."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 34,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_12",
+    "provider": "gemini-flash",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "missing_argument",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 4.38,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_12",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "missing_argument",
+    "feedback": {
+      "summary": "The function `maxNumberOfCandies` has a missing argument in its return statement.",
+      "explanation": "In Python, the function `min()` requires at least two arguments to compare. In your code, you have called `min(len(), len() // 2)` without providing any arguments for `len()`. You need to pass a list or sequence of items to `len()` so it can calculate their length.",
+      "next_steps": [
+        "Identify what should be passed as an argument to the first `len()` function call.",
+        "Ensure that both arguments passed to `min()` are valid Python sequences (like lists, tuples, strings, etc.).",
+        "Run your code again after making these changes."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.17,
+    "word_count": 46,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_13",
+    "provider": "template",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "missing_argument",
+    "feedback": {
+      "summary": "Syntax issue detected. Classifier confidence: 0.95. Detected pattern: missing argument.",
+      "explanation": "Python could not read the code structure correctly. This usually means a missing colon, bracket, comma, quote, or invalid expression. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Read the error line and the line above it.",
+        "Check missing colons, brackets, quotes, and commas.",
+        "Run the code again after fixing the first syntax issue."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 34,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_13",
+    "provider": "gemini-flash",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "missing_argument",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 0.97,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_13",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "syntax_error",
+    "gold_subtype": "missing_argument",
+    "feedback": {
+      "summary": "The helper function calls result.append() and helper() without arguments.",
+      "explanation": "In Python, the append() method requires an argument to add it to a list. The helper function should pass a value to append(), and also provide the root's children list when calling helper().",
+      "next_steps": [
+        "Identify where in each function call you need to add an argument.",
+        "What type of argument should be added to result.append()?",
+        "For the recursive call, which argument should be passed?"
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.29,
+    "word_count": 33,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_14",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "mutable_default_argument",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: mutable default argument.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_14",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "mutable_default_argument",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 1.08,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_14",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "mutable_default_argument",
+    "feedback": {
+      "summary": "The function `count_similar_pairs` has a mutable default argument.",
+      "explanation": "In Python, using lists or dictionaries as default arguments can lead to unexpected behavior because the same list or dictionary is used across multiple calls. In your code, the empty list `[]` becomes the default for `words`, and it gets modified every time the function is called, which affects future calls.",
+      "next_steps": [
+        "Think about why you might want to use a mutable object as a default argument.",
+        "Consider how you can change the function to avoid using mutable defaults. One way is to set the default to `None` and initialize the list inside the function if it's not provided.",
+        "Test your changes by calling the function multiple times with different arguments."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.32,
+    "word_count": 51,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_15",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "mutable_default_argument",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: mutable default argument.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_15",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "mutable_default_argument",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 1.13,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_15",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "mutable_default_argument",
+    "feedback": {
+      "summary": "The function has a mutable default argument, which can cause unexpected behavior.",
+      "explanation": "In Python, when you use a list as a default argument in a function definition, it is created only once and reused across all calls. This means that if the function modifies this list (like appending to it), those modifications will persist for subsequent calls, leading to bugs.",
+      "next_steps": [
+        "Understand why mutable default arguments are problematic.",
+        "Change the default value of `k` to `None` instead.",
+        "Inside the function, check if `k` is `None`. If so, initialize it as an empty list. Otherwise, use the existing list."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.9,
+    "word_count": 48,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_16",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "non_existing_method",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: non existing method.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_16",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "non_existing_method",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 1.33,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_16",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "non_existing_method",
+    "feedback": {
+      "summary": "The code tries to use `.update()` on lists, which doesn't exist.",
+      "explanation": "In Python, you can't use the `.update()` method on lists. Instead of updating, you should append new items using `.append()`. This mistake affects how values are added to both `self.stack` and `self.min_stack`.",
+      "next_steps": [
+        "Locate where `.update()` is used in your code.",
+        "Replace `.update(val)` with `.append(val)`, making sure to add the value as a single element (even for integers).",
+        "Test your updated code by pushing, popping, and getting the top and minimum values from your stack."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.2,
+    "word_count": 32,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_17",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "non_existing_method",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: non existing method.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_17",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "non_existing_method",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 2.94,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_17",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "non_existing_method",
+    "feedback": {
+      "summary": "The `extend` method is used incorrectly, as it expects a list, not a single value.",
+      "explanation": "In Python, the `extend` method adds all elements from an iterable (like a list) to another list. Since you're passing a single integer instead of a list, this line will cause an error. You need to use `append` instead, as it adds a single element to the list.",
+      "next_steps": [
+        "Change `result.extend(val)` to `result.append(val)`",
+        "Test your function with some examples to make sure it works correctly now",
+        "Consider if there are other parts of the code that could be improved"
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.95,
+    "word_count": 48,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_18",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "off_by_one_index",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: off by one index.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_18",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "off_by_one_index",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 1.0,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_18",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "off_by_one_index",
+    "feedback": {
+      "summary": "The code has an off-by-one error in comparing indices.",
+      "explanation": "In Python, string indices start at 0. The current code assumes that characters are compared starting from index 1 instead of 0, which leads to incorrect comparisons.",
+      "next_steps": [
+        "Check the line where indices i and i+1 are used for comparison.",
+        "Remember that Python strings start indexing at 0, so use i instead of i+1 when comparing characters.",
+        "Test your function with various cases to ensure it works as expected."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.69,
+    "word_count": 27,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_19",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "off_by_one_index",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: off by one index.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_19",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "off_by_one_index",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 8.42,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_19",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "off_by_one_index",
+    "feedback": {
+      "summary": "Your code has a logic error due to an off by one index issue.",
+      "explanation": "In Python, string indices start at 0. Your loop is trying to access `s[i + 1]` and `locked[i + 1]`, which can cause an IndexError when `i` reaches the last element of the strings. This happens because there is no element at position `len(s)` or `len(locked)`. You need to adjust your index usage to avoid accessing out-of-bounds elements.",
+      "next_steps": [
+        "Check if `i + 1` is within bounds before using it to access `s[i + 1]` and `locked[i + 1]`. For example, you could use `if i + 1 < len(s)`:",
+        "Adjust the balance calculation inside your loop accordingly.",
+        "Test your function with various inputs to ensure it behaves as expected."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.67,
+    "word_count": 58,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_20",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "returning_early",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: returning early.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_20",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "returning_early",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 1.74,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_20",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "returning_early",
+    "feedback": {
+      "summary": "The function returns early without giving a value.",
+      "explanation": "The current code calculates the maximum depth of parentheses in a string but doesn't return this value. Python functions need to explicitly return a value unless they're defined as `None`, which is not the case here.",
+      "next_steps": [
+        "Identify where you want to return the value",
+        "Consider if there's any condition that might prevent returning",
+        "Modify the function to include a return statement"
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.01,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_21",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "returning_early",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: returning early.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_21",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "returning_early",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 2.03,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_21",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "returning_early",
+    "feedback": {
+      "summary": "The function `getBill` currently returns early without applying the discount to the total.",
+      "explanation": "In Python, the `return` statement stops the execution of a function and sends back a result. Currently, your function is returning early after calculating the total amount, so it's not applying the discount when needed.",
+      "next_steps": [
+        "Consider what happens when `self.customer_count % self.n == 0`. Is the discount applied then?",
+        "Can you determine why the function isn't applying the discount? Hint: Look at the last line of your function.",
+        "How can you fix this to ensure that the discount is applied correctly only every nth customer?"
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.94,
+    "word_count": 35,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_22",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_for_range",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: swapped for range.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_22",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_for_range",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 0.22,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 4.859982315s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '4s'}]}}"
+  },
+  {
+    "case_id": "case_22",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_for_range",
+    "feedback": {
+      "summary": "The code has a logic error in counting character frequencies.",
+      "explanation": "The 'while next(s)' loop is incorrect because it doesn't iterate over the string 's' properly. Also, using 'next(iter(freq_map.values()))' without proper initialization of 'value' can lead to errors.",
+      "next_steps": [
+        "Think about how you can use a for loop to iterate over each character in the string 's'.",
+        "Consider initializing 'value' with the first frequency from the freq_map dictionary before starting the while loop.",
+        "How could you modify the code to compare each frequency value against 'count' without causing an error when no more frequencies are left?"
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.81,
+    "word_count": 27,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_23",
+    "provider": "template",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_for_range",
+    "feedback": {
+      "summary": "Logic issue detected. Classifier confidence: 0.95. Detected pattern: swapped for range.",
+      "explanation": "The code can run, but the steps may not match the intended algorithm. Check conditions, loop boundaries, return timing, and edge cases. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Write down the expected output for one small example.",
+        "Trace each loop iteration by hand or with print/debug statements.",
+        "Add tests for boundary cases such as empty input and one-element input."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_23",
+    "provider": "gemini-flash",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_for_range",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 0.25,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\\nPlease retry in 59.799467146s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '59s'}]}}"
+  },
+  {
+    "case_id": "case_23",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "logic_error",
+    "gold_subtype": "swapped_for_range",
+    "feedback": {
+      "summary": "The code has a logic error related to how it processes the 'ghosts' list.",
+      "explanation": "The problem is in the while loop condition. The function attempts to call next(ghosts), but it's using 'next' incorrectly, and it doesn't check if there are more elements in the list. This could cause an error or unexpected behavior.",
+      "next_steps": [
+        "Examine the 'while' loop. What does 'next(ghosts)' do?",
+        "Consider using a for loop to iterate over each ghost instead of trying to use 'next'.",
+        "Think about how you can check if there are more ghosts in the list."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.93,
+    "word_count": 39,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_24",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "use_before_definition",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: use before definition.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_24",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "use_before_definition",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 0.82,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_24",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "use_before_definition",
+    "feedback": {
+      "summary": "The variable `x` is being used before it's defined.",
+      "explanation": "In Python, you can't use a variable that hasn't been given a value yet. It's like trying to eat ice cream before the ice cream shop opens. You need to define and give a value to `x` before using it in your code.",
+      "next_steps": [
+        "What is `x` used for in this function? Can you figure out what value should go there?",
+        "Look at the line where `xk = x + 1`. What happens if `x` doesn't have a value yet?",
+        "Once you know what `x` should be, add that line of code before it's used. Then try running your function again."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.3,
+    "word_count": 43,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_25",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "use_before_definition",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: use before definition.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_25",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "use_before_definition",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 1.02,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_25",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "use_before_definition",
+    "feedback": {
+      "summary": "The variable `self` is being used before it's defined.",
+      "explanation": "In Python, the word `self` is a special parameter that represents the instance of the class. It must be defined within methods of a class, not outside or as a standalone variable in the global scope.",
+      "next_steps": [
+        "Check where you are using `self` and see if it's supposed to be a method of a class. If so, make sure it's inside a method definition like `def method_name(self):`",
+        "If `self` is meant to hold some value related to the object instance, ensure it's initialized within a constructor or another method that initializes new instances.",
+        "Once you've ensured `self` is properly defined and used within methods, test your code again to see if the issue is resolved."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.45,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_26",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "variable_name_typo",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: variable name typo.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_26",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "variable_name_typo",
+    "feedback": {
+      "summary": "It looks like there's a small typo in one of your variable names that's preventing it from updating correctly.",
+      "explanation": "Take a close look at the line inside your `else` block where you try to update your `maxDist` variable. It appears the variable name has been accidentally duplicated, like `maxDistmaxDist`. Python will treat `maxDistmaxDist` as a brand new variable, so your original `maxDist` variable isn't getting the updated value you intended, which might lead to an incorrect final result.",
+      "next_steps": [
+        "Carefully re-read the line where you assign a new value in your `else` block.",
+        "Think about whether you meant to create a *new* variable or update the *existing* `maxDist` variable.",
+        "Try printing the value of `maxDist` right before and right after that assignment line. What do you observe about its value?"
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 6.53,
+    "word_count": 59,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_26",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "variable_name_typo",
+    "feedback": {
+      "summary": "There's a typo in the variable name `maxDistmaxDist`.",
+      "explanation": "The code intended to update `maxDist`, but it mistakenly used `maxDistmaxDist`. This caused an error because `maxDistmaxDist` is not defined anywhere in the code. You need to correct the typo to fix this issue.",
+      "next_steps": [
+        "Identify where the mistake was made by looking for a line with `maxDistmaxDist`. It should be `maxDist = max(maxDist, j - i)`.",
+        "Correct the typo by changing `maxDistmaxDist` to just `maxDist`. The corrected line should look like this: `maxDist = max(maxDist, j - i)`.",
+        "Save your code and run it again to see if the error is resolved."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.72,
+    "word_count": 34,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_27",
+    "provider": "template",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "variable_name_typo",
+    "feedback": {
+      "summary": "Variable misuse detected. Classifier confidence: 0.95. Detected pattern: variable name typo.",
+      "explanation": "A variable may be updated, referenced, or initialized incorrectly. Trace each variable from creation to final use. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "List each variable and its intended meaning.",
+        "Check where each variable is first assigned and later updated.",
+        "Look for similar names, wrong indexes, or stale values."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 31,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_27",
+    "provider": "gemini-flash",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "variable_name_typo",
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 0.99,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_27",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "variable_misuse",
+    "gold_subtype": "variable_name_typo",
+    "feedback": {
+      "summary": "There are typos in variable names.",
+      "explanation": "The code has a few variable name typos. It uses 'xx', 'ix', and 'x' which don't match the intended variables used in the function.",
+      "next_steps": [
+        "1. Look for where 'xx' is initialized to zero. This should be your loop counter, so change it to 'i'.",
+        "2. Find where 'ix' is set to five. This appears to be a mistake and should probably be named 'k' instead since the while loop condition uses 'k'.",
+        "3. In the line inside the while loop that increments 'x', make sure you're using the correct variable name."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 5.05,
+    "word_count": 24,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_28",
+    "provider": "template",
+    "gold_coarse": "no_bug",
+    "gold_subtype": null,
+    "feedback": {
+      "summary": "No obvious bug detected. Classifier confidence: 0.95.",
+      "explanation": "No common issue was detected by the current classifier. It is still worth testing with edge cases and reviewing the expected output. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Run the provided sample tests.",
+        "Add at least two edge-case tests.",
+        "Review whether the algorithm matches the problem constraints."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_28",
+    "provider": "gemini-flash",
+    "gold_coarse": "no_bug",
+    "gold_subtype": null,
+    "feedback": {
+      "summary": "Your code is almost perfect, but the 'arrow' key name isn't recognized by `pyautogui.hotkey()`.",
+      "explanation": "You're doing a fantastic job using `pyautogui.hotkey()`! While 'ctrl' and 'alt' are specific keys, 'arrow' is a bit too general. `pyautogui` needs to know exactly which arrow key you'd like to use (like left, right, up, or down) to make sure it presses the correct one. It's a common small detail that's easy to overlook when learning new libraries!",
+      "next_steps": [
+        "Think about which specific arrow key you actually want to press. Do you want to go 'up', 'down', 'left', or 'right'?",
+        "How do you think `pyautogui` might want you to write down those specific arrow key names as strings, similar to how you wrote 'ctrl'?",
+        "A great place to look for all the key names `pyautogui` understands is in its official documentation. Can you find the section that lists all the valid keyboard key strings?"
+      ],
+      "tone": "beginner",
+      "source": "gemini-flash"
+    },
+    "json_valid": 1,
+    "latency_s": 6.47,
+    "word_count": 59,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_28",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "no_bug",
+    "gold_subtype": null,
+    "feedback": {
+      "summary": "The code uses 'arrow' instead of specifying a direction for the arrow key.",
+      "explanation": "The 'arrow' keyword doesn't represent a specific direction. You need to specify if you want to move up, down, left, or right. For example, 'up', 'down', 'left', or 'right'.",
+      "next_steps": [
+        "Try using one of the valid directions (e.g., 'down') instead of just 'arrow'.",
+        "Make sure you look up the correct keyword for the direction you want to move in.",
+        "Test your code by running it and observe if it behaves as expected."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.44,
+    "word_count": 29,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_29",
+    "provider": "template",
+    "gold_coarse": "no_bug",
+    "gold_subtype": null,
+    "feedback": {
+      "summary": "No obvious bug detected. Classifier confidence: 0.95.",
+      "explanation": "No common issue was detected by the current classifier. It is still worth testing with edge cases and reviewing the expected output. Start with one small test case and make the code correct before optimizing it.",
+      "next_steps": [
+        "Run the provided sample tests.",
+        "Add at least two edge-case tests.",
+        "Review whether the algorithm matches the problem constraints."
+      ],
+      "tone": "beginner",
+      "source": "template"
+    },
+    "json_valid": 1,
+    "latency_s": 0.0,
+    "word_count": 36,
+    "est_cost_usd": 0.0,
+    "error": null
+  },
+  {
+    "case_id": "case_29",
+    "provider": "gemini-flash",
+    "gold_coarse": "no_bug",
+    "gold_subtype": null,
+    "feedback": null,
+    "json_valid": 0,
+    "latency_s": 8.36,
+    "word_count": 0,
+    "est_cost_usd": 0.0,
+    "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "case_id": "case_29",
+    "provider": "ollama-qwen2.5-coder",
+    "gold_coarse": "no_bug",
+    "gold_subtype": null,
+    "feedback": {
+      "summary": "The code does not handle negative numbers correctly.",
+      "explanation": "Python's right shift operator (>>) treats negative integers differently than positive ones. This causes the code to give incorrect results when `nums` contains negative integers.",
+      "next_steps": [
+        "Think about how you can modify the code to work with negative numbers as well.",
+        "Consider using bitwise operations that are more straightforward for negative numbers, like XOR instead of OR.",
+        "Test your modified code with both positive and negative numbers to make sure it works correctly."
+      ],
+      "tone": "beginner",
+      "source": "ollama-qwen2.5-coder"
+    },
+    "json_valid": 1,
+    "latency_s": 4.47,
+    "word_count": 25,
+    "est_cost_usd": 0.0,
+    "error": null
+  }
+]

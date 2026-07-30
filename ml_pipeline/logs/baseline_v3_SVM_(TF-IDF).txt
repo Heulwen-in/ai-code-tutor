@@ -1,0 +1,28 @@
+Model: SVM (TF-IDF) (v3, grouped split)
+==================================================
+
+Best hyperparameters:
+  C: 10.0
+
+Train time    : 0.35s
+Train accuracy: 0.9894
+Val accuracy  : 0.8850
+Test accuracy : 0.8785
+Macro F1      : 0.8839
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.88      0.94      0.91       411
+    logic_error       0.89      0.85      0.87       865
+variable_misuse       0.87      0.88      0.87       864
+
+       accuracy                           0.88      2140
+      macro avg       0.88      0.89      0.88      2140
+   weighted avg       0.88      0.88      0.88      2140
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(386), np.int64(10), np.int64(15)]
+  [np.int64(28), np.int64(736), np.int64(101)]
+  [np.int64(23), np.int64(83), np.int64(758)]

@@ -1,0 +1,91 @@
+case_id,provider,gold_coarse,gold_subtype,latency_s,word_count,json_valid,est_cost_usd,summary,correctness_1to5,actionability_1to5,clarity_for_novice_1to5,no_solution_leak_0or1
+case_00,template,logic_error,swapped_comparison_operands,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: swapped comparison operands.,2,2,4,1
+case_00,gemini-flash,logic_error,swapped_comparison_operands,19.65,0,0,0,,1,1,1,1
+case_00,ollama-qwen2.5-coder,logic_error,swapped_comparison_operands,7.37,41,1,0,The comparison in `if left_sum + right_sum == root.val:` is incorrect.,4,4,4,1
+case_01,template,logic_error,swapped_comparison_operands,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: swapped comparison operands.,2,2,4,1
+case_01,gemini-flash,logic_error,swapped_comparison_operands,7.92,52,1,0,"It looks like a few of your comparison checks might be swapped, leading to unexpected loop behavior or conditions not being met.",4,5,5,1
+case_01,ollama-qwen2.5-coder,logic_error,swapped_comparison_operands,5.25,38,1,0,The code has a logic error where it tries to compare indices that are out of bounds.,3,4,4,1
+case_02,template,logic_error,wrong_comparison_target,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: wrong comparison target.,2,2,4,1
+case_02,gemini-flash,logic_error,wrong_comparison_target,8.05,55,1,0,"You're doing great with your Word Break solution, but there's a small adjustment needed in how you check for words in your dictionary.",5,5,5,1
+case_02,ollama-qwen2.5-coder,logic_error,wrong_comparison_target,4.97,37,1,0,Your code has a logic error in how it checks if a substring exists in the word dictionary.,5,4,4,0
+case_03,template,logic_error,wrong_comparison_target,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: wrong comparison target.,2,2,4,1
+case_03,gemini-flash,logic_error,wrong_comparison_target,6.3,61,1,0,"It looks like there's a type mismatch in one of your `if` conditions, comparing an integer with a dictionary.",4,4,4,1
+case_03,ollama-qwen2.5-coder,logic_error,wrong_comparison_target,4.89,42,1,0,"Your code tries to compare `a` with `pos`, which are incompatible types.",4,4,4,1
+case_04,template,variable_misuse,forgotten_variable_update,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: forgotten variable update.,2,2,4,1
+case_04,gemini-flash,variable_misuse,forgotten_variable_update,6.38,76,1,0,It looks like some variables are trying to refer to themselves before they've been given a starting value.,4,4,5,1
+case_04,ollama-qwen2.5-coder,variable_misuse,forgotten_variable_update,4.73,21,1,0,The variable `n` is not being updated correctly.,4,5,4,0
+case_05,template,variable_misuse,forgotten_variable_update,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: forgotten variable update.,2,2,4,1
+case_05,gemini-flash,variable_misuse,forgotten_variable_update,11.01,74,1,0,"It seems like some of your variables need to be initialized properly, and there's a specific spot where a word isn't being updated as it should be according to the Goat Latin rules.",3,4,4,1
+case_05,ollama-qwen2.5-coder,variable_misuse,forgotten_variable_update,4.9,33,1,0,The variable 'words' is not being set correctly.,3,3,4,1
+case_06,template,syntax_error,incorrect_type,0,34,1,0,Syntax issue detected. Classifier confidence: 0.95. Detected pattern: incorrect type.,2,2,4,1
+case_06,gemini-flash,syntax_error,incorrect_type,5.78,58,1,0,It looks like there's a small typo in how you're trying to reverse each word using string slicing.,4,4,4,1
+case_06,ollama-qwen2.5-coder,syntax_error,incorrect_type,3.99,22,1,0,The code has a syntax error in the slicing operation.,4,3,4,1
+case_07,template,syntax_error,incorrect_type,0,34,1,0,Syntax issue detected. Classifier confidence: 0.95. Detected pattern: incorrect type.,2,2,4,1
+case_07,gemini-flash,syntax_error,incorrect_type,6.4,69,1,0,"It looks like you're accidentally treating numbers as text, which is causing type errors in your code.",4,4,4,1
+case_07,ollama-qwen2.5-coder,syntax_error,incorrect_type,4.92,38,1,0,Your code has incorrect types used in arithmetic operations.,4,4,4,1
+case_08,template,variable_misuse,incorrect_initialization,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: incorrect initialization.,2,2,4,1
+case_08,gemini-flash,variable_misuse,incorrect_initialization,8.67,57,1,0,It looks like you have some variables initialized with specific values that might not be quite right for counting.,4,4,4,1
+case_08,ollama-qwen2.5-coder,variable_misuse,incorrect_initialization,4.91,36,1,0,The variable `count` is incorrectly initialized.,4,4,4,1
+case_09,template,variable_misuse,incorrect_initialization,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: incorrect initialization.,2,2,4,1
+case_09,gemini-flash,variable_misuse,incorrect_initialization,4.12,0,0,0,,1,1,1,1
+case_09,ollama-qwen2.5-coder,variable_misuse,incorrect_initialization,5.09,41,1,0,The variable `max_product` is being incorrectly initialized to a constant value.,4,4,4,1
+case_10,template,logic_error,infinite_while_loop,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: infinite while loop.,2,2,4,1
+case_10,gemini-flash,logic_error,infinite_while_loop,9.27,60,1,0,It looks like your code has a loop that tries to run forever!,5,4,5,1
+case_10,ollama-qwen2.5-coder,logic_error,infinite_while_loop,5.06,34,1,0,The code contains an infinite while loop.,4,4,4,1
+case_11,template,logic_error,infinite_while_loop,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: infinite while loop.,2,2,4,1
+case_11,gemini-flash,logic_error,infinite_while_loop,2.54,0,0,0,,1,1,1,1
+case_11,ollama-qwen2.5-coder,logic_error,infinite_while_loop,4.65,37,1,0,There's an infinite loop in your code.,4,4,4,1
+case_12,template,syntax_error,missing_argument,0,34,1,0,Syntax issue detected. Classifier confidence: 0.95. Detected pattern: missing argument.,2,2,4,1
+case_12,gemini-flash,syntax_error,missing_argument,4.38,0,0,0,,1,1,1,1
+case_12,ollama-qwen2.5-coder,syntax_error,missing_argument,5.17,46,1,0,The function `maxNumberOfCandies` has a missing argument in its return statement.,4,4,4,1
+case_13,template,syntax_error,missing_argument,0,34,1,0,Syntax issue detected. Classifier confidence: 0.95. Detected pattern: missing argument.,2,2,4,1
+case_13,gemini-flash,syntax_error,missing_argument,0.97,0,0,0,,1,1,1,1
+case_13,ollama-qwen2.5-coder,syntax_error,missing_argument,4.29,33,1,0,The helper function calls result.append() and helper() without arguments.,4,4,4,1
+case_14,template,variable_misuse,mutable_default_argument,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: mutable default argument.,2,2,4,1
+case_14,gemini-flash,variable_misuse,mutable_default_argument,1.08,0,0,0,,1,1,1,1
+case_14,ollama-qwen2.5-coder,variable_misuse,mutable_default_argument,5.32,51,1,0,The function `count_similar_pairs` has a mutable default argument.,4,4,4,1
+case_15,template,variable_misuse,mutable_default_argument,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: mutable default argument.,2,2,4,1
+case_15,gemini-flash,variable_misuse,mutable_default_argument,1.13,0,0,0,,1,1,1,1
+case_15,ollama-qwen2.5-coder,variable_misuse,mutable_default_argument,4.9,48,1,0,"The function has a mutable default argument, which can cause unexpected behavior.",4,4,4,1
+case_16,template,logic_error,non_existing_method,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: non existing method.,2,2,4,1
+case_16,gemini-flash,logic_error,non_existing_method,1.33,0,0,0,,1,1,1,1
+case_16,ollama-qwen2.5-coder,logic_error,non_existing_method,5.2,32,1,0,"The code tries to use `.update()` on lists, which doesn't exist.",4,4,4,1
+case_17,template,logic_error,non_existing_method,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: non existing method.,2,2,4,1
+case_17,gemini-flash,logic_error,non_existing_method,2.94,0,0,0,,1,1,1,1
+case_17,ollama-qwen2.5-coder,logic_error,non_existing_method,4.95,48,1,0,"The `extend` method is used incorrectly, as it expects a list, not a single value.",4,4,4,1
+case_18,template,logic_error,off_by_one_index,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: off by one index.,2,2,4,1
+case_18,gemini-flash,logic_error,off_by_one_index,1,0,0,0,,1,1,1,1
+case_18,ollama-qwen2.5-coder,logic_error,off_by_one_index,4.69,27,1,0,The code has an off-by-one error in comparing indices.,4,3,4,1
+case_19,template,logic_error,off_by_one_index,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: off by one index.,2,2,4,1
+case_19,gemini-flash,logic_error,off_by_one_index,8.42,0,0,0,,1,1,1,1
+case_19,ollama-qwen2.5-coder,logic_error,off_by_one_index,5.67,58,1,0,Your code has a logic error due to an off by one index issue.,4,4,4,1
+case_20,template,logic_error,returning_early,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: returning early.,2,2,4,1
+case_20,gemini-flash,logic_error,returning_early,1.74,0,0,0,,1,1,1,1
+case_20,ollama-qwen2.5-coder,logic_error,returning_early,4.01,36,1,0,The function returns early without giving a value.,4,3,4,1
+case_21,template,logic_error,returning_early,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: returning early.,2,2,4,1
+case_21,gemini-flash,logic_error,returning_early,2.03,0,0,0,,1,1,1,1
+case_21,ollama-qwen2.5-coder,logic_error,returning_early,4.94,35,1,0,The function `getBill` currently returns early without applying the discount to the total.,4,4,4,1
+case_22,template,logic_error,swapped_for_range,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: swapped for range.,2,2,4,1
+case_22,gemini-flash,logic_error,swapped_for_range,0.22,0,0,0,,1,1,1,1
+case_22,ollama-qwen2.5-coder,logic_error,swapped_for_range,4.81,27,1,0,The code has a logic error in counting character frequencies.,3,3,3,1
+case_23,template,logic_error,swapped_for_range,0,36,1,0,Logic issue detected. Classifier confidence: 0.95. Detected pattern: swapped for range.,2,2,4,1
+case_23,gemini-flash,logic_error,swapped_for_range,0.25,0,0,0,,1,1,1,1
+case_23,ollama-qwen2.5-coder,logic_error,swapped_for_range,4.93,39,1,0,The code has a logic error related to how it processes the 'ghosts' list.,3,3,3,1
+case_24,template,variable_misuse,use_before_definition,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: use before definition.,2,2,4,1
+case_24,gemini-flash,variable_misuse,use_before_definition,0.82,0,0,0,,1,1,1,1
+case_24,ollama-qwen2.5-coder,variable_misuse,use_before_definition,5.3,43,1,0,The variable `x` is being used before it's defined.,4,4,4,1
+case_25,template,variable_misuse,use_before_definition,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: use before definition.,2,2,4,1
+case_25,gemini-flash,variable_misuse,use_before_definition,1.02,0,0,0,,1,1,1,1
+case_25,ollama-qwen2.5-coder,variable_misuse,use_before_definition,5.45,36,1,0,The variable `self` is being used before it's defined.,3,3,3,1
+case_26,template,variable_misuse,variable_name_typo,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: variable name typo.,2,2,4,1
+case_26,gemini-flash,variable_misuse,variable_name_typo,6.53,59,1,0,It looks like there's a small typo in one of your variable names that's preventing it from updating correctly.,4,4,4,1
+case_26,ollama-qwen2.5-coder,variable_misuse,variable_name_typo,5.72,34,1,0,There's a typo in the variable name `maxDistmaxDist`.,5,4,4,1
+case_27,template,variable_misuse,variable_name_typo,0,31,1,0,Variable misuse detected. Classifier confidence: 0.95. Detected pattern: variable name typo.,2,2,4,1
+case_27,gemini-flash,variable_misuse,variable_name_typo,0.99,0,0,0,,1,1,1,1
+case_27,ollama-qwen2.5-coder,variable_misuse,variable_name_typo,5.05,24,1,0,There are typos in variable names.,4,3,4,1
+case_28,template,no_bug,,0,36,1,0,No obvious bug detected. Classifier confidence: 0.95.,3,2,4,1
+case_28,gemini-flash,no_bug,,6.47,59,1,0,"Your code is almost perfect, but the 'arrow' key name isn't recognized by `pyautogui.hotkey()`.",2,3,4,1
+case_28,ollama-qwen2.5-coder,no_bug,,4.44,29,1,0,The code uses 'arrow' instead of specifying a direction for the arrow key.,2,3,3,1
+case_29,template,no_bug,,0,36,1,0,No obvious bug detected. Classifier confidence: 0.95.,3,2,4,1
+case_29,gemini-flash,no_bug,,8.36,0,0,0,,1,1,1,1
+case_29,ollama-qwen2.5-coder,no_bug,,4.47,25,1,0,The code does not handle negative numbers correctly.,2,2,3,1

@@ -1,0 +1,29 @@
+Model: RF (structural) (v3, grouped split)
+==================================================
+
+Best hyperparameters:
+  n_estimators: 200
+  max_depth: 10
+
+Train time    : 0.39s
+Train accuracy: 0.7148
+Val accuracy  : 0.5810
+Test accuracy : 0.5879
+Macro F1      : 0.5877
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.69      0.51      0.59       411
+    logic_error       0.56      0.62      0.59       865
+variable_misuse       0.58      0.59      0.59       864
+
+       accuracy                           0.59      2140
+      macro avg       0.61      0.57      0.59      2140
+   weighted avg       0.59      0.59      0.59      2140
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(210), np.int64(110), np.int64(91)]
+  [np.int64(51), np.int64(538), np.int64(276)]
+  [np.int64(43), np.int64(311), np.int64(510)]

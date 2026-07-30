@@ -1,0 +1,28 @@
+Model: DT (TF-IDF) (v3, grouped split)
+==================================================
+
+Best hyperparameters:
+  max_depth: 20
+
+Train time    : 1.55s
+Train accuracy: 0.8933
+Val accuracy  : 0.7985
+Test accuracy : 0.7921
+Macro F1      : 0.8054
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.84      0.91      0.87       411
+    logic_error       0.76      0.79      0.77       865
+variable_misuse       0.80      0.74      0.77       864
+
+       accuracy                           0.79      2140
+      macro avg       0.80      0.81      0.81      2140
+   weighted avg       0.79      0.79      0.79      2140
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(372), np.int64(22), np.int64(17)]
+  [np.int64(38), np.int64(681), np.int64(146)]
+  [np.int64(32), np.int64(190), np.int64(642)]

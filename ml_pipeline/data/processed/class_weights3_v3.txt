@@ -1,0 +1,5 @@
+# 3-class v3 weights (bugs only)
+# Format: label,name,weight
+0,syntax_error,1.801821
+1,logic_error,0.830353
+2,variable_misuse,0.805997

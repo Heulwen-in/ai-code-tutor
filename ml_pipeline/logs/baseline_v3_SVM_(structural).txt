@@ -1,0 +1,28 @@
+Model: SVM (structural) (v3, grouped split)
+==================================================
+
+Best hyperparameters:
+  C: 10.0
+
+Train time    : 0.21s
+Train accuracy: 0.5683
+Val accuracy  : 0.5589
+Test accuracy : 0.5799
+Macro F1      : 0.5784
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.53      0.63      0.57       411
+    logic_error       0.60      0.54      0.57       865
+variable_misuse       0.59      0.60      0.59       864
+
+       accuracy                           0.58      2140
+      macro avg       0.57      0.59      0.58      2140
+   weighted avg       0.58      0.58      0.58      2140
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(258), np.int64(66), np.int64(87)]
+  [np.int64(128), np.int64(466), np.int64(271)]
+  [np.int64(105), np.int64(242), np.int64(517)]

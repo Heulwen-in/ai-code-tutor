@@ -1,0 +1,6 @@
+# 4-class v3 weights (grouped split, original_code+flytech no_bug)
+# Format: label,name,weight
+0,syntax_error,1.733880
+1,logic_error,0.799043
+2,variable_misuse,0.775605
+3,no_bug,1.133214

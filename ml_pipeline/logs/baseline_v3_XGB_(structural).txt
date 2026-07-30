@@ -1,0 +1,29 @@
+Model: XGB (structural) (v3, grouped split)
+==================================================
+
+Best hyperparameters:
+  learning_rate: 0.2
+  n_estimators: 100
+
+Train time    : 0.32s
+Train accuracy: 0.8470
+Val accuracy  : 0.6065
+Test accuracy : 0.6131
+Macro F1      : 0.6154
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.76      0.54      0.63       411
+    logic_error       0.60      0.59      0.59       865
+variable_misuse       0.58      0.68      0.63       864
+
+       accuracy                           0.61      2140
+      macro avg       0.65      0.60      0.62      2140
+   weighted avg       0.62      0.61      0.61      2140
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(220), np.int64(91), np.int64(100)]
+  [np.int64(37), np.int64(508), np.int64(320)]
+  [np.int64(34), np.int64(246), np.int64(584)]

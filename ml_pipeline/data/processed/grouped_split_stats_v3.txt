@@ -1,0 +1,20 @@
+Grouped Data Preparation v3 — Stats
+============================================================
+
+Unique problems (original_code): 2,328
+  train/val/test problems: 1,630/349/349
+
+Stage 1 (4-class) split sizes + class counts:
+  train n=12,692  {'syntax_error': 1830, 'logic_error': 3971, 'variable_misuse': 4091, 'no_bug': 2800}
+  val   n=2,679  {'syntax_error': 399, 'logic_error': 824, 'variable_misuse': 856, 'no_bug': 600}
+  test  n=2,740  {'syntax_error': 411, 'logic_error': 865, 'variable_misuse': 864, 'no_bug': 600}
+
+no_bug composition (Stage 1):
+  train: leetcode_original 1,629  flytech 1,171
+  val  : leetcode_original 349  flytech 251
+  test : leetcode_original 349  flytech 251
+
+Stage 2 (14-class) sizes: train 9,892 val 2,079 test 2,140
+Line detection sizes:    train 7,257 val 1,521 test 1,584
+
+Leakage audit: 0 problems span >1 split (asserted). Grouped split is leakage-free.

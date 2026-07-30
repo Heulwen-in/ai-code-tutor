@@ -1,0 +1,42 @@
+CodeBERT 4-class v2 Retraining Results (expanded no_bug pool)
+============================================================
+
+Source checkpoint : F:\Heulwen\IT GREENWICH\Final Project\Tutor_AI_code\backend\app\ml_models\codebert_model
+Saved model       : F:\Heulwen\IT GREENWICH\Final Project\Tutor_AI_code\backend\app\ml_models\codebert_4class_v2_model
+Best epoch        : 5 / 5
+Best val F1       : 0.9846
+Train time        : 3505.2s
+
+Test Results:
+  Accuracy    : 0.9834
+  Macro F1    : 0.9840
+  Weighted F1 : 0.9835
+
+Per-class F1:
+  syntax_error             : 0.9848
+  logic_error              : 0.9795
+  variable_misuse          : 0.9833
+  no_bug                   : 0.9883
+
+Per-source no_bug recall (domain-shift check):
+  no_bug recall (leetcode): 0.9953  (n=426)
+  no_bug recall (flytech ): 0.9540  (n=174)
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.99      0.98      0.98       396
+    logic_error       0.97      0.99      0.98       849
+variable_misuse       0.99      0.98      0.98       872
+         no_bug       0.99      0.98      0.99       600
+
+       accuracy                           0.98      2717
+      macro avg       0.98      0.98      0.98      2717
+   weighted avg       0.98      0.98      0.98      2717
+
+Training History:
+  epoch=1  val_f1=0.9749  val_acc=0.9724  train_loss=0.2620
+  epoch=2  val_f1=0.9776  val_acc=0.9761  train_loss=0.0538
+  epoch=3  val_f1=0.9824  val_acc=0.9812  train_loss=0.0288
+  epoch=4  val_f1=0.9839  val_acc=0.9820  train_loss=0.0158
+  epoch=5  val_f1=0.9846  val_acc=0.9827  train_loss=0.0094

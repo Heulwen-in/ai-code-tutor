@@ -1,0 +1,18 @@
+CodeBERT Line-Detection (token classification) Results
+============================================================
+
+Backbone     : F:\Heulwen\IT GREENWICH\Final Project\Tutor_AI_code\backend\app\ml_models\codebert_model
+Saved model  : F:\Heulwen\IT GREENWICH\Final Project\Tutor_AI_code\backend\app\ml_models\codebert_line_detection_model
+Best epoch   : 4/4  (val line_hit@1=0.9492)
+
+Test:
+  token precision : 0.9734
+  token recall    : 0.9887
+  token F1        : 0.9810
+  line hit@1      : 0.9576
+
+History:
+  epoch=1  token_f1=0.9551  line_hit@1=0.9408  val_loss=0.0589
+  epoch=2  token_f1=0.9726  line_hit@1=0.9479  val_loss=0.0458
+  epoch=3  token_f1=0.9752  line_hit@1=0.9479  val_loss=0.0428
+  epoch=4  token_f1=0.9782  line_hit@1=0.9492  val_loss=0.0481

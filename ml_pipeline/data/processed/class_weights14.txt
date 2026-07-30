@@ -1,0 +1,16 @@
+# Class weights for 14-class Stage 2 training
+# Format: label,subtype_name,weight
+0,IncorrectTypeTransformer,0.905648
+1,MissingArgumentTransformer,0.659963
+2,ComparisonSwapTransformer,0.741071
+3,ComparisonTargetTransformer,8.109195
+4,InfiniteWhileTransformer,4.465190
+5,NonExistingMethodTransformer,2.424399
+6,OffByKIndexTransformer,0.949529
+7,ReturningEarlyTransformer,0.564852
+8,SwapForTransformer,1.463693
+9,ForgettingToUpdateVariableTransformer,0.575918
+10,IncorrectVariableInitializationTransformer,1.331132
+11,MutableDefaultArgumentTransformer,0.954668
+12,UseBeforeDefinitionTransformer,1.790609
+13,VariableNameTypoTransformer,0.598388

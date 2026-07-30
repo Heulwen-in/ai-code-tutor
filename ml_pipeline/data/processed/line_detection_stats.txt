@@ -1,0 +1,31 @@
+Line Detection Data Preparation Stats
+============================================================
+
+Raw rows           : 14,113
+Kept after filters : 10,382
+Unique (deduped)   : 10,364
+Max buggy lines    : 3
+
+Split sizes: train 7,254  val 1,555  test 1,555
+
+Buggy-lines-per-sample distribution:
+  1 line(s): 4,766
+  2 line(s): 3,740
+  3 line(s): 1,876
+
+Bug-type distribution (kept samples):
+  ReturningEarlyTransformer                    : 1,598
+  ComparisonSwapTransformer                    : 1,158
+  MutableDefaultArgumentTransformer            : 1,041
+  VariableNameTypoTransformer                  : 1,023
+  MissingArgumentTransformer                   : 833
+  ForgettingToUpdateVariableTransformer        : 774
+  IncorrectVariableInitializationTransformer   : 727
+  SwapForTransformer                           : 717
+  OffByKIndexTransformer                       : 674
+  UseBeforeDefinitionTransformer               : 567
+  IncorrectTypeTransformer                     : 504
+  NonExistingMethodTransformer                 : 394
+  InfiniteWhileTransformer                     : 238
+  ComparisonTargetTransformer                  : 114
+  IncorrectExceptionHandlerTransformer         : 2

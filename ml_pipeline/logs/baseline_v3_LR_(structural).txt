@@ -1,0 +1,28 @@
+Model: LR (structural) (v3, grouped split)
+==================================================
+
+Best hyperparameters:
+  C: 1.0
+
+Train time    : 0.11s
+Train accuracy: 0.5572
+Val accuracy  : 0.5445
+Test accuracy : 0.5696
+Macro F1      : 0.5701
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.49      0.70      0.57       411
+    logic_error       0.60      0.51      0.55       865
+variable_misuse       0.60      0.56      0.58       864
+
+       accuracy                           0.57      2140
+      macro avg       0.56      0.59      0.57      2140
+   weighted avg       0.58      0.57      0.57      2140
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(287), np.int64(59), np.int64(65)]
+  [np.int64(161), np.int64(444), np.int64(260)]
+  [np.int64(140), np.int64(236), np.int64(488)]

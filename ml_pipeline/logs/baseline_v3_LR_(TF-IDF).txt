@@ -1,0 +1,28 @@
+Model: LR (TF-IDF) (v3, grouped split)
+==================================================
+
+Best hyperparameters:
+  C: 10.0
+
+Train time    : 0.55s
+Train accuracy: 0.9737
+Val accuracy  : 0.8831
+Test accuracy : 0.8874
+Macro F1      : 0.8913
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.88      0.94      0.91       411
+    logic_error       0.89      0.87      0.88       865
+variable_misuse       0.89      0.88      0.88       864
+
+       accuracy                           0.89      2140
+      macro avg       0.89      0.90      0.89      2140
+   weighted avg       0.89      0.89      0.89      2140
+
+Confusion Matrix:
+  Labels: ['syntax_error', 'logic_error', 'variable_misuse']
+  [np.int64(388), np.int64(11), np.int64(12)]
+  [np.int64(29), np.int64(752), np.int64(84)]
+  [np.int64(24), np.int64(81), np.int64(759)]

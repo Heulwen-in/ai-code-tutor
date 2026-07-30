@@ -1,0 +1,38 @@
+CodeBERT 4-class Retraining Results
+============================================================
+
+Source checkpoint : F:\Heulwen\IT GREENWICH\Final Project\Tutor_AI_code\backend\app\ml_models\codebert_model
+Saved model       : F:\Heulwen\IT GREENWICH\Final Project\Tutor_AI_code\backend\app\ml_models\codebert_4class_model
+Best epoch        : 5 / 5
+Best val F1       : 0.9840
+Train time        : 1864.2s
+
+Test Results:
+  Accuracy    : 0.9859
+  Macro F1    : 0.9870
+  Weighted F1 : 0.9859
+
+Per-class F1:
+  syntax_error             : 0.9886
+  logic_error              : 0.9801
+  variable_misuse          : 0.9874
+  no_bug                   : 0.9918
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+   syntax_error       0.99      0.98      0.99       396
+    logic_error       0.97      0.99      0.98       849
+variable_misuse       0.99      0.99      0.99       872
+         no_bug       1.00      0.99      0.99       431
+
+       accuracy                           0.99      2548
+      macro avg       0.99      0.99      0.99      2548
+   weighted avg       0.99      0.99      0.99      2548
+
+Training History:
+  epoch=1  val_f1=0.9822  val_acc=0.9804  train_loss=0.2364
+  epoch=2  val_f1=0.9838  val_acc=0.9815  train_loss=0.0385
+  epoch=3  val_f1=0.9830  val_acc=0.9808  train_loss=0.0216
+  epoch=4  val_f1=0.9837  val_acc=0.9808  train_loss=0.0134
+  epoch=5  val_f1=0.9840  val_acc=0.9812  train_loss=0.0074

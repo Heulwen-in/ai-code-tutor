@@ -1,0 +1,19 @@
+CodeBERT Line-Detection v3 (grouped split, from codebert-base)
+============================================================
+
+Backbone    : microsoft/codebert-base
+Saved model : /workspace/Tutor_AI_code/backend/app/ml_models/codebert_line_detection_v3_model
+Best epoch  : 3/10 (val line_hit@1=0.9553)
+
+Test token precision : 0.9410
+Test token recall    : 0.9687
+Test token F1        : 0.9547
+Test line hit@1      : 0.9552
+
+History:
+  epoch=1 token_f1=0.8893 line_hit@1=0.9402
+  epoch=2 token_f1=0.9252 line_hit@1=0.9500
+  epoch=3 token_f1=0.9482 line_hit@1=0.9553
+  epoch=4 token_f1=0.9525 line_hit@1=0.9520
+  epoch=5 token_f1=0.9613 line_hit@1=0.9527
+  epoch=6 token_f1=0.9627 line_hit@1=0.9533

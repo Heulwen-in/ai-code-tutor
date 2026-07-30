@@ -1,0 +1,6 @@
+# Class weights for 4-class training (includes no_bug)
+# Format: label,class_name,weight
+0,syntax_error,1.607819
+1,logic_error,0.749937
+2,variable_misuse,0.730575
+3,no_bug,1.479706

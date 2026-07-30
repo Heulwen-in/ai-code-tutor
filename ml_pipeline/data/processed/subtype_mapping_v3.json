@@ -1,0 +1,72 @@
+{
+  "subtype_to_int": {
+    "IncorrectTypeTransformer": 0,
+    "MissingArgumentTransformer": 1,
+    "ComparisonSwapTransformer": 2,
+    "ComparisonTargetTransformer": 3,
+    "InfiniteWhileTransformer": 4,
+    "NonExistingMethodTransformer": 5,
+    "OffByKIndexTransformer": 6,
+    "ReturningEarlyTransformer": 7,
+    "SwapForTransformer": 8,
+    "ForgettingToUpdateVariableTransformer": 9,
+    "IncorrectVariableInitializationTransformer": 10,
+    "MutableDefaultArgumentTransformer": 11,
+    "UseBeforeDefinitionTransformer": 12,
+    "VariableNameTypoTransformer": 13
+  },
+  "int_to_subtype": {
+    "0": "IncorrectTypeTransformer",
+    "1": "MissingArgumentTransformer",
+    "2": "ComparisonSwapTransformer",
+    "3": "ComparisonTargetTransformer",
+    "4": "InfiniteWhileTransformer",
+    "5": "NonExistingMethodTransformer",
+    "6": "OffByKIndexTransformer",
+    "7": "ReturningEarlyTransformer",
+    "8": "SwapForTransformer",
+    "9": "ForgettingToUpdateVariableTransformer",
+    "10": "IncorrectVariableInitializationTransformer",
+    "11": "MutableDefaultArgumentTransformer",
+    "12": "UseBeforeDefinitionTransformer",
+    "13": "VariableNameTypoTransformer"
+  },
+  "coarse_groups": {
+    "syntax_error": [
+      0,
+      1
+    ],
+    "logic_error": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "variable_misuse": [
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  "human_names": {
+    "MissingArgumentTransformer": "missing_argument",
+    "IncorrectTypeTransformer": "incorrect_type",
+    "ComparisonSwapTransformer": "swapped_comparison_operands",
+    "ComparisonTargetTransformer": "wrong_comparison_target",
+    "InfiniteWhileTransformer": "infinite_while_loop",
+    "NonExistingMethodTransformer": "non_existing_method",
+    "OffByKIndexTransformer": "off_by_one_index",
+    "ReturningEarlyTransformer": "returning_early",
+    "SwapForTransformer": "swapped_for_range",
+    "ForgettingToUpdateVariableTransformer": "forgotten_variable_update",
+    "IncorrectVariableInitializationTransformer": "incorrect_initialization",
+    "MutableDefaultArgumentTransformer": "mutable_default_argument",
+    "UseBeforeDefinitionTransformer": "use_before_definition",
+    "VariableNameTypoTransformer": "variable_name_typo"
+  }
+}
