@@ -27,6 +27,10 @@ class BugClassification(BaseModel):
     confidence: float = Field(..., ge=0, le=1)
     line_number: int | None = None
     description: str = ""
+    # Stage 2 fine-grained detection (free string, e.g. "off_by_one_index";
+    # None when bug_type is no_bug/indentation_error or Stage 2 is disabled)
+    bug_subtype: str | None = None
+    subtype_confidence: float | None = Field(default=None, ge=0, le=1)
 
 
 class SkillPrediction(BaseModel):
@@ -46,6 +50,9 @@ class FeedbackResponse(BaseModel):
     explanation: str
     next_steps: list[str]
     tone: str
+    # Which provider generated the feedback: "template", "anthropic-haiku",
+    # "gemini-flash", "ollama-qwen2.5-coder" ...
+    source: str = "template"
 
 
 class LessonItem(BaseModel):

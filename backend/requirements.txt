@@ -9,3 +9,6 @@ joblib
 sqlalchemy
 python-jose[cryptography]
 passlib[bcrypt]
+anthropic
+google-genai
+requests

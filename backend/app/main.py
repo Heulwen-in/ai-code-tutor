@@ -2,6 +2,13 @@ from __future__ import annotations
 
 import os
 from contextlib import asynccontextmanager
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+# Load .env from the backend/ directory so BUG_CLASSIFIER_PATH and other
+# env vars are available before any service module reads os.getenv().
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

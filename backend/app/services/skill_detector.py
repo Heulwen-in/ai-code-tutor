@@ -1,15 +1,3 @@
-"""
-skill_detector.py
------------------
-Infers a broad skill level from Python code behaviour features.
-
-The trained model is a lightweight proxy classifier:
-    Easy LeetCode solutions -> novice
-    Hard LeetCode solutions -> professional
-
-Use this as a feedback-calibration signal, not as a final judgement of a user.
-"""
-
 from __future__ import annotations
 
 import json
