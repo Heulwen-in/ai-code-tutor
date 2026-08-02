@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/ui/Icon";
-import { completeLesson, startLesson } from "@/lib/api";
+import { completeLesson, getLessonProgress, startLesson } from "@/lib/api";
 import { getStoredUser } from "@/lib/auth";
 import type { User } from "@/lib/types";
 
@@ -13,15 +13,22 @@ export function LessonProgressActions({ lessonId }: Props) {
   const [user, setUser] = useState<User | null>(null);
   const [status, setStatus] = useState<"idle" | "saving" | "completed" | "error">("idle");
 
-  // Record "started" once when a signed-in user opens the lesson
+  // Record "started" once when a signed-in user opens the lesson, and reflect any
+  // prior completion so re-opening a finished lesson shows its true state.
   useEffect(() => {
     const stored = getStoredUser();
     setUser(stored);
-    if (stored) {
-      startLesson(lessonId, stored.id).catch(() => {
-        /* tracking is best-effort — never block the lesson content */
+    if (!stored) return;
+    startLesson(lessonId, stored.id).catch(() => {
+      /* tracking is best-effort — never block the lesson content */
+    });
+    getLessonProgress(stored.id)
+      .then((m) => {
+        if (m[lessonId] === "completed") setStatus("completed");
+      })
+      .catch(() => {
+        /* fall back to the default action state */
       });
-    }
   }, [lessonId]);
 
   if (!user) {

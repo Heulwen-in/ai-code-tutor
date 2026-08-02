@@ -20,9 +20,22 @@ export default function LessonsPage() {
   const [showAll, setShowAll] = useState(false);
 
   // Real per-lesson status for the signed-in user (fail-soft in demo/offline).
+  // Refetch when the tab/window regains focus so returning from a lesson (even
+  // from the router cache) always reflects the latest completion state.
   useEffect(() => {
     const u = getStoredUser();
-    if (u) getLessonProgress(u.id).then(setStatuses).catch(() => {});
+    if (!u) return;
+    const refresh = () => getLessonProgress(u.id).then(setStatuses).catch(() => {});
+    refresh();
+    const onVisible = () => {
+      if (document.visibilityState === "visible") refresh();
+    };
+    window.addEventListener("focus", refresh);
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      window.removeEventListener("focus", refresh);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
   }, []);
 
   const visible = useMemo(

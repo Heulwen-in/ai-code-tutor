@@ -14,8 +14,6 @@ const LEVEL_CLASS: Record<string, string> = {
   advanced: "badge badge-advanced",
 };
 
-const labelStyle = { display: "inline-flex", alignItems: "center", gap: 6 } as const;
-
 export default async function LessonDetailPage({ params }: Props) {
   const { id } = await params;
   const lesson = LESSONS[id];
@@ -24,68 +22,89 @@ export default async function LessonDetailPage({ params }: Props) {
 
   return (
     <AppShell>
-      <div className="lesson-detail">
-        <Link
-          href="/lessons"
-          style={{ display: "inline-block", marginBottom: 16, color: "var(--primary)", fontSize: 14, fontWeight: 600 }}
-        >
-          ← Back to lessons
-        </Link>
+      <Link href="/lessons" className="lesson-back">
+        <Icon name="arrow_back" size={16} /> Back to lessons
+      </Link>
 
-        {/* Header */}
-        <div className="page-heading">
-          <span className={LEVEL_CLASS[lesson.difficulty] ?? "badge"} style={{ marginBottom: 10 }}>
-            {lesson.difficulty}
-          </span>
-          <h1 style={{ marginTop: 8 }}>{lesson.title}</h1>
-          <p>{lesson.explanation}</p>
+      <div className="lesson-layout">
+        {/* One unified card with hairline-divided sections */}
+        <div className="card lesson-main">
+          {/* Header */}
+          <div className="lesson-section">
+            <span className={LEVEL_CLASS[lesson.difficulty] ?? "badge"}>{lesson.difficulty}</span>
+            <h1 className="lesson-title">{lesson.title}</h1>
+            <p className="lesson-intro">{lesson.explanation}</p>
+          </div>
+
+          {/* Buggy + corrected code, side by side */}
+          <div className="lesson-section">
+            <div className="code-duo">
+              <div className="code-col">
+                <p className="lesson-card-label danger">
+                  <Icon name="cancel" size={16} fill /> Buggy code
+                </p>
+                <pre className="code-block buggy">{lesson.buggyCode}</pre>
+              </div>
+              <div className="code-col">
+                <p className="lesson-card-label success">
+                  <Icon name="check_circle" size={16} fill /> Corrected code
+                </p>
+                <pre className="code-block fixed">{lesson.fixedCode}</pre>
+              </div>
+            </div>
+          </div>
+
+          {/* Key takeaways */}
+          <div className="lesson-section">
+            <p className="lesson-card-label">Key takeaways</p>
+            <ul className="takeaways">
+              {lesson.takeaways.map((t, i) => (
+                <li key={i}>{t}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Bug-fit practice exercise */}
+          <div className="lesson-section">
+            <p className="lesson-card-label primary">
+              <Icon name="fitness_center" size={16} /> Try it yourself
+            </p>
+            <p className="exercise-prompt">{lesson.exercise.prompt}</p>
+            <pre className="code-block">{lesson.exercise.starter}</pre>
+            <Link href="/analyze" className="btn btn-gradient lesson-cta">
+              Open the Analyser →
+            </Link>
+          </div>
         </div>
 
-        {/* Buggy code */}
-        <section className="card settings-panel" style={{ marginBottom: 16 }}>
-          <p className="section-label" style={{ ...labelStyle, color: "var(--danger)" }}>
-            <Icon name="cancel" size={16} fill /> Buggy code
-          </p>
-          <pre className="code-block buggy">{lesson.buggyCode}</pre>
-        </section>
+        {/* Sticky sidebar */}
+        <aside className="lesson-aside">
+          <div className="card lesson-card aside-progress">
+            <p className="lesson-card-label">Your progress</p>
+            <LessonProgressActions lessonId={id} />
+          </div>
 
-        {/* Fixed code */}
-        <section className="card settings-panel" style={{ marginBottom: 16 }}>
-          <p className="section-label" style={{ ...labelStyle, color: "var(--success)" }}>
-            <Icon name="check_circle" size={16} fill /> Corrected code
-          </p>
-          <pre className="code-block fixed">{lesson.fixedCode}</pre>
-        </section>
-
-        {/* Key takeaways */}
-        <section className="card settings-panel" style={{ marginBottom: 16 }}>
-          <p className="section-label">Key takeaways</p>
-          <ul className="takeaways">
-            {lesson.takeaways.map((t, i) => (
-              <li key={i}>{t}</li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Bug-fit practice exercise */}
-        <section className="card settings-panel" style={{ marginBottom: 16 }}>
-          <p className="section-label" style={{ ...labelStyle, color: "var(--primary)" }}>
-            <Icon name="fitness_center" size={16} /> Try it yourself
-          </p>
-          <p style={{ margin: "0 0 12px", color: "var(--text-body)", fontSize: 14 }}>
-            {lesson.exercise.prompt}
-          </p>
-          <pre className="code-block">{lesson.exercise.starter}</pre>
-          <Link href="/analyze" className="btn btn-outline" style={{ marginTop: 14 }}>
-            Open the Analyser →
-          </Link>
-        </section>
-
-        {/* Progress tracking */}
-        <section className="card settings-panel">
-          <p className="section-label">Your progress</p>
-          <LessonProgressActions lessonId={id} />
-        </section>
+          <div className="card lesson-card aside-meta">
+            <p className="lesson-card-label">In this lesson</p>
+            <ul className="aside-meta-list">
+              <li>
+                <Icon name="signal_cellular_alt" size={18} />
+                <span>Level</span>
+                <b>{lesson.difficulty}</b>
+              </li>
+              <li>
+                <Icon name="lightbulb" size={18} />
+                <span>Key takeaways</span>
+                <b>{lesson.takeaways.length}</b>
+              </li>
+              <li>
+                <Icon name="fitness_center" size={18} />
+                <span>Practice</span>
+                <b>Included</b>
+              </li>
+            </ul>
+          </div>
+        </aside>
       </div>
     </AppShell>
   );

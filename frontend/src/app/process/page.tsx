@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import { Icon } from "@/components/ui/Icon";
-import { FigureSlot } from "@/components/process/FigureSlot";
 import { MiniTable } from "@/components/process/MiniTable";
 import { PipelineDiagram } from "@/components/process/PipelineDiagram";
 import { ProcessSection } from "@/components/process/ProcessSection";
@@ -65,11 +64,13 @@ export default function ProcessPage() {
             kicker={section.kicker}
             title={section.title}
           >
-            <div className="proc-prose">
-              {section.prose.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
+            {section.prose.length > 0 && (
+              <div className="proc-prose">
+                {section.prose.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            )}
 
             {section.pipeline && <PipelineDiagram />}
             {section.stats && <StatGrid stats={section.stats} />}
@@ -78,8 +79,19 @@ export default function ProcessPage() {
 
             {section.figures && section.figures.length > 0 && (
               <div className="proc-figures">
-                {section.figures.map((f) => (
-                  <FigureSlot key={f.src} {...f} />
+                {section.figures.map((figure) => (
+                  <figure className={figure.wide ? "proc-figure wide" : "proc-figure"} key={figure.src}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={figure.src} alt={figure.alt} loading="lazy" />
+                    <figcaption>{figure.caption}</figcaption>
+                    {figure.notes && (
+                      <div className="proc-figure-notes">
+                        {figure.notes.map((note, i) => (
+                          <p key={i}>{note}</p>
+                        ))}
+                      </div>
+                    )}
+                  </figure>
                 ))}
               </div>
             )}

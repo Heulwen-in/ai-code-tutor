@@ -1983,7 +1983,6 @@ textarea:focus-visible,
   margin: 0 auto 0 0;
 }
 .field-label {
-  display: block;
   font-size: 12px;
   font-weight: 700;
   color: var(--text-muted);
@@ -2103,20 +2102,202 @@ textarea:focus-visible,
 }
 
 /* Lesson detail page (re-themed) */
-.lesson-detail {
-  max-width: 760px;
+/* Back link */
+.lesson-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 18px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
 }
-.lesson-detail .code-block.buggy {
+.lesson-back:hover {
+  text-decoration: underline;
+}
+
+/* Two-column layout: content + sticky sidebar */
+.lesson-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 288px;
+  gap: 24px;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.lesson-main {
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Unified card: sections divided by hairlines */
+.lesson-section {
+  padding: 22px 26px;
+  border-top: 1px solid var(--border);
+}
+.lesson-section:first-child {
+  border-top: 0;
+}
+.lesson-title {
+  margin: 12px 0 0;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+}
+.lesson-intro {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Buggy + corrected code, side by side */
+.code-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.code-col {
+  min-width: 0;
+}
+
+/* Content cards (sidebar) */
+.lesson-card {
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+.lesson-card-label {
+  margin: 0 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.lesson-card-label.danger {
+  color: var(--danger);
+}
+.lesson-card-label.success {
+  color: var(--success);
+}
+.lesson-card-label.primary {
+  color: var(--primary);
+}
+
+/* Code blocks inside the lesson card */
+.lesson-section .code-block {
+  margin: 0;
+}
+.lesson-section .code-block.buggy {
   border-left: 3px solid var(--danger);
 }
-.lesson-detail .code-block.fixed {
+.lesson-section .code-block.fixed {
   border-left: 3px solid var(--success);
 }
+
+/* Key takeaways — custom check bullets */
 .takeaways {
-  margin: 12px 0 0;
-  padding-left: 20px;
-  line-height: 1.8;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+.takeaways li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 11px;
+  line-height: 1.55;
   color: var(--text-body);
+}
+.takeaways li:last-child {
+  margin-bottom: 0;
+}
+.takeaways li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.14);
+  color: var(--success);
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Exercise callout */
+.exercise-card {
+  border-color: rgba(91, 91, 247, 0.28);
+  background: linear-gradient(135deg, rgba(91, 91, 247, 0.05), transparent 60%);
+}
+.exercise-prompt {
+  margin: 0 0 12px;
+  color: var(--text-body);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.lesson-cta {
+  margin-top: 14px;
+}
+
+/* Sticky sidebar */
+.lesson-aside {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.lesson-aside .lesson-card {
+  margin-bottom: 0;
+}
+.aside-meta-list {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+.aside-meta-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-body);
+}
+.aside-meta-list li:first-child {
+  border-top: 0;
+  padding-top: 4px;
+}
+.aside-meta-list li .material-symbols-rounded {
+  color: var(--primary);
+}
+.aside-meta-list li span {
+  color: var(--text-muted);
+}
+.aside-meta-list li b {
+  margin-left: auto;
+  text-transform: capitalize;
+  color: var(--text-body);
+}
+
+@media (max-width: 1080px) {
+  .lesson-layout {
+    grid-template-columns: 1fr;
+  }
+  .lesson-aside {
+    position: static;
+  }
+}
+@media (max-width: 640px) {
+  .code-duo {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================================================
@@ -2446,32 +2627,21 @@ textarea:focus-visible,
   line-height: 1.5;
   text-align: center;
 }
-.proc-figure-missing {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 200px;
-  padding: 24px;
-  border: 2px dashed var(--border);
-  border-radius: 8px;
-  background: var(--bg-muted);
-  text-align: center;
+.proc-figure-notes {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }
-.proc-figure-missing-icon {
-  font-size: 34px;
-  color: var(--text-faint);
+.proc-figure-notes p {
+  margin: 0 0 12px;
+  color: var(--text-body);
+  font-size: 15px;
+  line-height: 1.72;
+  text-align: justify;
+  text-justify: inter-word;
 }
-.proc-figure-missing-name {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-muted);
-}
-.proc-figure-missing-hint {
-  font-size: 12px;
-  color: var(--text-faint);
+.proc-figure-notes p:last-child {
+  margin-bottom: 0;
 }
 
 /* Pipeline flow diagram */
@@ -2479,6 +2649,7 @@ textarea:focus-visible,
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  justify-content: center;
   gap: 8px;
   margin-top: 26px;
 }

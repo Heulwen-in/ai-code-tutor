@@ -3,7 +3,7 @@ import { Icon } from "@/components/ui/Icon";
 type Step = { icon: string; title: string; detail: string; parallel?: boolean };
 
 const STEPS: Step[] = [
-  { icon: "account_tree", title: "AST parse gate", detail: "Owns syntax & indentation — exact line, confidence 1.0" },
+  { icon: "account_tree", title: "AST parse gate", detail: "Owns indentation — exact line, confidence 1.0" },
   { icon: "category", title: "Stage 1 · 4-class", detail: "CodeBERT coarse bug type + no-bug gate (0.60)" },
   { icon: "zoom_in", title: "Stage 2 · 14 subtypes", detail: "Masked to Stage 1 group + subtype gate (0.65)" },
   { icon: "my_location", title: "Line localiser", detail: "Token classification + line gate (0.50)" },
