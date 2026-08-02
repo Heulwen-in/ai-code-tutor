@@ -237,17 +237,23 @@ def record_lesson(
         .filter_by(user_id=user_id, lesson_id=lesson_id)
         .first()
     )
+    was_completed = row is not None and row.status == "completed"
+
     if row is None:
         row = LessonProgress(user_id=user_id, lesson_id=lesson_id, status=status)
         db.add(row)
-    else:
+    # Progress is monotonic: never downgrade a completed lesson back to "started".
+    # Re-opening a finished lesson to review it must not wipe the completion, and a
+    # late-arriving "start" request must not clobber a "complete" from the same visit.
+    elif not (was_completed and status == "started"):
         row.status = status
         row.updated_at = datetime.utcnow()
     db.commit()
     db.refresh(row)
 
-    # Completing a lesson counts as a successful review of its bug class
-    if status == "completed":
+    # Completing a lesson for the first time counts as a successful review of its bug
+    # class (re-completing an already-finished lesson must not advance it again).
+    if status == "completed" and not was_completed:
         bug_type = _lesson_bug_type(lesson_id)
         if bug_type:
             item = (
