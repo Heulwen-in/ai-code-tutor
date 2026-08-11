@@ -42,7 +42,7 @@ export default function ProcessPage() {
         </h1>
         <p className="proc-hero-sub">
           A walkthrough of the machine-learning pipeline behind PyTutor — the data, the analysis, the
-          leakage-free evaluation, and the hierarchical CodeBERT model that powers it.
+          feature engineering, and the hierarchical CodeBERT model that powers it.
         </p>
         <div className="stat-pills">
           {HERO_PILLS.map((p) => (

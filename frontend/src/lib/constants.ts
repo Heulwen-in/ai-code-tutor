@@ -47,12 +47,12 @@ export const BUG_CONFIG: Record<
 export const EXAMPLE_SNIPPETS: { label: string; code: string }[] = [
   {
     label: "Logic Error",
-    code: `def two_sum(nums, target):
-    for i in range(len(nums)):
-        for j in range(i + 1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [i, j]
-    return []`,
+    code: `def get_row(rowIndex):
+    row = [1] * (rowIndex + 1)
+    for i in range(1, rowIndex + 1):
+        for j in range(i - 1, 0, -1):
+            row[j] += row[j - 1]
+    return`,
   },
   {
     label: "Syntax Error",
@@ -78,10 +78,11 @@ export const EXAMPLE_SNIPPETS: { label: string; code: string }[] = [
   },
   {
     label: "No Bug",
-    code: `def is_palindrome(s):
-    s = s.lower().replace(" ", "")
-    return s == s[::-1]
-
-print(is_palindrome("racecar"))`,
+    code: `def two_sum(nums, target):
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+    return []`,
   },
 ];

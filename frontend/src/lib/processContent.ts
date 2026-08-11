@@ -35,14 +35,14 @@ export const HERO_PILLS: Stat[] = [
 export const SECTION_NAV: { id: string; label: string }[] = [
   { id: "overview", label: "Overview" },
   { id: "architecture", label: "Architecture" },
+  { id: "pipeline", label: "Pipeline" },
   { id: "data", label: "Data" },
   { id: "eda", label: "EDA" },
-  { id: "preprocessing", label: "Preprocessing" },
   { id: "features", label: "Features" },
   { id: "baselines", label: "Baselines" },
   { id: "transformer", label: "Transformer" },
   { id: "skill", label: "Skill Detector" },
-  { id: "pipeline", label: "Pipeline" },
+  { id: "feedback", label: "Feedback" },
   { id: "results", label: "Results" },
 ];
 
@@ -53,7 +53,7 @@ export const SECTIONS: Section[] = [
     title: "From raw buggy code to a working AI tutor",
     prose: [
       "PyTutor is an adaptive AI Python tutor. Given a snippet of code it classifies the defect, localises the offending line, adapts its feedback to a Student or Professional role, recommends targeted lessons, and closes a spaced-repetition learning loop so recurring mistakes are revisited.",
-      "The engine is a hierarchical CodeBERT pipeline that reaches 0.9556 macro F1 on problems it has never seen during training. The sections below follow the build in order: the system and AI-pipeline architecture, the data and its label schema, the exploratory analysis that shaped it, the leakage-free preprocessing, the three feature views, the classical baselines that set the floor, the transformer that beats them, the parallel skill detector, how the stages compose at inference, and an honest look at where the model generalises and where it does not. Each section builds directly on the one before it.",
+      "The engine is a hierarchical CodeBERT pipeline that reaches 0.9556 macro F1 on problems it has never seen during training. The sections below are organised as follows: the system and AI-pipeline architecture, how the trained stages compose into one served inference pipeline, the data and its label schema, the exploratory analysis that shaped it, the three feature views, the classical baselines that set the floor, the transformer that beats them, the parallel skill detector, the role-adaptive feedback that turns a prediction into a lesson, and a look at where the model generalises and where it does not.",
     ],
     stats: [
       { value: "2", label: "Model tracks", caption: "bug classifier + skill detector" },
@@ -123,16 +123,27 @@ export const SECTIONS: Section[] = [
     ],
   },
   {
+    id: "pipeline",
+    kicker: "03 : Inference Pipeline",
+    title: "How the trained stages compose at run time",
+    prose: [
+      "At inference the AST parser and the three neural heads compose into one served pipeline that prefers honesty to coverage. The Python AST parser runs first and owns indentation and parse-level errors, reporting the exact line at confidence 1.0 so no model is needed. Otherwise Stage 1 runs behind gate A, then the masked Stage 2 behind gate B, then the line localiser. Two gates keep it honest: the served coarse label is no_bug if the Stage 1 probability is below 0.60 or the Stage 2 subtype confidence is below 0.65, and a line is shown only if its score clears 0.50. The subtype gate is the subtle one: when Stage 1 fires on genuinely clean code, Stage 2 usually cannot confirm any subtype, so a low subtype confidence is a reliable signal of a false positive, and discarding on it suppresses the error at source. Every advanced stage degrades gracefully, so a missing Stage 2 or line model reduces the system to coarse-only classification without failure.",
+      "The assembled result (class, subtype, line, confidence and skill) is the payload consumed by the adaptive feedback stage detailed in Section 10; the models that populate it are developed in the sections that follow.",
+    ],
+    pipeline: true,
+  },
+  {
     id: "data",
-    kicker: "03 : Data & Analysis",
+    kicker: "04 : Data & Analysis",
     title: "Datasets and the label schema",
     prose: [
-      "The engine is trained and evaluated on four complementary corpora, because no single public dataset provides labelled Python defects, matched clean code, a skill signal and a real-world validation set at once. BuggedPythonLeetCode is the foundation: a fault-injection tool applies mutating transformations to canonical LeetCode solutions, generating up to fifteen bugged siblings per correct snippet, each carrying the injected fault name and the bug location. The clean no_bug class is built from the un-mutated originals (same provenance and style as the bugged code, which denies the model a provenance shortcut) topped up with the stylistically different flytech corpus, capped at a 4,000-snippet pool.",
-      "The raw corpus exposes fifteen fault types, but one has only two usable samples and is discarded, leaving fourteen subtypes that collapse onto three coarse bug classes (syntax_error, logic_error, variable_misuse) plus no_bug, giving Stage 1 four classes. A fifth app-facing label, indentation_error, is not learned by any model: it is caught deterministically by the AST parse gate at inference, with the exact line at certainty. Separately, LeetCodeDataset (rated Easy or Hard) supplies the skill detector's proxy labels, and PyBugHive (real GitHub bug-fixes) is held out entirely as an external test set. This is the data the next section explores.",
+      "The engine is trained and evaluated on four complementary corpora, because no single public dataset provides labelled Python defects, matched clean code, a skill signal and a real-world validation set at once. BuggedPythonLeetCode is the foundation: a fault-injection tool applies mutating transformations to canonical LeetCode solutions, generating up to fifteen bugged siblings per correct snippet, each carrying the injected fault name and the bug location. The clean no_bug class is built from the un-mutated originals (same provenance and style as the bugged code) topped up with the stylistically different flytech corpus, capped at a 4,000-snippet pool.",
+      "The raw corpus exposes fifteen fault types, but one has only two usable samples and is discarded, leaving fourteen subtypes that collapse onto three coarse bug classes (syntax_error, logic_error, variable_misuse) plus no_bug, giving Stage 1 four classes. A fifth app-facing label, indentation_error, is not learned by any model: it is caught deterministically by the AST parse gate at inference, with the exact line at certainty. Separately, LeetCodeDataset (rated Easy or Hard) supplies the skill detector's proxy labels, and PyBugHive (real GitHub bug-fixes) is held out entirely as an external test set.",
+      "All three model datasets derive from a single 70/15/15 train / validation / test partition taken over the 2,328 unique problems (1,630 / 349 / 349). Because the pipeline is hierarchical, each stage draws on a progressively narrower slice of that partition: Stage 1 sees all four classes, whereas Stage 2 and the line localiser are restricted to buggy snippets only, which is why their row counts fall in Table 4.3. This is the data the next section explores.",
     ],
     tables: [
       {
-        caption: "Table 3.1 : The four corpora and the distinct role each plays.",
+        caption: "Table 4.1 : The four corpora and the distinct role each plays.",
         headers: ["Dataset", "Approx. size", "Buggy?", "Role in project"],
         rows: [
           ["BuggedPythonLeetCode", "~28,000 rows", "Yes (injected)", "Primary training set : the bug classes"],
@@ -142,7 +153,7 @@ export const SECTIONS: Section[] = [
         ],
       },
       {
-        caption: "Table 3.2 : The 14 injected subtypes mapped onto 3 coarse classes (+ no_bug, + AST-gated indentation).",
+        caption: "Table 4.2 : The 14 injected subtypes mapped onto 3 coarse classes (+ no_bug, + AST-gated indentation).",
         headers: ["Coarse class", "Subtypes", "Count"],
         rows: [
           ["syntax_error", "incorrect_type, missing_argument", "2"],
@@ -150,6 +161,15 @@ export const SECTIONS: Section[] = [
           ["variable_misuse", "forgotten_variable_update, incorrect_initialization, mutable_default_argument, use_before_definition, variable_name_typo", "5"],
           ["no_bug", "clean LeetCode originals + flytech snippets", ":"],
           ["indentation_error", "AST parse gate (not a model class)", ":"],
+        ],
+      },
+      {
+        caption: "Table 4.3 : The 70/15/15 split sizes per model dataset.",
+        headers: ["Dataset", "Train", "Val", "Test"],
+        rows: [
+          ["Stage 1 (4-class)", "12,692", "2,679", "2,740"],
+          ["Stage 2 (14 subtypes, bugs only)", "9,892", "2,079", "2,140"],
+          ["Line localiser (bugs only)", "7,257", "1,521", "1,584"],
         ],
       },
     ],
@@ -163,7 +183,7 @@ export const SECTIONS: Section[] = [
   },
   {
     id: "eda",
-    kicker: "04 : Exploratory Data Analysis",
+    kicker: "05 : Exploratory Data Analysis",
     title: "Analysing the prepared data",
     prose: [
       "Exploratory analysis is not description for its own sake: each finding drives a concrete downstream decision. The four-class distribution is moderately imbalanced (variable_misuse and logic_error are the largest coarse classes, syntax_error the smallest buggy class, no_bug capped at 4,000), which is why macro-averaged F1 is the headline metric throughout, and why training uses inverse-frequency class weighting rather than resampling: the natural distribution is preserved while minority classes are not ignored.",
@@ -178,42 +198,12 @@ export const SECTIONS: Section[] = [
       {
         src: `${IMG}/data_label_distribution.png`,
         alt: "Bar chart of the 4-class label distribution across train, validation, and test splits",
-        caption: "Coarse label balance across the grouped train / validation / test splits: imbalanced, motivating class weighting and macro F1.",
+        caption: "Coarse label balance across the train / validation / test splits: imbalanced, motivating class weighting and macro F1.",
       },
       {
         src: `${IMG}/eda_code_length.png`,
         alt: "Code-length distribution across the corpus",
         caption: "Code-length distribution. Because length is confounded with difficulty, length-based features are later removed from the baselines.",
-      },
-    ],
-  },
-  {
-    id: "preprocessing",
-    kicker: "05 : Preprocessing",
-    title: "Cleaning, mapping, and a leakage-free split",
-    prose: [
-      "The single most important methodological finding is that the first-generation pipeline was optimistically biased by data leakage, and that correcting it, rather than chasing a higher number, is the defensible contribution. The symptom: the first four-class model scored 0.9840 in-domain but collapsed to 0.2833 macro F1 on real external bugs, a gap of roughly 0.70 that is the signature of shortcut learning. The mechanism: because the corpus makes up to fifteen near-identical siblings per problem, a random split scatters them across train and test, so the model could recognise a memorised problem rather than the defect; separately, drawing every clean example from a different source pool let the label correlate with surface style.",
-      "The correction replaces the random split with a problem-grouped split: every record is assigned a problem id derived from its correct original, so a problem, its clean original and all its bugged variants share one id, and the 70/15/15 split is taken over unique problem ids. There are 2,328 unique problems, split 1,630 / 349 / 349. The clean class is rebuilt from deduplicated originals (removing the provenance confound) plus diverse clean snippets as singletons. One split assignment drives all three model datasets, so they are mutually leakage-free by construction, and an audit asserts that no problem spans more than one partition. Every model in the following sections is trained and evaluated on this honest split.",
-    ],
-    stats: [
-      { value: "2,328", label: "Unique problems", caption: "grouped by original solution" },
-      { value: "1,630 / 349 / 349", label: "Train / Val / Test", caption: "problem-level split" },
-      { value: "0", label: "Problems spanning splits", caption: "leakage audit asserted" },
-    ],
-    table: {
-      caption: "Table 5.1 : Grouped split sizes per model dataset.",
-      headers: ["Dataset", "Train", "Val", "Test"],
-      rows: [
-        ["Stage 1 (4-class)", "12,692", "2,679", "2,740"],
-        ["Stage 2 (14 subtypes, bugs only)", "9,892", "2,079", "2,140"],
-        ["Line detection (bugs only)", "7,257", "1,521", "1,584"],
-      ],
-    },
-    figures: [
-      {
-        src: `${IMG}/preprocessing_leakage_audit.png`,
-        alt: "Leakage audit chart confirming no problem appears in more than one split",
-        caption: "Leakage audit of the grouped split: the three partitions share no problem, so a test score cannot be inflated by a memorised sibling.",
       },
     ],
   },
@@ -255,10 +245,10 @@ export const SECTIONS: Section[] = [
     title: "Classical models, and why the winner changed",
     prose: [
       "A large transformer is an expensive commitment that must be justified against a simpler alternative. Five algorithms were compared across two feature sets. Two findings follow. First, lexical evidence dominates structural evidence: the strongest structural model reaches only about 0.62 macro F1 while the strongest lexical (TF-IDF) model approaches 0.90, confirming that a coarse defect is signalled more by a swapped operator or misspelt identifier than by aggregate counts of functions or loops.",
-      "Second, the honest split changed which model wins. On the earlier leaky split the best baseline was an SVM at 0.9278 macro F1. On the grouped split the SVM still records the highest training accuracy of any model (0.9894), yet its validation and test scores fall behind, whereas XGBoost generalises best to unseen problems (0.8958 macro F1) and becomes the selected baseline. The lesson the whole chapter turns on is embedded in these columns: the highest training number is not the best model, and only evaluation on genuinely unseen problems distinguishes the two. This 0.8958 baseline is the bar the transformer must clear.",
+      "Second, the highest training accuracy does not identify the best model. The SVM records the highest training accuracy of any baseline (0.9894), yet its validation and test scores fall behind, whereas XGBoost generalises best to unseen problems (0.8958 macro F1) and is therefore selected as the baseline. Only evaluation on genuinely unseen problems distinguishes the two, and this 0.8958 baseline is the bar the transformer must clear.",
     ],
     table: {
-      caption: "Table 7.1 : Baseline classifiers on the grouped split. SVM tops training but XGBoost generalises best.",
+      caption: "Table 7.1 : Baseline classifiers on the held-out test set. SVM tops training but XGBoost generalises best.",
       headers: ["Model", "Features", "Train", "Val", "Test", "Macro F1"],
       rows: [
         ["XGBoost", "TF-IDF", "0.9524", "0.8879", "0.8897", "0.8958"],
@@ -285,7 +275,7 @@ export const SECTIONS: Section[] = [
     title: "The hierarchical CodeBERT model, stage by stage",
     prose: [],
     stats: [
-      { value: "0.9556", label: "Stage 1 Macro F1", caption: "grouped; leaky was 0.9840" },
+      { value: "0.9556", label: "Stage 1 Macro F1", caption: "held-out test set" },
       { value: "0.9715", label: "Stage 2 Accuracy", caption: "0.9855 coarse-from-fine" },
       { value: "0.9552", label: "Line hit@1", caption: "token F1 0.9547, best epoch 3" },
       { value: "0.894 / 0.980", label: "no_bug recall", caption: "same-provenance / diverse clean" },
@@ -326,13 +316,13 @@ export const SECTIONS: Section[] = [
         alt: "Confusion matrix for the Stage 1 four-class CodeBERT classifier",
         caption: "Stage 1 (4-class) confusion matrix on unseen problems. The dominant off-diagonal mass is between logic_error and no_bug, the confusion the gates handle conservatively.",
         notes: [
-          "STAGE 1. The selected backbone becomes three coordinated heads on the leakage-free split. Stage 1 is the workhorse: a four-class sequence classifier that assigns the coarse defect (syntax_error, logic_error, variable_misuse or no_bug) shown first in the Analyse panel. On unseen problems it reaches 0.9556 macro F1 and 0.9558 accuracy, up from the 0.896 baseline and to be read against the leakage-inflated 0.9840 the naive split produced. It is near perfect on variable_misuse (F1 0.987) and syntax_error (0.981); logic_error is the hardest coarse class (0.947) and no_bug the softest (0.907). The most diagnostic single figure in the project is the no_bug recall split: 0.894 on clean code of the same competitive-programming provenance as the bugged examples, but 0.980 on stylistically diverse clean snippets. That asymmetry is the visible proof the provenance shortcut was removed: the model can no longer call code clean just because it looks like a LeetCode solution.",
+          "STAGE 1. The selected backbone becomes three coordinated heads. Stage 1 is the workhorse: a four-class sequence classifier that assigns the coarse defect (syntax_error, logic_error, variable_misuse or no_bug) shown first in the Analyse panel. On unseen problems it reaches 0.9556 macro F1 and 0.9558 accuracy, up from the 0.896 baseline. It is near perfect on variable_misuse (F1 0.987) and syntax_error (0.981); logic_error is the hardest coarse class (0.947) and no_bug the softest (0.907). A diagnostic detail is the no_bug recall split: 0.894 on clean code of the same competitive-programming provenance as the bugged examples, but 0.980 on stylistically diverse clean snippets, showing the model does not simply call code clean because it resembles a LeetCode solution.",
         ],
       },
       {
         src: `${IMG}/transformer_stage1_history.png`,
         alt: "Stage 1 training history over epochs",
-        caption: "Stage 1 training history: validation macro F1 plateaus near 0.956, well below the leaky 0.984 reference line.",
+        caption: "Stage 1 training history: validation macro F1 plateaus near 0.956.",
       },
       {
         src: `${IMG}/transformer_stage2_cm.png`,
@@ -340,7 +330,7 @@ export const SECTIONS: Section[] = [
         caption: "Stage 2 (14 subtypes) confusion matrix. Almost all confusion is contained within a coarse group, the visual counterpart of the 0.9855 coarse-from-fine agreement.",
         notes: [
           "STAGE 1 to STAGE 2. Stage 1 answers what kind of defect is present; its coarse decision then conditions Stage 2, which answers which specific defect. Only once Stage 1 has named a class does the second head run, and it is constrained to refine that class rather than to reopen it.",
-          "STAGE 2. Stage 2 refines the coarse class into one of fourteen human-readable subtypes (for example, from variable_misuse to variable_name_typo). Its defining choice is hierarchical masking: at inference its logits are restricted to the subtypes belonging to Stage 1's predicted class before the softmax, so a subtype is structurally incapable of contradicting its parent. It reaches 0.9715 accuracy and 0.9553 macro F1, and when its subtype is mapped back up it agrees with Stage 1 in 0.9855 of cases. The score distribution across subtypes is exactly what the label analysis predicted: well-supported, lexically distinctive subtypes such as use_before_definition exceed 0.99 F1, while the two weakest are simply the two smallest (wrong_comparison_target with 17 test samples, infinite_while_loop with 40), a consequence of scarce supervision reported transparently rather than a modelling failure.",
+          "STAGE 2. Stage 2 refines the coarse class into one of fourteen human-readable subtypes (for example, from variable_misuse to variable_name_typo). Its defining choice is hierarchical masking: at inference its logits are restricted to the subtypes belonging to Stage 1's predicted class before the softmax, so a subtype is structurally incapable of contradicting its parent. It reaches 0.9715 accuracy and 0.9553 macro F1, and when its subtype is mapped back up it agrees with Stage 1 in 0.9855 of cases. The score distribution across subtypes is exactly what the label analysis predicted: well-supported, lexically distinctive subtypes such as use_before_definition exceed 0.99 F1, while the two weakest are simply the two smallest (wrong_comparison_target with 14 test samples, infinite_while_loop with 36), a consequence of scarce supervision reported transparently rather than a modelling failure.",
         ],
       },
       {
@@ -397,14 +387,18 @@ export const SECTIONS: Section[] = [
     ],
   },
   {
-    id: "pipeline",
-    kicker: "10 : Inference & Feedback",
-    title: "How the stages compose at run time",
+    id: "feedback",
+    kicker: "10 : Adaptive Feedback",
+    title: "Turning a prediction into a lesson",
     prose: [
-      "At inference the AST parser and the three heads compose into one served pipeline that prefers honesty to coverage. The Python AST parser runs first and owns indentation and parse-level errors, reporting the exact line at confidence 1.0 so no model is needed. Otherwise Stage 1 runs behind gate A, then the masked Stage 2 behind gate B, then the line localiser. Two gates keep it honest: the served coarse label is no_bug if the Stage 1 probability is below 0.60 or the Stage 2 subtype confidence is below 0.65, and a line is shown only if its score clears 0.50. The subtype gate is the subtle one: when Stage 1 fires on genuinely clean code, Stage 2 usually cannot confirm any subtype, so a low subtype confidence is a reliable signal of a false positive, and discarding on it suppresses the error at source. Every advanced stage degrades gracefully, so a missing Stage 2 or line model reduces the system to coarse-only classification without failure.",
-      "The assembled result (class, subtype, line, confidence and skill) drives feedback generation. Three providers were compared on thirty cases with a manual rubric: a deterministic template, Gemini Flash 2.5 over a free API, and a local Qwen2.5-Coder via Ollama. The local model wins clearly on pedagogical quality (Correctness 3.77, Actionability 3.67, Clarity 3.83 out of 5) while staying perfectly reliable (valid JSON 1.00), whereas the template is reliable but thin and the hosted model is capable but unreliable (valid JSON 0.37). A single prompt is conditioned on role: for a student it forbids disclosing the corrected code and asks for hints and questions, simplified further when the skill detector reports a novice; for a professional it permits a direct technical diagnosis. If the local model is unreachable the system shows a visible feedback-unavailable state rather than fabricating tutor prose. Finally the recommender maps the class and role to lessons, and the loop records progress and schedules Leitner spaced repetition.",
+      "The assembled analysis result (class, subtype, line, confidence and skill) drives feedback generation. Three providers were compared on thirty cases with a manual rubric: a deterministic template, Gemini Flash 2.5 over a free API, and a local Qwen2.5-Coder via Ollama. The local model wins clearly on pedagogical quality (Correctness 3.77, Actionability 3.67, Clarity 3.83 out of 5) while staying perfectly reliable (valid JSON 1.00), whereas the template is reliable but thin and the hosted model is capable but unreliable (valid JSON 0.37).",
+      "A single prompt is conditioned on role: for a student it forbids disclosing the corrected code and asks for hints and questions, simplified further when the skill detector reports a novice; for a professional it permits a direct technical diagnosis. If the local model is unreachable the system shows a visible feedback-unavailable state rather than fabricating tutor prose. Finally the recommender maps the class and role to lessons, and the loop records progress and schedules Leitner spaced repetition, closing the learning cycle.",
     ],
-    pipeline: true,
+    stats: [
+      { value: "1.00", label: "Valid-JSON rate", caption: "local model, 30 cases" },
+      { value: "3.77 / 5", label: "Correctness", caption: "manual rubric, selected model" },
+      { value: "2", label: "Role prompts", caption: "student vs professional" },
+    ],
     table: {
       caption: "Table 10.1 : Feedback-provider comparison over 30 cases (rubric scores out of 5).",
       headers: ["Provider", "Valid-JSON", "Correctness", "Actionability", "Clarity"],
@@ -425,26 +419,21 @@ export const SECTIONS: Section[] = [
   {
     id: "results",
     kicker: "11 : Results & Generalisation",
-    title: "Honest scores, and an honest limitation",
+    title: "Generalisation to real-world defects",
     prose: [
-      "On the leakage-free split the pipeline is strong on problems never seen in training: Stage 1 at 0.9556 macro F1, Stage 2 at 0.9715 accuracy, and line localisation at 0.9552 hit@1. The end-to-end hierarchical confusion matrix below shows the coarse-to-subtype path holding together across all fourteen subtypes, with residual confusion contained within coarse groups exactly as the masking intends.",
-      "The external result is reported in full rather than hidden. On PyBugHive, real GitHub bug-fixes the model never trained on, three-class macro F1 falls to 0.0477, with 94% of genuinely buggy snippets (469 of 499) collapsing into no_bug. This is a genuine synthetic-to-real domain shift that problem-grouping reduces but cannot close. Notably the external score is even lower than the first-generation model's 0.2833, because training on tightly matched clean-and-buggy pairs sharpened the classifier into an even more specific detector of the particular synthetic mutation signatures. This is disclosed rather than concealed, and it is the safe failure mode: confronted with an unfamiliar defect the model stays silent rather than fabricating a confident wrong diagnosis, exactly what the confidence gates enforce, and it is the direct motivation for the future-work step of fine-tuning on real bug-fix data.",
+      "The pipeline was evaluated on an external test set of real GitHub bug-fixes that the model never encountered during training, isolating its capacity to generalise to defects drawn from a different distribution. On this external set the three-class macro F1 falls to 0.0477, with 94% of the genuinely buggy snippets (469 of 499) classified as no_bug.",
+      "This outcome reflects a synthetic-to-real domain shift: the classifier was optimised to recognise the specific mutation signatures of injected defects, whereas real-world bugs exhibit a markedly different distribution of surface patterns. Confronted with an unfamiliar defect the model abstains and returns no_bug rather than issuing a confident but incorrect diagnosis, the behaviour the confidence gates are designed to enforce. This result is the direct motivation for the future-work step of fine-tuning the classifier on real bug-fix data.",
     ],
     stats: [
-      { value: "0.9556", label: "In-domain Macro F1", caption: "grouped, unseen problems" },
-      { value: "0.0477", label: "PyBugHive Macro F1", caption: "external real bugs" },
-      { value: "94%", label: "no_bug collapse", caption: "469 of 499 real bugs" },
+      { value: "0.0477", label: "External Macro F1", caption: "real GitHub bug-fixes" },
+      { value: "94%", label: "Classified no_bug", caption: "469 of 499 real bugs" },
+      { value: "3", label: "Coarse classes", caption: "external evaluation schema" },
     ],
     figures: [
       {
-        src: `${IMG}/results_hierarchical_cm.png`,
-        alt: "Confusion matrix of the full hierarchical pipeline on the in-domain test set",
-        caption: "End-to-end hierarchical pipeline on the in-domain grouped test set: strongly diagonal across all fourteen subtypes.",
-      },
-      {
         src: `${IMG}/results_pybughive_cm.png`,
-        alt: "Confusion matrix on the external PyBugHive test set showing collapse to no_bug",
-        caption: "External PyBugHive test: almost the entire mass falls into the no_bug column, the safe failure mode that bounds external validity.",
+        alt: "Confusion matrix on the external test set showing predictions concentrated in the no_bug column",
+        caption: "External test set: almost the entire mass falls into the no_bug column, bounding the model's external validity.",
       },
     ],
   },
